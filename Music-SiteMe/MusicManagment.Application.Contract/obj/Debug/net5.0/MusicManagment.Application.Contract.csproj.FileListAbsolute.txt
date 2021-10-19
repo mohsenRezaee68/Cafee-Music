@@ -1,0 +1,15 @@
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\bin\Debug\net5.0\MusicManagment.Application.Contract.deps.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\bin\Debug\net5.0\MusicManagment.Application.Contract.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\bin\Debug\net5.0\ref\MusicManagment.Application.Contract.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\bin\Debug\net5.0\MusicManagment.Application.Contract.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.csproj.AssemblyReference.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.GeneratedMSBuildEditorConfig.editorconfig
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.AssemblyInfoInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.AssemblyInfo.cs
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.csproj.CoreCompileInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\ref\MusicManagment.Application.Contract.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\bin\Debug\net5.0\MusicManagment.Application.Contract.runtimeconfig.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\bin\Debug\net5.0\MusicManagment.Application.Contract.runtimeconfig.dev.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.genruntimeconfig.cache

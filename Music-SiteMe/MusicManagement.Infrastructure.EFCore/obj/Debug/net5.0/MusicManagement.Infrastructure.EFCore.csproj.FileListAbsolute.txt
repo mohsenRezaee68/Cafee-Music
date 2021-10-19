@@ -1,0 +1,15 @@
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagement.Infrastructure.EFCore.deps.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagement.Infrastructure.EFCore.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\ref\MusicManagement.Infrastructure.EFCore.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagement.Infrastructure.EFCore.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\MusicManagement.Infrastructure.EFCore.csproj.AssemblyReference.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\MusicManagement.Infrastructure.EFCore.GeneratedMSBuildEditorConfig.editorconfig
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\MusicManagement.Infrastructure.EFCore.AssemblyInfoInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\MusicManagement.Infrastructure.EFCore.AssemblyInfo.cs
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\MusicManagement.Infrastructure.EFCore.csproj.CoreCompileInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\MusicManagement.Infrastructure.EFCore.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\ref\MusicManagement.Infrastructure.EFCore.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\MusicManagement.Infrastructure.EFCore.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagement.Infrastructure.EFCore.runtimeconfig.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagement.Infrastructure.EFCore.runtimeconfig.dev.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\MusicManagement.Infrastructure.EFCore.genruntimeconfig.cache

@@ -1,0 +1,15 @@
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagement.Configuration.deps.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagement.Configuration.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\ref\MusicManagement.Configuration.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagement.Configuration.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.csproj.AssemblyReference.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.GeneratedMSBuildEditorConfig.editorconfig
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.AssemblyInfoInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.AssemblyInfo.cs
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.csproj.CoreCompileInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\ref\MusicManagement.Configuration.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagement.Configuration.runtimeconfig.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagement.Configuration.runtimeconfig.dev.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.genruntimeconfig.cache

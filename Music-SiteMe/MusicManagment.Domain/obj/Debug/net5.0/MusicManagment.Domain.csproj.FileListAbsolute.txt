@@ -1,0 +1,15 @@
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\bin\Debug\net5.0\MusicManagment.Domain.deps.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\bin\Debug\net5.0\MusicManagment.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\bin\Debug\net5.0\ref\MusicManagment.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\bin\Debug\net5.0\MusicManagment.Domain.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\obj\Debug\net5.0\MusicManagment.Domain.csproj.AssemblyReference.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\obj\Debug\net5.0\MusicManagment.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\obj\Debug\net5.0\MusicManagment.Domain.AssemblyInfoInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\obj\Debug\net5.0\MusicManagment.Domain.AssemblyInfo.cs
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\obj\Debug\net5.0\MusicManagment.Domain.csproj.CoreCompileInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\obj\Debug\net5.0\MusicManagment.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\obj\Debug\net5.0\ref\MusicManagment.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\obj\Debug\net5.0\MusicManagment.Domain.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\bin\Debug\net5.0\MusicManagment.Domain.runtimeconfig.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\bin\Debug\net5.0\MusicManagment.Domain.runtimeconfig.dev.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Domain\obj\Debug\net5.0\MusicManagment.Domain.genruntimeconfig.cache
