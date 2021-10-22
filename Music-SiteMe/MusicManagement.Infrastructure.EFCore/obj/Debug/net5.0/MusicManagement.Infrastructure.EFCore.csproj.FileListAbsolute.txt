@@ -13,3 +13,9 @@ F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\
 F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagement.Infrastructure.EFCore.runtimeconfig.json
 F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagement.Infrastructure.EFCore.runtimeconfig.dev.json
 F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\obj\Debug\net5.0\MusicManagement.Infrastructure.EFCore.genruntimeconfig.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\0_Framework.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagment.Application.Contract.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagment.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagment.Domain.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\0_Framework.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Infrastructure.EFCore\bin\Debug\net5.0\MusicManagment.Application.Contract.pdb

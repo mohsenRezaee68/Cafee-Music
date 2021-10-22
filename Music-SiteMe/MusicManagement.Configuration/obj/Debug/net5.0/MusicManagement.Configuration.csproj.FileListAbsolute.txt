@@ -13,3 +13,14 @@ F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debu
 F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagement.Configuration.runtimeconfig.json
 F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagement.Configuration.runtimeconfig.dev.json
 F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.genruntimeconfig.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\0_Framework.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagement.Infrastructure.EFCore.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagment.Application.Contract.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagment.Application.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagment.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagement.Infrastructure.EFCore.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagment.Application.Contract.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagment.Application.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\0_Framework.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\bin\Debug\net5.0\MusicManagment.Domain.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagement.Configuration\obj\Debug\net5.0\MusicManagement.Configuration.csproj.CopyComplete

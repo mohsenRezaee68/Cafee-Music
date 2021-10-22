@@ -19,7 +19,7 @@ namespace _0_Framework.Application
             return this;
         }
 
-        public OperationResult Failed(string message)
+        public OperationResult Failed(string message = "عملیات با موفقیت انجام نشد")
         {
             IsSuccedded = false;
             Message = message;
