@@ -1,5 +1,6 @@
 ﻿
 using _0_Framework.Domain;
+
 using MusicManagement.Domain.MusicCategoryAgg;
 using MusicManagement.Domain.MusicTrackAgg;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace MusicManagement.Domain.MusicAgg
 
 
         public string Name { get; private set; }
-       // public string Code { get; private set; }
+        public string Dawnlod { get; private set; }
         public string Singer { get; private set; }
         public string Melyat { get; private set; }
         public string Sabk { get; private set; }
@@ -25,18 +26,19 @@ namespace MusicManagement.Domain.MusicAgg
         public string Slug { get; private set; }
         public string Keywords { get; private set; }
         public string MetaDescription { get; private set; }
-
+        public string Trak { get; set; }
+        public bool IsRemoved { get; private set; }
         public MusicCategory Category { get; private set; }
          public List<MusicTrack> MusicTracks { get; private set; }
-
-        public Music(string name, string singer,
+   
+        public Music(string name,string dawnlod ,string singer,
              string melyat, string sabk,string ferestande, string shortDescription,
              string description, string picture, string pictureAlt,
              string pictureTitle, long categoryId, string slug,
              string keywords, string metaDescription)
         {
             Name = name;
-            
+            Dawnlod = dawnlod;
             Singer = singer;
             Melyat = melyat;
             Sabk = sabk;
@@ -50,6 +52,7 @@ namespace MusicManagement.Domain.MusicAgg
             Slug = slug;
             Keywords = keywords;
             MetaDescription = metaDescription;
+            IsRemoved = false;
         }
 
 
@@ -76,10 +79,18 @@ namespace MusicManagement.Domain.MusicAgg
             Keywords = keywords;
             MetaDescription = metaDescription;
         }
-            
-         
 
-        
+
+
+        public void Remove()
+        {
+            IsRemoved = true;
+        }
+
+        public void Restore()
+        {
+            IsRemoved = false;
+        }
 
 
         //  public void InStock()

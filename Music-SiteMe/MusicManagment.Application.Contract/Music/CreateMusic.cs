@@ -12,7 +12,7 @@ namespace MusicManagement.Application.Contracts.Music
     {
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public string Name { get;  set; }
-       
+       public string Dawnlod { get; set; }
         
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public string Singer { get; set; }
@@ -23,7 +23,7 @@ namespace MusicManagement.Application.Contracts.Music
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public string Sabk { get; set; }
 
-        [Required(ErrorMessage = ValidationMessages.IsRequired)]
+       public IFormFile Trak { get; set; }
         public string Ferestande { get; set; }
 
         [Required(ErrorMessage = ValidationMessages.IsRequired)]

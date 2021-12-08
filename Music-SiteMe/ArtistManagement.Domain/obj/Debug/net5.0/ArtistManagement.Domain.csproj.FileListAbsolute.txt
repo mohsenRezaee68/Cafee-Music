@@ -1,0 +1,17 @@
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\obj\Debug\net5.0\ArtistManagement.Domain.csproj.AssemblyReference.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\obj\Debug\net5.0\ArtistManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\obj\Debug\net5.0\ArtistManagement.Domain.AssemblyInfoInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\obj\Debug\net5.0\ArtistManagement.Domain.AssemblyInfo.cs
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\obj\Debug\net5.0\ArtistManagement.Domain.csproj.CoreCompileInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\bin\Debug\net5.0\ArtistManagement.Domain.deps.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\bin\Debug\net5.0\ArtistManagement.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\bin\Debug\net5.0\ref\ArtistManagement.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\bin\Debug\net5.0\ArtistManagement.Domain.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\bin\Debug\net5.0\0_Framework.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\bin\Debug\net5.0\ArtistManagement.Application.Contracts.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\bin\Debug\net5.0\0_Framework.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\bin\Debug\net5.0\ArtistManagement.Application.Contracts.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\obj\Debug\net5.0\ArtistManagement.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\obj\Debug\net5.0\ref\ArtistManagement.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\obj\Debug\net5.0\ArtistManagement.Domain.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ArtistManagement.Domain\obj\Debug\net5.0\ArtistManagement.Domain.csproj.CopyComplete

@@ -15,7 +15,7 @@ namespace MusicManagement.Infrastructure.EFCore.Mapping
             builder.Property(x => x.Singer).HasMaxLength(255).IsRequired();
             builder.Property(x => x.Melyat).HasMaxLength(255).IsRequired();
             builder.Property(x => x.Sabk).HasMaxLength(255).IsRequired();
-            builder.Property(x => x.Ferestande).HasMaxLength(255).IsRequired();
+            
             
             builder.Property(x => x.ShortDescription).HasMaxLength(500).IsRequired();
             builder.Property(x => x.Picture).HasMaxLength(1000);

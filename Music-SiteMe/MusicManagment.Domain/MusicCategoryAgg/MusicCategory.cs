@@ -1,6 +1,7 @@
 ﻿
 using _0_Framework.Domain;
 using MusicManagement.Domain.MusicAgg;
+using MusicManagement.Domain.TakAgg;
 using System.Collections.Generic;
 
 namespace MusicManagement.Domain.MusicCategoryAgg
@@ -16,12 +17,13 @@ namespace MusicManagement.Domain.MusicCategoryAgg
         public string MetaDescription { get; private set; }
         public string Slug { get; private set; }
        public List<Music> Musics { get; private set; }
-        public List<MusicCategory> MusicCatgorys { get; private set; }
+        public List<Tak> Taks { get; private set; }
         public MusicCategory()
         {
             Musics = new List<Music>();
-       }
-
+            Taks = new List<Tak>();
+        }
+        
         public MusicCategory(string name, string description, string picture,
             string pictureAlt, string pictureTitle, string keywords, string metaDescription,
             string slug)

@@ -1,0 +1,15 @@
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\bin\Debug\net5.0\CommentManagement.Application.Contracts.deps.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\bin\Debug\net5.0\CommentManagement.Application.Contracts.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\bin\Debug\net5.0\ref\CommentManagement.Application.Contracts.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\bin\Debug\net5.0\CommentManagement.Application.Contracts.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\bin\Debug\net5.0\0_Framework.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\bin\Debug\net5.0\0_Framework.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\obj\Debug\net5.0\CommentManagement.Application.Contracts.csproj.AssemblyReference.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\obj\Debug\net5.0\CommentManagement.Application.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\obj\Debug\net5.0\CommentManagement.Application.Contracts.AssemblyInfoInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\obj\Debug\net5.0\CommentManagement.Application.Contracts.AssemblyInfo.cs
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\obj\Debug\net5.0\CommentManagement.Application.Contracts.csproj.CoreCompileInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\obj\Debug\net5.0\CommentManagement.Application.Contracts.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\obj\Debug\net5.0\ref\CommentManagement.Application.Contracts.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\obj\Debug\net5.0\CommentManagement.Application.Contracts.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\CommentManagement.Application.Contracts\obj\Debug\net5.0\CommentManagement.Application.Contracts.csproj.CopyComplete

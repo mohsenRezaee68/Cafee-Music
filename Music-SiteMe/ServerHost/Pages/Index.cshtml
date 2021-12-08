@@ -1,0 +1,44 @@
+﻿@page
+@model IndexModel
+
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container-fluid">
+			<!-- slider -->
+			@await Component.InvokeAsync("Slide")
+			<!-- end slider -->
+
+			<!-- releases -->
+			@await Component.InvokeAsync("MusicAlbom")
+			<!-- end releases -->
+
+			<!-- events -->
+			@await Component.InvokeAsync("BlogAvent")
+			<!-- end events -->
+
+			<!-- articts -->
+			@await Component.InvokeAsync("Artist")
+			<!-- end articts -->
+
+			@await Component.InvokeAsync("Track")
+			
+
+			<!-- podcasts -->
+			@await Component.InvokeAsync("UserMusic")
+			<!-- end podcasts -->
+
+			<!-- store -->
+		
+			<!-- end store -->
+
+			<!-- news -->
+			@await Component.InvokeAsync("BlogArticle")
+			<!-- end news -->
+
+			<!-- partners -->
+			
+			<!-- end partners -->
+		</div>
+	

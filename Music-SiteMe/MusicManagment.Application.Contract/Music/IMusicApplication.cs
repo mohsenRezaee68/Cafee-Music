@@ -8,7 +8,8 @@ namespace MusicManagement.Application.Contracts.Music
         OperationResult Create(CreateMusic command);
         OperationResult Edit(EditMusic command);
         EditMusic GetDetails(long id);
-       
+        OperationResult Remove(long id);
+        OperationResult Restore(long id);
         List<MusicViewModel> GetMusic();
         List<MusicViewModel> Search(MusicSearchModel searchModel);
     }

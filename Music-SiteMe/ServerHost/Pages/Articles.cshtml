@@ -1,0 +1,131 @@
+﻿@page 
+
+@model ServiceHost.Pages.ArticlsModel
+@{
+   
+   	 ViewData["Title"] = "مقالات";   
+}
+
+<<div class="container-fluid">
+		<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">مقالات</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- title -->
+				<div class="col-12">
+					<div class="main__title main__title--page">
+						<h1>منتشر شده ها</h1>
+					</div>
+				</div>
+				<!-- end title -->
+		</div>
+
+			<!-- releases -->
+		<div class="row row--grid">
+				<div class="col-12">
+					<div class="main__filter">
+						<form  method="get" asp-page="/Articles"  class="main__filter-search">
+							<input type="search"  name="value" id="value"  placeholder="جست و جو ...">
+							<button type="submit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/></svg></button>
+						</form>
+
+						
+					</div>
+
+					@if(Model.values != null)
+
+			{
+									{
+          <div class="row row--grid">
+			<div class="col-12">
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <ul class="breadcrumb">
+						          <li class="breadcrumb__item breadcrumb__item--active">نتیجه جستجو : @Model.values</li>
+					           </ul>
+				            </div>
+				
+		             </div>
+
+				<div class="row row--grid ">
+
+					@foreach (var avent in Model.ArticleSerch)
+
+					{	<div class="col-6 col-sm-4 col-lg-4">
+								<div class="album">
+									<div class="album__cover">
+										<img src="~/Cafee-Music/@avent.Picture" alt="" asp-page="/Avent" asp-route-id="@avent.Slug">
+										<a asp-page="/Avent" asp-route-id="@avent.Id"/>
+										
+										<span class="album__stat">
+										
+											</span>
+									</div>
+									<div class="album__title">
+										<h3><a asp-page="/Avent"asp-route-id="@avent.Id"> @avent.Title </a></h3>
+										
+									</div>
+								</div>
+							</div>
+						}
+					
+				</div>
+
+					
+				</div>
+			</div>
+					}
+			}
+			<div class="row row--grid">
+			<div class="col-12">
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <ul class="breadcrumb">
+						          <li class="breadcrumb__item breadcrumb__item--active">منتشر شده </li>
+					           </ul>
+				            </div>
+				
+		             </div>
+			 <div class="row row--grid">
+				
+
+						@foreach (var avent in Model.Article)
+				            {<div class="col-6 col-sm-4 col-lg-4">
+								<div class="album">
+									<div class="album__cover">
+										<img src="~/Cafee-Music/@avent.Picture" alt="" asp-page="/Avent" asp-route-id="@avent.Slug">
+										<a asp-page="/Avent" asp-route-id="@avent.Slug"/>
+										<span class="album__stat">
+										
+											</span>
+									</div>
+									<div class="album__title">
+										<h3><a asp-page="/Avent"asp-route-id="@avent.Slug"> @avent.Title </a></h3>
+										
+									</div>
+								</div>
+							</div>
+				             }
+				
+
+						
+					</div>
+
+					<button class="main__load" type="button">بیشتر ببین</button>
+				</div>
+		</div>
+			<!-- end releases -->
+        </div>
+      </div>
+		
+	
+
+</div>

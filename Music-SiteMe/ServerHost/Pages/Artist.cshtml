@@ -1,0 +1,122 @@
+﻿@page 
+@model ServiceHost.Pages.ArtistModel
+@{
+    ViewData["Title"] =  Model.artist.Slug;
+    ViewData["keywords"] = Model.artist.Keywords;
+    ViewData["metaDescription"] = Model.artist.MetaDescription;
+}
+
+<div class="container-fluid">
+			<div class="row row--grid">
+				<div class="col-12">
+					
+					
+						<div class="article article--page">
+						<!-- article content -->
+						<div class="article__content">
+							<div class="article__artist">
+								<img src="~/Cafee-Music/@Model.artist.Picture" alt="@Model.artist.PictureAlt">
+								<div>
+									<h1>@Model.artist.Laghab</h1>
+									<span>@Model.artist.Name</span>
+									<p>@Model.artist.ShertText</p>
+								</div>
+							</div>
+
+							<p>@Model.artist.Text</p>
+
+							</div>
+						<!-- end article content -->
+
+						<!-- share -->
+						<div class="share">
+							</div>
+						<!-- end share -->
+					</div>
+
+					
+					
+					
+				</div>
+				<div class="col-12 col-xl-10 offset-xl-1">
+					<div class="article">
+						 <div class="comments">
+							<div class="comments__title">
+								<h4>نظرات</h4>
+								<span>@(Model.artist.Comments.Count)</span>
+							</div>
+
+							<ul class="comments__list">
+							  @foreach (var comment in Model.artist.Comments)
+                                            {
+												
+								<li class="comments__item comments__item--quote">
+									<div class="comments__autor" id="comment-@comment.Id">
+										<img class="comments__avatar" src="~/Site/img/avatar.svg" alt="">
+										<span class="comments__name"> @comment.Name </span>
+										<span class="comments__time"> @comment.CreationDate </span>
+									</div>
+									<p class="comments__text">
+										  @if (comment.ParentId > 0)
+                                                        {
+                                                            
+                                                                <span> در پاسخ به: <a href="#comment-@comment.ParentId"> @comment.Name ( @comment.parentName )</a> </span>
+                                                            
+                                                        }
+										@comment.Message</p>
+									<div class="comments__actions">
+										<div class="comments__rate">
+											
+                                        </div>
+										 <span class="reply-btn">
+                                                        <a href="#postComment" onclick='$("#commentParentId").val(@comment.Id)'>پاسخ</a>
+                                                    </span>
+									</div>
+								</li>
+											}
+                                
+
+								
+							</ul>
+
+							<form method="post">
+								
+							        	<div class="col-12" id="postComment">
+							            <div class="sign__group">
+							        	  <input type="text" name="name" class="sign__input" placeholder="نام">
+							           </div>
+							        </div>
+							         <div class="col-12 ">
+							           <div class="sign__group">
+							        	  <input type="text" name="email" class="sign__input" placeholder="ایمیل">
+							           </div>
+							         </div>
+                                 
+								 <div class="col-12">
+								   <div class="sign__group">
+								    	<textarea name="message" class="sign__textarea" placeholder="پیام خود را بنویسید . . ."></textarea>
+								   </div>
+							   </div>
+								<input type="hidden" name="ownerRecordId" value="@Model.artist.Id" />
+								<input type="hidden" name="musicSlug" value="@Model.artist.Slug" />
+								<input type="hidden" name="parentId" id="commentParentId" value="" />
+								<div class="col-12 col-xl-3">
+								   <button type="submit" class="sign__btn"  name="submit">ارسال</button>
+							    </div>
+								
+							</form>
+						</div>
+                    </div>
+                   
+                </div>
+				
+			</div>
+
+			<!-- music videos -->
+			
+				<!-- title -->
+				
+			
+			<!-- end music videos -->
+
+		</div>

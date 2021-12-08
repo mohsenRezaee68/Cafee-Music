@@ -1,0 +1,12 @@
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\bin\Debug\net5.0\BlogManagement.Presentation.Api.deps.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\bin\Debug\net5.0\BlogManagement.Presentation.Api.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\bin\Debug\net5.0\ref\BlogManagement.Presentation.Api.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\bin\Debug\net5.0\BlogManagement.Presentation.Api.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\obj\Debug\net5.0\BlogManagement.Presentation.Api.csproj.AssemblyReference.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\obj\Debug\net5.0\BlogManagement.Presentation.Api.GeneratedMSBuildEditorConfig.editorconfig
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\obj\Debug\net5.0\BlogManagement.Presentation.Api.AssemblyInfoInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\obj\Debug\net5.0\BlogManagement.Presentation.Api.AssemblyInfo.cs
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\obj\Debug\net5.0\BlogManagement.Presentation.Api.csproj.CoreCompileInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\obj\Debug\net5.0\BlogManagement.Presentation.Api.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\obj\Debug\net5.0\ref\BlogManagement.Presentation.Api.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\BlogManagement.Presentation.Api\obj\Debug\net5.0\BlogManagement.Presentation.Api.pdb

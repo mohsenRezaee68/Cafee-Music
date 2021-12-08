@@ -1,0 +1,121 @@
+﻿@page "{id}"
+@model ServiceHost.Pages.AventModel
+@{
+    ViewData["Title"] = Model.Avent.Title;
+    ViewData["keywords"] = Model.Avent.Keywords;
+    ViewData["metaDescription"] = Model.Avent.MetaDescription;
+}
+
+		<div class="container-fluid">
+			<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb breadcrumb--hidden-desk">
+						<li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
+						<li class="breadcrumb__item"><a href="news.html">@Model.Avent.CategoryName</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">@Model.Avent.Title</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<div class="col-12 col-xl-10 offset-xl-1">
+					<div class="article">
+						<!-- article content -->
+						<div class="article__content">
+							<div class ="col-8">
+								<img src="~/Cafee-Music/@Model.Avent.Picture" alt="@Model.Avent.PictureAlt" title="@Model.Avent.PictureTitle">
+								<div class="article__meta">
+								<a href="#" class="article__category">مستند</a>
+
+								<span class="article__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> @Model.Avent.PublishDate</span>
+							</div>
+                            </div>
+							
+							
+
+							<h1> @Model.Avent.Title</h1>
+
+							<p> @Model.Avent.Description</p>
+
+	
+						</div>
+						<!-- end article content -->
+
+						<!-- share -->
+						<div class="share">
+							
+                        </div>
+						<!-- end share -->
+
+						<!-- comments -->
+						<div class="comments">
+							<div class="comments__title">
+								<h4>نظرات</h4>
+								<span>@(Model.Avent.Comments.Count)</span>
+							</div>
+
+							<ul class="comments__list">
+							  @foreach (var comment in Model.Avent.Comments)
+                                            {
+												
+								<li class="comments__item comments__item--quote">
+									<div class="comments__autor" id="comment-@comment.Id">
+										<img class="comments__avatar" src="~/Site/img/avatar.svg" alt="">
+										<span class="comments__name"> @comment.Name </span>
+										<span class="comments__time"> @comment.CreationDate </span>
+									</div>
+									<p class="comments__text">
+										  @if (comment.ParentId > 0)
+                                                        {
+                                                            
+                                                                <span> در پاسخ به: <a href="#comment-@comment.ParentId">   @comment.parentName </a> </span>
+                                                            
+                                                        }
+										@comment.Message</p>
+									<div class="comments__actions">
+										<div class="comments__rate">
+											
+                                        </div>
+										 <span class="reply-btn">
+                                                        <a href="#postComment" onclick='$("#commentParentId").val(@comment.Id)'>پاسخ</a>
+                                                    </span>
+									</div>
+								</li>
+											}
+                                
+
+								
+							</ul>
+
+							<form method="post">
+								
+							        	<div class="col-12" id="postComment">
+							            <div class="sign__group">
+							        	  <input type="text" name="name" class="sign__input" placeholder="نام">
+							           </div>
+							        </div>
+							         <div class="col-12 ">
+							           <div class="sign__group">
+							        	  <input type="text" name="email" class="sign__input" placeholder="ایمیل">
+							           </div>
+							         </div>
+                                 
+								 <div class="col-12">
+								   <div class="sign__group">
+								    	<textarea name="message" class="sign__textarea" placeholder="پیام خود را بنویسید . . ."></textarea>
+								   </div>
+							   </div>
+								<input type="hidden" name="ownerRecordId" value="@Model.Avent.Id" />
+								<input type="hidden" name="musicSlug" value="@Model.Avent.Slug" />
+								<input type="hidden" name="parentId" id="commentParentId" value="" />
+								<div class="col-12 col-xl-3">
+								   <button type="submit" class="sign__btn"  name="submit">ارسال</button>
+							    </div>
+								
+							</form>
+						</div>
+						<!-- end comments -->
+					</div>
+				</div>
+			</div>
+		</div>

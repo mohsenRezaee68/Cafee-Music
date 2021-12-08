@@ -1,0 +1,121 @@
+﻿@page 
+
+@model ServiceHost.Pages.ArtistsModel
+@{
+    ViewData["Title"] = "خانندگان";
+
+   	  
+}
+
+<div class="container-fluid">
+		<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">خانندگان</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- title -->
+				<div class="col-12">
+					<div class="main__title main__title--page">
+						<h1>منتشر شده ها</h1>
+					</div>
+				</div>
+				<!-- end title -->
+		</div>
+
+			<!-- releases -->
+		<div class="row row--grid">
+				<div class="col-12">
+					<div class="main__filter">
+						<form  method="get" asp-page="/Artists"  class="main__filter-search">
+							<input type="search"  name="value" id="value"  placeholder="جست و جو ...">
+							<button type="submit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/></svg></button>
+						</form>
+
+						
+					</div>
+
+					@if(Model.values != null)
+
+			{
+									{
+          <div class="row row--grid">
+			<div class="col-12">
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <ul class="breadcrumb">
+						          <li class="breadcrumb__item breadcrumb__item--active">نتیجه جستجو : @Model.values</li>
+					           </ul>
+				            </div>
+				
+		             </div>
+
+				<div class="row row--grid ">
+
+					@foreach (var afg in Model.artistSerch)
+
+					{	
+						<div class="col-6 col-sm-4 col-md-3 col-xl-2">
+							<a asp-page="/Singer"asp-route-Laghab="@afg.Laghab" class="artist">
+								<div class="artist__cover">
+									<img src="~/Cafee-Music/@afg.Picture" alt="@afg.PictureAlt" >
+								</div>
+								<h3 class="artist__title">@afg.Laghab</h3>
+							</a>
+						</div>
+
+						}
+					
+				</div>
+
+					
+				</div>
+			</div>
+					}
+			}
+			<div class="row row--grid">
+			<div class="col-12">
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <ul class="breadcrumb">
+						          <li class="breadcrumb__item breadcrumb__item--active">منتشر شده </li>
+					           </ul>
+				            </div>
+				
+		             </div>
+			 <div class="row row--grid">
+				
+
+						@foreach (var afg in Model.artist)
+				            {
+								<div class="col-6 col-sm-4 col-md-3 col-xl-2">
+							<a asp-page="/Artist"asp-route-Laghab="@afg.Laghab" class="artist">
+								<div class="artist__cover">
+									<img src="~/Cafee-Music/@afg.Picture" alt="@afg.PictureAlt" >
+								</div>
+								<h3 class="artist__title">@afg.Laghab</h3>
+							</a>
+						</div>
+					
+				             }
+				
+
+						
+					</div>
+
+					<button class="main__load" type="button">بیشتر ببین</button>
+				</div>
+		</div>
+			<!-- end releases -->
+        </div>
+      </div>
+		
+	
+
+</div>

@@ -24,7 +24,7 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
             {
                 Id = x.Id,
                 Name = x.Name,
-                
+                Dawnlod = x.Dawnlod,
                 Singer=x.Singer,
                 Melyat = x.Melyat,
                 Sabk = x.Sabk,
@@ -52,7 +52,9 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
 
         public Music GetMusicWithCategory(long id)
         {
-            return _context.Musics.Include(x => x.Category).FirstOrDefault(x => x.Id == id || x.Singer == x.Singer);
+            return _context.Musics
+                .Include(x => x.Category)
+                .FirstOrDefault(x => x.Id == id );
         }
 
         public List<MusicViewModel> Search(MusicSearchModel searchModel)
@@ -63,32 +65,35 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
                 {
                     Id = x.Id,
                     Name = x.Name,
+                    Dawnlod = x.Dawnlod,
                     Singer = x.Singer,
                     Melyat = x.Melyat,
                     Sabk = x.Sabk,
                     Ferestande = x.Ferestande,
                     Category = x.Category.Name,
                     CategoryId = x.CategoryId,
-                   
+                    MusicId = x.Id,
                     Picture = x.Picture,
+                    IsRemoved = x.IsRemoved,
                     CreationDate = x.CreationDate.ToFarsi()
                 });
 
             if (!string.IsNullOrWhiteSpace(searchModel.Name))
                 query = query.Where(x => x.Name.Contains(searchModel.Name));
 
-            if (!string.IsNullOrWhiteSpace(searchModel.Singer))
-                query = query.Where(x => x.Singer.Contains(searchModel.Singer));
 
-            if (!string.IsNullOrWhiteSpace(searchModel.Ferestande))
-                query = query.Where(x => x.Ferestande.Contains(searchModel.Ferestande));
 
-          
+            if (searchModel.MusicId != 0)
+                query = query.Where(x => x.MusicId == searchModel.MusicId);
+
+
 
             if (searchModel.CategoryId != 0)
                 query = query.Where(x => x.CategoryId == searchModel.CategoryId);
 
             return query.OrderByDescending(x => x.Id).ToList();
         }
+
+       
     }
 }

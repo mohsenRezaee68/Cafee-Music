@@ -32,13 +32,17 @@ namespace MusicManagement.Infrastructure.EFCore.Migrations
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Dawnlod")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ferestande")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Keywords")
                         .IsRequired()
@@ -92,6 +96,9 @@ namespace MusicManagement.Infrastructure.EFCore.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
+                    b.Property<string>("Trak")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -123,9 +130,6 @@ namespace MusicManagement.Infrastructure.EFCore.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<long?>("MusicCategoryId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -149,8 +153,6 @@ namespace MusicManagement.Infrastructure.EFCore.Migrations
                         .HasColumnType("nvarchar(300)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("MusicCategoryId");
 
                     b.ToTable("MusicCategories");
                 });
@@ -179,6 +181,11 @@ namespace MusicManagement.Infrastructure.EFCore.Migrations
                     b.Property<long>("TrackId")
                         .HasColumnType("bigint");
 
+                    b.Property<string>("TrackName")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
@@ -186,6 +193,91 @@ namespace MusicManagement.Infrastructure.EFCore.Migrations
                     b.HasIndex("TrackId");
 
                     b.ToTable("MusicTrack");
+                });
+
+            modelBuilder.Entity("MusicManagement.Domain.TakAgg.Tak", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("CategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ferestande")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsRemoved")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Keywords")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Melyat")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("MetaDescription")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Picture")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("PictureAlt")
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("PictureTitle")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Sabk")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("ShortDescription")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Singer")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Trak")
+                        .HasMaxLength(10000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("TakMusic");
                 });
 
             modelBuilder.Entity("MusicManagement.Domain.MusicAgg.Music", b =>
@@ -197,13 +289,6 @@ namespace MusicManagement.Infrastructure.EFCore.Migrations
                         .IsRequired();
 
                     b.Navigation("Category");
-                });
-
-            modelBuilder.Entity("MusicManagement.Domain.MusicCategoryAgg.MusicCategory", b =>
-                {
-                    b.HasOne("MusicManagement.Domain.MusicCategoryAgg.MusicCategory", null)
-                        .WithMany("MusicCatgorys")
-                        .HasForeignKey("MusicCategoryId");
                 });
 
             modelBuilder.Entity("MusicManagement.Domain.MusicTrackAgg.MusicTrack", b =>
@@ -223,6 +308,17 @@ namespace MusicManagement.Infrastructure.EFCore.Migrations
                     b.Navigation("Music");
                 });
 
+            modelBuilder.Entity("MusicManagement.Domain.TakAgg.Tak", b =>
+                {
+                    b.HasOne("MusicManagement.Domain.MusicCategoryAgg.MusicCategory", "Category")
+                        .WithMany("Taks")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("MusicManagement.Domain.MusicAgg.Music", b =>
                 {
                     b.Navigation("MusicTracks");
@@ -230,9 +326,9 @@ namespace MusicManagement.Infrastructure.EFCore.Migrations
 
             modelBuilder.Entity("MusicManagement.Domain.MusicCategoryAgg.MusicCategory", b =>
                 {
-                    b.Navigation("MusicCatgorys");
-
                     b.Navigation("Musics");
+
+                    b.Navigation("Taks");
                 });
 #pragma warning restore 612, 618
         }

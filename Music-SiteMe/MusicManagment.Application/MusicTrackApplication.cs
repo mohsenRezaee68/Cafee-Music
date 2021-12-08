@@ -1,6 +1,4 @@
-﻿
-
-using _0_Framework.Application;
+﻿using _0_Framework.Application;
 using musicManagement.Application.Contracts.MusicTrack;
 using MusicManagement.Application.Contracts.MusicTrack;
 using MusicManagement.Domain.MusicAgg;
@@ -25,15 +23,13 @@ namespace MusicManagement.Application
         public OperationResult Create(CreateMusicTrack command)
         {
             var operation = new OperationResult();
-            
+            var music = _musicRepository.GetMusicWithCategory(command.TrackId);
 
-            var product = _musicRepository.GetMusicWithCategory(command.TrackId);
+            var path = $"{music.Category.Slug}//{music.Slug}";
+            var musicPath = _fileUploader.Upload(command.Track, path);
 
-            var path = $"{product.Category.Slug}//{product.Category.Slug}";
-            var picturePath = _fileUploader.Upload(command.Track, path);
-
-            var musictrack = new MusicTrack( picturePath, command.TrackId);
-            _musicTrackRepository.Create(musictrack);
+            var musicTrack = new MusicTrack(command.TrackId, musicPath , command.TrackName);
+            _musicTrackRepository.Create(musicTrack);
             _musicTrackRepository.SaveChanges();
             return operation.Succedded();
         }
@@ -48,7 +44,7 @@ namespace MusicManagement.Application
             var path = $"{productPicture.Music.Category.Slug}//{productPicture.Music.Slug}";
             var picturePath = _fileUploader.Upload(command.Track, path);
 
-            productPicture.Edit( picturePath, command.TrackId);
+            productPicture.Edit(command.TrackId, picturePath, command.TrackName);
             _musicTrackRepository.SaveChanges();
             return operation.Succedded();
         }

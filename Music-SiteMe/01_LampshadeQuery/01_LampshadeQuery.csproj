@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>01_LampshadeQuery</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccountMangement.Infrastructure.EFCore\AccountMangement.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\ArtistManagement.Infrastructure.EFCore\ArtistManagement.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\BlogManagement.Domain\BlogManagement.Domain.csproj" />
+    <ProjectReference Include="..\BlogManagement.Infrastructure.EFCore\BlogManagement.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\CommentManagement.Domain\CommentManagement.Domain.csproj" />
+    <ProjectReference Include="..\CommnetManagement.Infrastructure.EFCore\CommnetManagement.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\MusicManagement.Infrastructure.EFCore\MusicManagement.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\SliderManagement.Infrastructure.EFCore\SliderManagement.Infrastructure.EFCore.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,56 @@
+﻿@model MusicManagement.Application.Contracts.MusicTrack.CreateMusicTrack
+@{
+}
+
+<div class="modal-header">
+   <div class ="Close">
+        <button type="button" class="btn mr-1 btn-secondary" data-dismiss="modal" aria-hidden="true">×</button>
+    </div>
+    <h4 class="modal-title">ایجاد ترک جدید</h4>
+</div>
+
+<form asp-page="./Index" asp-page-handler="Create"
+      method="post"
+      data-ajax="true"
+      data-callback=""
+      data-action="Refresh"
+      enctype="multipart/form-data">
+    <div class="modal-body">
+        <div class="row">
+            
+             <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="TrackId" class="control-label">کد اثر</label>
+                    <select class="form-control" asp-for="TrackId" 
+                            asp-items='new SelectList(Model.Musics, "Id", "Id")'>
+                        <option value="0">انتخاب کد موجود</option>
+                    </select>
+                    <span asp-validation-for="TrackId" class="error"></span>
+                </div>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="TrackName" class="control-label">نام آهنگ </label>
+                    <input type="text" class="form-control" asp-for="TrackName">
+                    <span asp-validation-for="TrackName" class="error"></span>
+                </div>
+            </div>
+           </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Track" class="control-label">اثر</label>
+                    <input type="file" class="form-control" asp-for="Track" accept="mp3/*"> 
+                    <span asp-validation-for="Track" class="error"></span>
+                </div>
+            </div>
+           </div>
+   </div>
+    <div class="modal-footer">
+         <button type="button" class="btn gradient-flickr white big-shadow"data-dismiss="modal">بستن</button>
+        <button type="submit" class="btn gradient-green-tea white shadow-z-1-hover" >ایجاد</button>
+        
+    </div>
+</form>

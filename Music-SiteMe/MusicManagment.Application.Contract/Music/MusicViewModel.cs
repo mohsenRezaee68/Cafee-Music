@@ -10,10 +10,13 @@
         public string Melyat { get; set; }
         public string Sabk { get; set; }
         public string Ferestande { get; set; }
-        
+        public long MusicId { get; set; }
         public string Category { get; set; }
         public long CategoryId { get; set; }
         public string CreationDate { get; set; }
-      //  public bool IsInStock { get; set; }
+        public bool IsRemoved { get; set; }
+        public string Trak { get; set; }
+        public string Dawnlod { get; set; }
+        //  public bool IsInStock { get; set; }
     }
 }

@@ -1,0 +1,410 @@
+﻿@page 
+@model ServiceHost.Pages.ProfileModel
+
+@{
+   
+    ViewData["Title"] = "پروفایل";
+	 
+}
+
+<div class="container-fluid">
+			<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						
+                            <li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
+						  <li class="breadcrumb__item breadcrumb__item--active">پروفایل</li>
+			
+				
+
+					</ul>
+					 
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- title -->
+				<div class="col-12">
+					<div class="main__title main__title--page">
+						<h1>پروفایل</h1>
+					</div>
+						
+                     
+                                
+				</div>
+				<!-- end title -->
+			</div>
+			
+			<div dir="rtl" class="row row--grid">
+				<div class="col-12">
+					<div class="profile">
+						<div class="profile__user">
+							<div class="profile__avatar">
+								<img src="~/avatar.svg" alt="">
+							</div>
+							<div class="profile__meta">
+								<h3>@Model.music.Name</h3>
+								<span> سمت کاربری : @Model.music.Rol</span>
+							</div>
+						</div>
+
+						<!-- tabs nav -->
+						<ul class="nav nav-tabs profile__tabs" id="profile__tabs" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">پروفایل</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">آلبوم من</a>
+							</li>
+
+							<li class="nav-item">
+								<a class="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">ارسال موزیک </a>
+							</li>
+							
+							
+							<li class="nav-item">
+								<a class="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">تنظیمات</a>
+							</li>
+						</ul>
+						<!-- end tabs nav -->
+
+						<button class="profile__logout" type="button">
+							<a asp-page="/AccountLogin" asp-page-handler="Logout" > خارج شوید</a>
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"/></svg>
+						</button>
+					</div>
+
+					<!-- content tabs -->
+					<div class="tab-content">
+						<!------------------------ اسلاید اطلاعات--------------------------------------- -->
+						<div class="tab-pane fade show active" id="tab-1" role="tabpanel">
+							
+
+							<div class="row row--grid">
+								<!-- نمایش اطلاعات -->
+								<div class="col-12 col-lg-12">
+									<div class="dashbox">
+										<div class="dashbox__title">
+										@if(Model.music.Picture == "")
+									{
+										<img src="~/کافه.png" style="width:200px; height: 150px">
+									}
+									else
+									{
+                                       <img src="~/Cafee-Music/@Model.music.Picture"style="width: 200px; height: 150px" >
+									}
+									
+											
+											<div class="dashbox__wrap">
+												<a class="dashbox__refresh" href="#"> </a>
+											</div>
+										</div>
+
+										<div class="dashbox__list-wrap">
+											<div class="dashbox__scroll">
+												<div class="dashbox__note dashbox__note--succ">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>
+													<p><a href="#modal-info2" class="open-modal">نام و نام خانوادگی</a> : @Model.music.Name</p>
+													<span></span>
+												</div>
+												<div class="dashbox__note dashbox__note--succ">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>
+													<p><a href="#modal-info2" class="open-modal">نام کاربری</a> : @Model.music.UserName</p>
+													<span></span>
+												</div>
+												@if(Model.music.Email == null)
+												{
+													<div class="header__note header__note--fail">
+							                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.71,8.29a1,1,0,0,0-1.42,0L12,10.59,9.71,8.29A1,1,0,0,0,8.29,9.71L10.59,12l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L13.41,12l2.3-2.29A1,1,0,0,0,15.71,8.29Zm3.36-3.36A10,10,0,1,0,4.93,19.07,10,10,0,1,0,19.07,4.93ZM17.66,17.66A8,8,0,1,1,20,12,7.95,7.95,0,0,1,17.66,17.66Z"/></svg>
+							                         <p><a href="#modal-info3" class="open-modal">ایمیل</a> : @Model.music.Email</p>
+							                        <span> </span>
+						                           </div>
+												}
+												else
+												{
+													<div class="dashbox__note dashbox__note--succ">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>
+													<p><a href="#modal-info2" class="open-modal">ایمیل</a> : @Model.music.Email</p>
+													<span></span>
+												</div>
+
+												}
+												
+													@if(Model.music.Phone == null)
+												{
+													<div class="header__note header__note--fail">
+							                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.71,8.29a1,1,0,0,0-1.42,0L12,10.59,9.71,8.29A1,1,0,0,0,8.29,9.71L10.59,12l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L13.41,12l2.3-2.29A1,1,0,0,0,15.71,8.29Zm3.36-3.36A10,10,0,1,0,4.93,19.07,10,10,0,1,0,19.07,4.93ZM17.66,17.66A8,8,0,1,1,20,12,7.95,7.95,0,0,1,17.66,17.66Z"/></svg>
+							                         <p><a href="#modal-info3" class="open-modal">تلفن</a> : @Model.music.Phone</p>
+							                        <span> </span>
+						                           </div>
+										}
+												else
+										{
+											<div class="dashbox__note dashbox__note--succ">
+													<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.72,8.79l-4.29,4.3L8.78,11.44a1,1,0,1,0-1.41,1.41l2.35,2.36a1,1,0,0,0,.71.29,1,1,0,0,0,.7-.29l5-5a1,1,0,0,0,0-1.42A1,1,0,0,0,14.72,8.79ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"/></svg>
+													<p><a href="#modal-info2" class="open-modal">تلفن</a> : @Model.music.Phone</p>
+													<span></span>
+												</div>
+											
+										}
+										
+									
+											</div>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+						<!------------------------ اسلاید البوم--------------------------------------- -->
+						<div class="tab-pane fade" id="tab-2" role="tabpanel">
+							<div class="row row--grid">
+								<div class="col-12">
+									<div class="dashbox">
+										<div class="dashbox__table-wrap">
+											<div class="dashbox__table-scroll">
+												<table class="main__table">
+													<thead>
+														<tr>
+															<th>ایدی</th>
+															<th><a href="#">تراک <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.71,10.21,12,7.91l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-3-3a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42Zm4.58,4.58L12,17.09l-2.29-2.3a1,1,0,0,0-1.42,1.42l3,3a1,1,0,0,0,1.42,0l3-3a1,1,0,0,0-1.42-1.42Z"/></svg></a></th>
+															<th><a href="#" class="active">نام <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,13.41,12.71,9.17a1,1,0,0,0-1.42,0L7.05,13.41a1,1,0,0,0,0,1.42,1,1,0,0,0,1.41,0L12,11.29l3.54,3.54a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29A1,1,0,0,0,17,13.41Z"/></svg></a></th>
+															<th><a href="#" class="active">خاننده <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,13.41,12.71,9.17a1,1,0,0,0-1.42,0L7.05,13.41a1,1,0,0,0,0,1.42,1,1,0,0,0,1.41,0L12,11.29l3.54,3.54a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29A1,1,0,0,0,17,13.41Z"/></svg></a></th>
+															
+															<th><a href="#" class="active">تاریخ <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"/></svg></a></th>
+															<th><a href="#">سبک <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.71,10.21,12,7.91l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-3-3a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42Zm4.58,4.58L12,17.09l-2.29-2.3a1,1,0,0,0-1.42,1.42l3,3a1,1,0,0,0,1.42,0l3-3a1,1,0,0,0-1.42-1.42Z"/></svg></a></th>
+															<th><a href="#">دانلود <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.71,10.21,12,7.91l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-3-3a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42Zm4.58,4.58L12,17.09l-2.29-2.3a1,1,0,0,0-1.42,1.42l3,3a1,1,0,0,0,1.42,0l3-3a1,1,0,0,0-1.42-1.42Z"/></svg></a></th>
+															
+															<th><a href="#">وضعیت <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.71,10.21,12,7.91l2.29,2.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-3-3a1,1,0,0,0-1.42,0l-3,3a1,1,0,0,0,1.42,1.42Zm4.58,4.58L12,17.09l-2.29-2.3a1,1,0,0,0-1.42,1.42l3,3a1,1,0,0,0,1.42,0l3-3a1,1,0,0,0-1.42-1.42Z"/></svg></a></th>
+														</tr>
+													</thead>
+													<tbody>
+
+														@foreach(var track in Model.music.Tracks)
+												        {
+														 <tr>
+															<td>
+																<div class="main__table-text main__table-text--number"><a href="#modal-info" class="open-modal">@track.Id</a></div>
+															</td>
+															<td >
+																
+																	
+																<div class="single-item">
+																<a data-link data-title="@track.Name" data-artist="@track.Singer"  href="~/Cafee-Music/@track.Track" class="single-item__cover">
+									                             	<img src="~/Site/img/covers/cover.svg" alt="">
+									                             	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"/></svg>
+									                             	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2a3,3,0,0,0-3,3V19a3,3,0,0,0,6,0V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-2,0V5a1,1,0,0,1,2,0ZM8,2A3,3,0,0,0,5,5V19a3,3,0,0,0,6,0V5A3,3,0,0,0,8,2ZM9,19a1,1,0,0,1-2,0V5A1,1,0,0,1,9,5Z"/></svg>
+									                             </a>
+																</div>
+																
+																
+																@*<div class="main__table-img">
+																	<embed height="50px" width="100px" src="~/Cafee-Music/@track.Track"></embed>
+																</div>*@
+															</td>	
+															<td>
+																<div class="main__table-text"><a href="#">@track.Name</a></div>
+															</td>
+															<td>
+																<div class="main__table-text"><a href="#">@track.Singer</a></div>
+															</td>
+															<td>
+																<div class="main__table-text">@track.PublishDate</div>
+															</td>
+															<td>
+																<div class="main__table-text">@track.Sabk</div>
+															</td>
+																<td>
+																<a href="~/Cafee-Music/@track.Track" class="single-item__export">
+										                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg>
+									                                            </a>
+															</td>
+															 <td class="text-center">
+                                                                @if (track.IsCanceled)
+                                            {
+                                                <span class="text-danger">تایید نشده</span>
+                                            }
+                                            @if (!track.IsCanceled && !track.IsConfirmed)
+                                            {
+                                                <span class="text-warning">در انتظار</span>
+                                            }
+                                            @if (!track.IsCanceled && track.IsConfirmed)
+                                            {
+                                                <span class="text-success">تایید شده</span>
+                                            }
+                                                            </td>
+														</tr>
+													
+												         }
+												
+														
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!------------------------ اسلاید اپلود--------------------------------------- -->
+						<div class="tab-pane fade" id="tab-3" role="tabpanel">
+							<div class="row row--grid">
+
+								<div class="col-12">
+									<div class="plan plan--green">
+										<h3 class="plan__title"> اشتراک گذاری</h3>
+									
+									
+									      <form asp-page="./Profile" asp-page-handler="Create"
+                                               method="post"
+                                               data-ajax="true"
+                                               data-callback=""
+                                               data-action="Refresh"
+                                               enctype="multipart/form-data">
+                                             <div class="modal-body">
+                                                 <div class="row">
+                                                     <div class="col-md-12">
+                                                         <div class="form-group">
+                                                             
+                                                          
+									                            <input type="text" name="Name" class="sign__input" placeholder="نام آهنگ">
+								                           
+                                                             
+                                                         </div>
+                                                     </div>
+                                                     
+                                                 </div>
+                                               <div class="row">
+                                                     <div class="col-md-6">
+                                                         <div class="form-group">
+                                                              <input type="text" name="Singer" class="sign__input" placeholder="نام خاننده">
+                                                         </div>
+                                                     </div>
+                                                     <div class="col-md-6">
+                                                         <div class="form-group">
+                                                             <input type="file" name="Trak" class="sign__input" placeholder="آپلود">
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                          
+                                                 </div>
+                                            
+                                             <div class="modal-footer">
+                                                
+                                                 <button type="submit" class="btn btn-info waves-effect waves-light">آپلود</button>
+                                             </div>
+                                         </form>
+								
+									</div>
+								</div>
+
+							</div>
+						</div>
+							<!------------------------ اسلاید بعد--------------------------------------- -->
+						
+						<!------------------------ اسلایدتنظیمات--------------------------------------- -->
+						<div class="tab-pane fade" id="tab-4" role="tabpanel">
+							<div class="row row--grid">
+								<!-- details form -->
+								<div class="col-12 col-lg-12">
+								
+									<form  method="post" asp-page="./Profile" asp-page-handler="Edit"
+                                               method="post"
+                                               data-ajax="true"
+                                               data-callback=""
+                                               data-action="Refresh"
+                                               enctype="multipart/form-data"class="sign__form sign__form--profile">
+										<div class="row">
+											<div class="col-12">
+												<h4 class="sign__title">ویرایش اطلاعات (پر کردن تمامی فیلد ها الزامی است)</h4>
+											</div>
+
+											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+												<div class="sign__group">
+													<label class="sign__label" for="username">نام کاربری *</label>
+													<input  type="text" name="Username" class="sign__input" placeholder="نام کاربری">
+												</div>
+											</div>
+
+											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+												<div class="sign__group">
+													<label class="sign__label" for="email">ایمیل*</label>
+													<input  type="email" name="Email" class="sign__input" placeholder="email@email.com">
+												</div>
+											</div>
+
+											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+												<div class="sign__group">
+													<label class="sign__label" for="Fullname">نام *</label>
+													<input  type="text" name="Fullname" class="sign__input" placeholder="ابوالفضل احمدی">
+												</div>
+											</div>
+
+											<div class="col-12 col-md-6 col-lg-12 col-xl-6">
+												<div class="sign__group">
+													<label class="sign__label" for="Mobile">تلفن *</label>
+													<input  type="number" name="Mobile" class="sign__input" placeholder="09...">
+												</div>
+											</div>
+											
+											<input type="hidden" name="RoleId" value="@Model.music.RolId" />
+											<div class="col-12 ">
+												<div class="sign__group">
+													<label class="sign__label" for="ProfilePhoto">تصویر پروفایل شما</label>
+													<input  type="file" name="ProfilePhoto" class="sign__input" >
+												</div>
+											</div>
+											<input type="hidden" name="Id" value="@Model.music.Id" />
+											
+											<div class="col-12">
+												<button class="sign__btn" type="submit">ذخیره</button>
+											</div>
+										</div>
+									</form>
+								</div>
+								<!-- end details form -->
+
+								<!-- password form -->
+								<div class="col-12 col-lg-12">
+								
+									<form method="post" asp-page="./Profile"asp-page-handler="ChangePassword"  class="sign__form sign__form--profile">
+										<div class="row">
+											<div class="col-12">
+												<h4 class="sign__title">تعویض رمز عبور</h4>
+											</div>
+
+											
+
+											<div class="col-12 col-lg-9">
+												<div class="sign__group">
+													<label class="sign__label" for="newpass">رمز جدید</label>
+													<input  type="Password" name="Password" id="Password"  required="" data-error="" class="sign__input">
+												</div>
+											</div>
+
+											
+
+											<input type="hidden" name="Id" id="Id"  required="" data-error="" value="@Model.music.Id" />
+
+											
+										</div>
+										<div class="col-12">
+												<button class="sign__btn" type="submit">تغییر</button>
+										</div>
+									</form>
+								</div>
+								<!-- end password form -->
+							</div>
+						</div>
+					</div>
+					<!-- end content tabs -->
+				</div>
+			</div>	
+		</div>
+
+
+
+
+
+

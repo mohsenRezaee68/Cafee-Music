@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\01_LampshadeQuery\01_LampshadeQuery.csproj" />
+    <ProjectReference Include="..\0_Framework\0_Framework.csproj" />
+    <ProjectReference Include="..\ArtistManagement.Application.Contracts\ArtistManagement.Application.Contracts.csproj" />
+    <ProjectReference Include="..\ArtistManagement.Application\ArtistManagement.Application.csproj" />
+    <ProjectReference Include="..\ArtistManagement.Domain\ArtistManagement.Domain.csproj" />
+    <ProjectReference Include="..\ArtistManagement.Infrastructure.EFCore\ArtistManagement.Infrastructure.EFCore.csproj" />
+  </ItemGroup>
+
+</Project>

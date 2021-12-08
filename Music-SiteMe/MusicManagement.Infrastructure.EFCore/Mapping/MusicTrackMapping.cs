@@ -14,7 +14,7 @@ namespace MusicManagement.Infrastructure.EFCore.Mapping
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Track).HasMaxLength(1000).IsRequired();
-            
+            builder.Property(x => x.TrackName).HasMaxLength(255).IsRequired();
 
             builder.HasOne(x => x.Music)
                 .WithMany(x => x.MusicTracks)

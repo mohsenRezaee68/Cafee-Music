@@ -20,12 +20,15 @@ namespace MusicManagement.Application
         {
             var operation = new OperationResult();
             if (_MusicCategoryRepostory.Exists(x => x.Name == command.Name))
-                return operation.Failed(ApplicationMessages.RecordNotFound);
+                return operation.Failed(ApplicationMessages.DuplicatedRecord);
 
             var slug = command.Slug.Slugify();
 
+            var picturePath = $"{command.Slug}";
+            var pictureName = _fileUploader.Upload(command.Picture, picturePath);
+
             var productCategory = new MusicCategory(command.Name, command.Description,
-               "", command.PictureAlt, command.PictureTitle, command.Keywords,
+                pictureName, command.PictureAlt, command.PictureTitle, command.Keywords,
                 command.MetaDescription, slug);
 
             _MusicCategoryRepostory.Create(productCategory);

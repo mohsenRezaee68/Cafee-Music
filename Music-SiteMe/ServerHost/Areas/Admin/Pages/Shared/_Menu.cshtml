@@ -1,0 +1,162 @@
+﻿
+@inject _0_Framework.Application.IAuthHelper AuthHelper;
+
+@{
+    var currentAccout = AuthHelper.CurrentAccountInfo();
+    
+}
+
+          <!--- منو-->
+
+          <div data-active-color="white" data-background-color="black" data-image="~/logo.png" class="app-sidebar">
+              <div class="sidebar-header">
+                  <div class="logo clearfix">
+                      <a href="#" class="logo-text float-right">
+                          <div class="logo-img"><img src="~/logo.png" style="width:200px; height:130px" /></div><span class="text align-middle"></span>
+                      </a><a id="sidebarToggle" href="javascript:;" class="nav-toggle d-none d-sm-none d-md-none d-lg-block"><i data-toggle="expanded" class="ft-disc toggle-icon"></i></a><a id="sidebarClose" href="javascript:;" class="nav-close d-block d-md-block d-lg-none d-xl-none"><i class="ft-circle"></i></a>
+                  </div>
+              </div>
+              <div class="sidebar-content">
+                  <div class="nav-container">
+                      <ul id="main-menu-navigation" data-menu="menu-navigation" class="navigation navigation-main">
+                         
+               @if (AuthHelper.CurrentAccountRole() == "1" || AuthHelper.CurrentAccountRole() == "2")
+                {
+                    <!------------موسیقی------------>
+                    
+                             <li class=" nav-item"><a href="~/admin"><i class="icon-graph"></i><span data-i18n="" class="menu-title">گزارشات</span></a>
+                             </li>
+                    <li class="has-sub nav-item"><a href="#"><i class="ft-music"></i><span data-i18n="" class="menu-title">مدیریت موسیقی</span></a>
+                        <ul class="menu-content">
+                            <li class=" nav-item"><a asp-page="/Musics/MusicCategories/Index"><i class="ft-layers"></i><span data-i18n="" class="menu-title">دسته بندی موسیقی</span></a>
+                             </li>
+                             <li class=" nav-item"><a asp-page="/Musics/Music/Index"><i class="ft-airplay"></i><span data-i18n="" class="menu-title">آلبوم</span></a>
+                             </li>
+                           <li class=" nav-item"><a asp-page="/Musics/MusicTrack/Index"><i class="ft-music"></i><span data-i18n="" class="menu-title">آهنگ آلبوم</span></a>
+                             </li>
+                            
+                            <li class=" nav-item"><a asp-page="/Musics/Tak/Index"><i class="icon-music-tone"></i><span data-i18n="" class="menu-title">تک آهنگ</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                   
+                    <!------------مقالات------------>
+
+                    <li class="has-sub nav-item"><a href="#"><i class="icon-book-open"></i><span data-i18n="">مقالات</span></a>
+                        <ul class="menu-title">
+                            <li class=" nav-item"><a asp-page="/Blog/ArticleCategories/Index"><i class="icon-grid"></i><span data-i18n="" class="menu-title">گروه مقالات</span></a>
+                            </li>
+                           
+                            
+                             <li class=" nav-item"><a asp-page="/Blog/Articles/Index"><i class="icon-pencil"></i><span data-i18n="" class="menu-title">ایجاد مقاله</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!------------کامنت ها------------>
+
+                    <li class="has-sub nav-item"><a href="#"><i class="icon-bubble"></i><span data-i18n="" class="menu-title">کامنت ها</span></a>
+                        <ul class="menu-content">
+                            
+                            <li class=" nav-item"><a asp-page="/Comments/Index"><i class="icon-envelope"></i><span data-i18n="" class="menu-title">کامنت</span></a>
+                            </li>
+                        </ul>
+                    </li>
+
+                      <li class="has-sub nav-item"><a href="#"><i class="icon-cloud-upload"></i><span data-i18n="" class="menu-title">موزیک ارسالی</span></a>
+                        <ul class="menu-content">
+                            <li><a asp-page="/Accounts/Tak/Index" class="menu-item">موزیک ارسالی</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li class="has-sub nav-item"><a href="#"><i class="icon-users"></i><span data-i18n="" class="menu-title">کاربران</span></a>
+                        <ul class="menu-content">
+                            <li class=" nav-item"><a asp-page="/Accounts/Account/Index"><i class="icon-user-following"></i><span data-i18n="" class="menu-title">کاربران</span></a>
+                            </li>
+                           <li class=" nav-item"><a asp-page="/Accounts/Role/Index"><i class="icon-puzzle"></i><span data-i18n="" class="menu-title">نقش ها</span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                 <!------------اسلایدر------------>
+                    <li class=" nav-item"><a asp-page="/Sliders/Index"><i class="icon-map"></i><span data-i18n="" class="menu-title">اسلایدر</span></a>
+                    </li>
+
+                    <!------------هنرمندان------------>
+                    <li class=" nav-item"><a asp-page="/Artists/Index"><i class="ft-users"></i><span data-i18n="" class="menu-title">هنرمندان</span></a>
+                    </li>
+                    
+                    <!------------ارتباط با ما------------>
+                    <li class="has-sub nav-item"><a href="#"><i class="icon-badge"></i><span data-i18n="" class="menu-title">ارتباط با ما</span></a>
+                        <ul class="menu-content">
+                            <li class=" nav-item"><a asp-page="/Contact/Index"><i class="icon-pencil"></i><span data-i18n="" class="menu-title">آدرس</span></a>
+                            </li>
+                            <li class=" nav-item"><a asp-page="/Contact/Payam/Index"><i class="icon-note"></i><span data-i18n="" class="menu-title">پیام ها</span></a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                   
+                    }
+
+                              </ul>
+                           </li>
+                       </ul>
+                  </div>
+              </div>
+              <div class="sidebar-background"></div>
+          </div>
+
+          <!--- پروفایل-->
+          <nav class="navbar navbar-expand-lg navbar-light bg-faded">
+              <div class="container-fluid">
+                  <div class="navbar-header">
+                      <button type="button" data-toggle="collapse" class="navbar-toggle d-lg-none float-right"><span class="sr-only">تغییر ناوبری </span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><span class="d-lg-none navbar-right navbar-collapse-toggle"><a class="open-navbar-container"><i class="ft-more-vertical"></i></a></span><a id="navbar-fullscreen" href="javascript:;" class="ml-2 display-inline-block apptogglefullscreen">
+                          <i class="ft-maximize blue-grey darken-4 toggleClass"></i>
+                          <p class="d-none">تمام صفحه</p>
+                      </a>
+                     
+                  </div>
+                  <div class="navbar-container">
+                      <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                          <ul class="navbar-nav">
+                             
+                             
+                             
+                              <li class="dropdown nav-item mr-0">
+                                  <a id="dropdownBasic3" href="#" data-toggle="dropdown" class="nav-link position-relative dropdown-user-link dropdown-toggle">
+                                      <span class="avatar avatar-online"><img id="navbar-avatar" src="~/hs-بارگیری-4.jpg" alt="@currentAccout.Role" /></span>
+                                      <p class="d-none">تنظیمات کاربر</p>
+                                  </a>
+                                  <div aria-labelledby="dropdownBasic3" class="dropdown-menu dropdown-menu-left">
+                                      <div class="arrow_box_right">
+                                          <a href="#" class="dropdown-item py-1"><i class="ft-edit ml-2"></i><span>@currentAccout.Fullname</span></a><a href="#" class="dropdown-item py-1"><span>@currentAccout.Username</span></a><a href="#" class="dropdown-item py-1"><span>@currentAccout.Role</span></a>
+                                         
+                                      </div>
+                                  </div>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </nav>
+           <!--- بدنه-->
+         
+     
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+  

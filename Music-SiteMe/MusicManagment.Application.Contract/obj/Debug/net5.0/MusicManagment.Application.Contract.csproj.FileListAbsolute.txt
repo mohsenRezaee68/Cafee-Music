@@ -15,3 +15,4 @@ F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\bi
 F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.genruntimeconfig.cache
 F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\bin\Debug\net5.0\0_Framework.dll
 F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\bin\Debug\net5.0\0_Framework.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\MusicManagment.Application.Contract\obj\Debug\net5.0\MusicManagment.Application.Contract.csproj.CopyComplete

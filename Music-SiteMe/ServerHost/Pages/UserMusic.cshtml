@@ -1,0 +1,191 @@
+﻿@page 
+@addTagHelper *, LazZiya.TagHelpers
+@model ServiceHost.Pages.UserMusicModel
+@{
+	ViewData["Title"] = "آهنگ ها";int b =20;
+}
+
+<div class="container-fluid">
+		<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">منتشر شده ها</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- title -->
+				<div class="col-12">
+					<div class="main__title main__title--page">
+						<h1>منتشر شده ها</h1>
+					</div>
+				</div>
+				<!-- end title -->
+		</div>
+
+			<!-- releases -->
+		<div class="row row--grid">
+				<div class="col-12">
+					<div class="main__filter">
+						<form  method="get" asp-page="/UserMusic"  class="main__filter-search">
+							<input type="search"  name="value" id="value"  placeholder="جست و جو ...">
+							<button type="submit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/></svg></button>
+						</form>
+
+						
+					</div>
+
+					@if(Model.values != null)
+
+			{
+									{
+          <div class="row row--grid">
+			<div class="col-12">
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <ul class="breadcrumb">
+						          <li class="breadcrumb__item breadcrumb__item--active">نتیجه جستجو : @Model.values</li>
+					           </ul>
+				            </div>
+				
+		             </div>
+
+				<div class="row row--grid ">
+					
+						@foreach (var music in Model.MusicsTak)
+
+					{	
+						
+						<div class="col-6 col-sm-4 col-lg-3">
+							<div class="product">
+								<a data-link data-title="@music.Name" data-artist="@music.Singer"  href="~/Cafee-Music/@music.Track" class="product__img">
+									@if(music.Photo=="")
+									{
+										<img src="~/کافه.png" alt="">
+									}
+									else
+									{
+                                       <img src="~/Cafee-Music/@music.Photo" alt="">
+									}
+									
+								</a>
+								<h3 class="product__title"><a href="product.html">@music.Name </a></h3>
+								<span class="product__price">@music.Singer</span>
+								<span>
+									<a href="~/Cafee-Music/@music.Track" class="single-item__export">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg>
+								</a>
+                                </span>
+								<span class="product__new">@music.UserName</span>
+							</div>
+						</div>
+
+					}
+					
+					
+
+					
+					
+				</div>
+			        	
+				    
+			         <div class="pagination-product">
+                       <nav aria-label="Page navigation example">
+                       <paging total-records="@Model.MusicsTak.Count"
+                        page-no="1"
+                        page-size="20"
+                        show-prev-next="true"
+                        show-total-pages="false"
+                        show-total-records="false"
+                        show-page-size-nav="true"
+                        show-first-numbered-page="true"
+                        show-last-numbered-page="true"
+                        query-string-key-page-no="Page"
+                        query-string-key-page-size="PageSize"
+                        query-string-value="@@(Request.QueryString.Value)"
+                        gap-size="2">
+                      </paging>
+
+                    </nav>
+                  </div>
+					
+				</div>
+			</div>
+					}
+			}
+			<div class="row row--grid">
+			<div class="col-12">
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <ul class="breadcrumb">
+						          <li class="breadcrumb__item breadcrumb__item--active">منتشر شده </li>
+					           </ul>
+				            </div>
+				
+		             </div>
+			 <div class="row row--grid">
+						
+							@foreach (var music in Model.music)
+
+							{
+								<div class="col-6 col-sm-4 col-lg-3">
+									<div class="product">
+										<a data-link data-title="@music.Name" data-artist="@music.Singer" data-img="~/Site/img/covers/cover.svg" href="~/Cafee-Music/@music.Track" class="product__img">
+											@if (music.Photo == null)
+											{
+												<img src="~/NS-WKMAG0730-1595944356.jpg" alt="">
+											}
+											else
+											{
+												<img src="~/Cafee-Music/@music.Photo" alt="">
+											}
+										</a>
+										<h3 class="product__title"><a href="product.html">@music.Name </a></h3>
+										<span class="product__price">@music.Singer</span>
+										<span>
+											<a href="~/Cafee-Music/@music.Track" class="single-item__export">
+												<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg>
+											</a>
+										</span>
+										<span class="product__new">@music.UserName</span>
+									</div>
+								</div>
+
+							}
+
+
+						}	
+					</div>
+					  
+							
+							    <div class="pagination-product">
+                       <nav aria-label="Page navigation example">
+                       <paging total-records="@Model.music.Count"
+                        page-no="1"
+                        page-size="20"
+                        show-prev-next="true"
+                        show-total-pages="false"
+                        show-total-records="false"
+                        show-page-size-nav="true"
+                        show-first-numbered-page="true"
+                        show-last-numbered-page="true"
+                        query-string-key-page-no="Page"
+                        query-string-key-page-size="PageSize"
+                        query-string-value="@@(Request.QueryString.Value)"
+                        gap-size="2">
+                      </paging>
+
+                    </nav>
+                  </div>
+						
+				</div>
+		</div>
+			<!-- end releases -->
+        </div>
+      </div>
+
+</div>

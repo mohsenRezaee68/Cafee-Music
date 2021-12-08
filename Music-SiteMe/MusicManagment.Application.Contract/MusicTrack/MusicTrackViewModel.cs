@@ -4,7 +4,9 @@
     {
         public long Id { get; set; }
         public string Category { get; set; }
+        public string Music { get; set; }
         public string Track { get; set; }
+        public string TrackName { get; set; }
         public string Singer {  get; set; }
         public string Name {  get; set; }
         public string CreationDate { get; set; }

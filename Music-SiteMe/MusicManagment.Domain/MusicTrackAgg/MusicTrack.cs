@@ -1,9 +1,6 @@
-﻿
-
-using _0_Framework.Domain;
+﻿using _0_Framework.Domain;
 using MusicManagement.Domain.MusicAgg;
 using MusicManagement.Domain.MusicCategoryAgg;
-using System.Collections.Generic;
 
 namespace MusicManagement.Domain.MusicTrackAgg
 {
@@ -11,25 +8,25 @@ namespace MusicManagement.Domain.MusicTrackAgg
     {
         public long TrackId { get; private set; }
         public string Track { get; private set; }
+        public string TrackName { get; private set; }
         public bool IsRemoved { get; private set; }
         public Music Music { get; private set; }
         public MusicCategory Category { get; private set; }
-        public MusicTrack( string track, long trackId)
+
+        public MusicTrack(long trackId, string track, string trackName)
         {
             TrackId = trackId;
             Track = track;
-          
-           
-            IsRemoved = false;
+            TrackName = trackName;
         }
 
-        public void Edit( string track , long trackId)
+        public void Edit(long trackId, string track , string trackname)
         {
             TrackId = trackId;
 
             if (!string.IsNullOrWhiteSpace(track))
                 Track = track;
-            
+            TrackName = trackname;
            // Name = name;
         }
 

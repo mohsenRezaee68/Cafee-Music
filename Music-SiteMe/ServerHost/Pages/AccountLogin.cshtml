@@ -1,0 +1,66 @@
+﻿@page
+@model ServiceHost.Pages.AccountLoginModel
+
+@{
+    ViewData["Title"] = "ورود و ثبت نام";
+}
+
+
+		<div class="container-fluid">
+			<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">وارد شوید</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- sign in -->
+				<div class="col-12">
+					<div class="sign">
+						<div class="sign__content">
+							<!-- authorization form -->
+							 @if (Model.LoginMessage != null)
+                                {
+                                    <div class="alert alert-danger">@Model.LoginMessage</div>
+                                }
+							<form method="post"asp-page-handler="Login"  class="sign__form">
+								<a href="#" class="sign__logo">
+									
+					              <img src="~/cafe.svg"  style="width:200px; height:170px">
+						              
+					
+								</a>
+
+								<div class="sign__group">
+									<input type="text" name="username" class="sign__input" placeholder="نام کاربری">
+								</div>
+
+								<div class="sign__group">
+									<input type="password" name="password" class="sign__input" placeholder="رمز عبور">
+								</div>
+
+								@*<div class="sign__group sign__group--checkbox">
+									<input id="remember" name="remember" type="checkbox" checked="checked">
+									<label for="remember">مرا به یاد داشته باش</label>
+								</div>*@
+								
+								<button class="sign__btn" type="submit">وارد شوید</button>
+
+								
+
+								<span class="sign__text">حساب ندارید؟ <a asp-page="/AccountLogup">ثبت نام!</a></span>
+								
+								
+								
+							</form>
+							<!-- end authorization form -->
+						</div>
+					</div>
+				</div>
+				<!-- end sign in -->
+			</div>
+		</div>
+	

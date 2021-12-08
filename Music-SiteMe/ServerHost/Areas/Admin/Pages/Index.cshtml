@@ -1,0 +1,148 @@
+﻿@page
+@using Newtonsoft.Json
+@model ServiceHost.Areas.Admin.Pages.IndexModel
+@{
+ 
+      ViewData["Title"] = "صفحه مدیریت";
+}
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title">داشبورد گزارشات</h4>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="card bg-white">
+            <div class="card-body">
+                <div class="card-block pt-2 pb-0">
+                    <div class="media">
+                        <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">@Model.TotalUsers.Count</h4>
+                            <span class="grey darken-1">مجموع کاربران</span>
+                        </div>
+                        <div class="media-right text-right">
+                            <i class="ft-user font-large-1 primary"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="Widget-line-chart" class="height-150 lineChartWidget WidgetlineChart mb-2">
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="card bg-white">
+            <div class="card-body">
+                <div class="card-block pt-2 pb-0">
+                    <div class="media">
+                        <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">@Model.ActivUser.Count</h4>
+                            <span class="grey darken-1"> کاربران فعال</span>
+                        </div>
+                        <div class="media-right text-right">
+                            <i class="ft-user-check font-large-1 warning"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="Widget-line-chart2" class="height-150 lineChartWidget WidgetlineChart2 mb-2">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4 col-lg-6 col-md-6 col-12">
+        <div class="card bg-white">
+            <div class="card-body">
+                <div class="card-block pt-2 pb-0">
+                    <div class="media">
+                        <div class="media-body white text-left">
+                            <h4 class="font-medium-5 card-title mb-0">@Model.RemoveUsers.Count</h4>
+                            <span class="grey darken-1">کاربران غیر فعال</span>
+                        </div>
+                        <div class="media-right text-right">
+                            <i class="ft-user-minus font-large-1 success "></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="Widget-line-chart1" class="height-150 lineChartWidget WidgetlineChart1 mb-2">
+                </div>
+
+            </div>
+        </div>
+    </div>
+   
+</div>
+<!--Statistics cards Ends-->
+
+<div class="row">
+    <div class="col-sm-7">
+        <div class="portlet">
+
+            <div class="portlet-heading">
+                <h3 class="portlet-title text-dark text-uppercase">
+                    آرشیو موزیک سایت
+                </h3>
+                <canvas id="bar"></canvas>
+            </div>
+         </div>
+    </div>
+    @*---------------------------------------*@
+     <div class="col-sm-4">
+        <div class="portlet">
+
+            <div class="portlet-heading">
+                <h3 class="portlet-title text-dark text-uppercase">
+                    موزیک موجود در سایت
+                </h3>
+                <canvas width="300" id="doughnut"></canvas>
+            </div>
+
+        </div>
+    </div>
+     @*---------------------------------------*@
+     
+
+</div>
+
+@section Scripts{
+    <script>
+        const barChartDiv = document.getElementById("bar");
+        const data = @Html.Raw(JsonConvert.SerializeObject(Model.BarLineDataSet));
+        const barChart = new Chart(barChartDiv,
+            {
+                type: "bar",
+                data: {
+                    labels: ["آرشیو موسیقی"],
+                    datasets: data
+                },
+                options: {
+                    elements: {
+                        bar: {
+                            borderWidth: 1
+                        }
+                    }
+                }
+            });
+
+        const doughnutChartDiv = document.getElementById("doughnut");
+        const doughnutData = @Html.Raw(JsonConvert.SerializeObject(Model.DoughnutDataSet));
+        const doughnutChart = new Chart(doughnutChartDiv,
+            {
+                type: "doughnut",
+                data: {
+                    labels: ["مذهبی", "ایرانی", "افغانستانی", "منل" , "رویدادها" , "مقالات" ,"هنرمندان"],
+                    datasets: [doughnutData]
+                },
+                options: {
+                    elements: {
+                        bar: {
+                            borderWidth: 1
+                        }
+                    }
+                }
+            });
+
+           
+        
+    </script>
+}

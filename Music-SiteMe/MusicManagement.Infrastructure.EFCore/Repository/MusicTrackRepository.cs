@@ -1,7 +1,4 @@
-﻿
-
-using _0_Framework.Application;
-using _0_Framework.Infrastructure;
+﻿using _0_Framework.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using musicManagement.Application.Contracts.MusicTrack;
 using MusicManagement.Application.Contracts.MusicTrack;
@@ -23,11 +20,12 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
         public EditMusicTrack GetDetails(long id)
         {
             return _context.MusicTracks
+                .Include(x => x.Music)
            .Select(x => new EditMusicTrack
            {
                Id = x.Id,
-               TrackId = x.TrackId
-              
+               TrackId = x.Music.Id,
+              TrackName = x.TrackName
            }).FirstOrDefault(x => x.Id == id);
         }
 
@@ -54,6 +52,7 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
                    TrackId = x.Music.Id,
                    IsRemoved = x.IsRemoved,
                    Singer = x.Music.Singer,
+                   TrackName = x.TrackName,
                    Category = x.Music.Category.Name
                });
 

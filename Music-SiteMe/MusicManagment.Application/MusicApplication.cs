@@ -29,8 +29,9 @@ namespace MusicManagement.Application
             var slug = command.Slug.Slugify();
             var categorySlug = _MusicCategoryRepository.GetSlugById(command.CategoryId);
             var path = $"{categorySlug}//{slug}";
+            string vb = $"{categorySlug}/{slug}";
             var picturePath = _fileUploader.Upload(command.Picture, path);
-            var product = new Music(command.Name,command.Singer,command.Sabk,command.Melyat,command.Ferestande,
+            var product = new Music(command.Name,vb,command.Singer,command.Sabk,command.Melyat,command.Ferestande,
                 command.ShortDescription, command.Description, picturePath,
                 command.PictureAlt, command.PictureTitle, command.CategoryId, slug,
                 command.Keywords, command.MetaDescription);
@@ -72,32 +73,56 @@ namespace MusicManagement.Application
             return _MusicRepository.GetMusics();
         }
 
-     //   public OperationResult IsStock(long id)
-     //   {
-     //       
-     //       var operation = new OperationResult();
-     //       var product = _productRepository.Get(id);
-     //       
-     //      
-     //           return operation.Failed(ApplicationMessages.DuplicatedRecord);
-     //
-     //       product.InStock();
-     //       _productRepository.SaveChanges();
-     //       return operation.Succedded();
-     //   }
-     //
-     //   public OperationResult NotInStock(long id)
-     //   {
-     //       var operation = new OperationResult();
-     //       var product = _productRepository.Get(id);
-     //
-     //
-     //       return operation.Failed(ApplicationMessages.DuplicatedRecord);
-     //
-     //       product.NotIdstock();
-     //       _productRepository.SaveChanges();
-     //       return operation.Succedded();
-     //   }
+
+        public OperationResult Remove(long id)
+        {
+            var operation = new OperationResult();
+            var music = _MusicRepository.Get(id);
+            if (music == null)
+                return operation.Failed(ApplicationMessages.RecordNotFound);
+
+            music.Remove();
+            _MusicRepository.SaveChanges();
+            return operation.Succedded();
+        }
+
+        public OperationResult Restore(long id)
+        {
+            var operation = new OperationResult();
+            var music = _MusicRepository.Get(id);
+            if (music == null)
+                return operation.Failed(ApplicationMessages.RecordNotFound);
+
+            music.Restore();
+            _MusicRepository.SaveChanges();
+            return operation.Succedded();
+        }
+        //   public OperationResult IsStock(long id)
+        //   {
+        //       
+        //       var operation = new OperationResult();
+        //       var product = _productRepository.Get(id);
+        //       
+        //      
+        //           return operation.Failed(ApplicationMessages.DuplicatedRecord);
+        //
+        //       product.InStock();
+        //       _productRepository.SaveChanges();
+        //       return operation.Succedded();
+        //   }
+        //
+        //   public OperationResult NotInStock(long id)
+        //   {
+        //       var operation = new OperationResult();
+        //       var product = _productRepository.Get(id);
+        //
+        //
+        //       return operation.Failed(ApplicationMessages.DuplicatedRecord);
+        //
+        //       product.NotIdstock();
+        //       _productRepository.SaveChanges();
+        //       return operation.Succedded();
+        //   }
 
         public List<MusicViewModel> Search(MusicSearchModel searchModel)
         {

@@ -1,0 +1,17 @@
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\bin\Debug\net5.0\AccountManagement.Domain.deps.json
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\bin\Debug\net5.0\AccountManagement.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\bin\Debug\net5.0\ref\AccountManagement.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\bin\Debug\net5.0\AccountManagement.Domain.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\bin\Debug\net5.0\0_Framework.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\bin\Debug\net5.0\AccountManagement.Application.Contracts.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\bin\Debug\net5.0\0_Framework.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\bin\Debug\net5.0\AccountManagement.Application.Contracts.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\obj\Debug\net5.0\AccountManagement.Domain.csproj.AssemblyReference.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\obj\Debug\net5.0\AccountManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\obj\Debug\net5.0\AccountManagement.Domain.AssemblyInfoInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\obj\Debug\net5.0\AccountManagement.Domain.AssemblyInfo.cs
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\obj\Debug\net5.0\AccountManagement.Domain.csproj.CoreCompileInputs.cache
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\obj\Debug\net5.0\AccountManagement.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\obj\Debug\net5.0\ref\AccountManagement.Domain.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\obj\Debug\net5.0\AccountManagement.Domain.pdb
+F:\PROJECT\Music-cafee\music\Music-SiteMe\AccountManagement.Domain\obj\Debug\net5.0\AccountManagement.Domain.csproj.CopyComplete

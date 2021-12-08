@@ -1,0 +1,67 @@
+﻿@page
+@model ServiceHost.Pages.AccountLogupModel
+@{
+    ViewData["Title"] = " ثبت نام";
+}
+<div class="container-fluid">
+			<div class="row row--grid">
+				<!-- breadcrumb -->
+				<div class="col-12">
+					<ul class="breadcrumb">
+						<li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
+						<li class="breadcrumb__item breadcrumb__item--active">ثبت نام</li>
+					</ul>
+				</div>
+				<!-- end breadcrumb -->
+
+				<!-- registration form -->
+				<div class="col-12">
+					<div class="sign">
+						<div class="sign__content">
+							
+                                  
+                               
+							<form method="post"asp-page-handler="Register"  class="sign__form">
+								<a href="index.html" class="sign__logo">
+						
+						           <img src="~/logo.png" style="width:200px; height:170px">
+					
+								</a>
+                               @if(Model.RegisterMessage != null)
+							   {
+                                   <div class="alert alert-danger">@Model.RegisterMessage</div>
+							   }
+                                   
+                               
+								  
+								<div class="sign__group">
+									<input type="text" id="fullname" name="fullname" class="sign__input" placeholder="نام و نام خانوادگی">
+								</div>
+								<div class="sign__group">
+									<input type="text" id="username" name="username" class="sign__input" placeholder="نام کاربری">
+								</div>
+								<div class="sign__group">
+									<input type="email" id="email" name="email"class="sign__input" placeholder="ایمیل">
+								</div>
+
+								<div class="sign__group">
+									<input type="password" id="password" name="password" class="sign__input" placeholder="رمز عبور">
+								</div>
+								<div class="sign__group">
+									<input type="password" id="repassword"  name="repassword" class="sign__input" placeholder="تایید رمز ورود">
+								</div>
+								
+								
+								<button class="sign__btn" type="submit">ثبت نام</button>
+
+								
+
+								<span class="sign__text">حساب دارید ؟ <a asp-page="/AccountLogin">وارد شوید!</a></span>
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- end registration form -->
+			</div>
+		</div>
+
