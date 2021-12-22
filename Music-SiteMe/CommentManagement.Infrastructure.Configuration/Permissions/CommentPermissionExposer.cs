@@ -12,10 +12,10 @@ namespace CommentManagement.Configuration.Permissions
                 {
                     "Comment", new List<PermissionDto>
                     {
-                        new PermissionDto(CommentPermissions.ListComments, "ListComments"),
-                        new PermissionDto(CommentPermissions.SearchComments, "SearchComments"),
-                         new PermissionDto(CommentPermissions.DeleteComment, "DeleteComment"),
-                        new PermissionDto(CommentPermissions.NoDeleteComment, "NoDeleteComment"),
+                        
+                        new PermissionDto(CommentPermissions.SearchComments, "Search"),
+                         new PermissionDto(CommentPermissions.DeleteComment, "Cancel"),
+                        new PermissionDto(CommentPermissions.RestorComment, "Confirm"),
                     }
                 }
             };

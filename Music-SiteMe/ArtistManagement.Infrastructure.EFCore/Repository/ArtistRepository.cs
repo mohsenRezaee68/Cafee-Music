@@ -78,9 +78,9 @@ namespace ArtistManagement.Infrastructure.EFCore.Repository
             if (!string.IsNullOrWhiteSpace(searchModel.Laghab))
                 query = query.Where(x => x.Laghab.Contains(searchModel.Laghab));
 
-            
 
-            return query.OrderByDescending(x => x.Id).ToList();
+            query.OrderByDescending(x => x.Id).ToList();
+            return query.ToList();
         }
     }
 }

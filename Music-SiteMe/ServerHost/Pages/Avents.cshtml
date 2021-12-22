@@ -68,7 +68,7 @@
 											</span>
 									</div>
 									<div class="album__title">
-										<h3><a asp-page="/Avent"asp-route-id="@avent.Id"> @avent.Title </a></h3>
+										<h3><a asp-page="/Avent"asp-route-id="@avent.Id"> @avent.Mozo </a></h3>
 										
 									</div>
 								</div>
@@ -96,7 +96,7 @@
 			 <div class="row row--grid">
 				
 
-						@foreach (var avent in Model.arive)
+						@foreach (var avent in Model.avent.avent)
 				            {<div class="col-6 col-sm-4 col-lg-4">
 								<div class="album">
 									<div class="album__cover">
@@ -107,7 +107,7 @@
 											</span>
 									</div>
 									<div class="album__title">
-										<h3><a asp-page="/Avent"asp-route-id="@avent.Id"> @avent.Title </a></h3>
+										<h3><a asp-page="/Avent"asp-route-id="@avent.Id"> @avent.Mozo </a></h3>
 										
 									</div>
 								</div>
@@ -118,7 +118,84 @@
 						
 					</div>
 
-					<button class="main__load" type="button">بیشتر ببین</button>
+					<!------------------------------------------>
+					
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <div class="breadcrumb">
+						          <section class="breadcrumb__item breadcrumb__item--active">
+									   <div class="row">
+				
+				<style>
+					.my-center{
+                      text-align:center;
+                    }
+                   .pagination {
+                     display: inline-block;
+                    }
+                    
+                    .pagination a {
+                     color: #7FFF00;
+                     float: right; /* شناور کردن در سمت راست */
+                     padding: 8px 16px;
+                     text-decoration: none; /* حذف خط زیر لینک */
+					 border-radius:50px;
+					  border: 1px solid #ddd;
+					  margin:0 3px;
+					  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+                    }
+                    
+                    .pagination a.active{
+                     background-color:#FF0000;
+                     color:#fff;
+                    }
+                    
+                    .pagination a:hover:not(.active){
+                     background-color:#FF00FF;
+                    }
+                </style>
+				 <div class="col-12">
+				<div class="pagination">
+					<table >
+						<thead>
+							<tr>
+                           @if (Model.avent.CurrentPage > 1)
+									{
+										<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+											<a href="/Avents?pageId=@(Model.avent.CurrentPage - 1)">قبلی</a> </th> 
+										<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+											<a href="/Avents?pageId=1">اولین صفحه</a></th>
+									}
+						   @for (int i = 1; i <= Model.avent.PageCount; i++)
+									{
+									<th class="paginate_button @((i==Model.avent.CurrentPage)? "active" : "")" aria-controls="dataTables-example" tabindex="0">
+										<a  href="/Avents?pageId=@i">@i</a></th>	
+									}
+									@if (Model.avent.CurrentPage < Model.avent.PageCount)
+									{
+									<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+										<a href="/Avents?pageId=@(Model.avent.CurrentPage + 1)">بعدی</a> </th>	
+									<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+										<a href="/Avents?pageId=@(Model.avent.PageCount)">اخرین صفحه</a></th>	
+									}
+							</tr>
+						</thead>
+					</table>
+						 
+					
+                </div>
+				 
+			</div>
+               
+            </div>
+									  
+									  </section>
+					           </div>
+				            </div>
+				
+		  </div>
+					<!-------------------------------------------->
 				</div>
 		</div>
 			<!-- end releases -->

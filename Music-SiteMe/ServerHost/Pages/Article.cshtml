@@ -1,7 +1,7 @@
 ﻿@page "{id}"
 @model ServiceHost.Pages.ArticleModel
 @{
-    ViewData["Title"] = Model.Article.Title;
+    ViewData["Title"] = Model.Article.Mozo;
     ViewData["keywords"] = Model.Article.Keywords;
     ViewData["metaDescription"] = Model.Article.MetaDescription;
 }
@@ -13,7 +13,7 @@
 					<ul class="breadcrumb breadcrumb--hidden-desk">
 						<li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
 						<li class="breadcrumb__item"><a href="news.html">@Model.Article.CategoryName</a></li>
-						<li class="breadcrumb__item breadcrumb__item--active">@Model.Article.Title</li>
+						<li class="breadcrumb__item breadcrumb__item--active">@Model.Article.Mozo</li>
 					</ul>
 				</div>
 				<!-- end breadcrumb -->
@@ -23,19 +23,20 @@
 						<!-- article content -->
 						<div class="article__content">
 							<div class ="col-8">
-								<img src="~/Cafee-Music/@Model.Article.Picture" alt="@Model.Article.PictureAlt" title="@Model.Article.PictureTitle">
+								<img src="~/Cafee-Music/@Model.Article.Picture" style="width: 880px; height: 400px" alt="@Model.Article.PictureAlt" title="@Model.Article.PictureTitle">
+								<span class="article__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> @Model.Article.PublishDate</span>
 								<div class="article__meta">
 								<a href="#" class="article__category">مستند</a>
 
-								<span class="article__date"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20ZM14.09814,9.63379,13,10.26807V7a1,1,0,0,0-2,0v5a1.00025,1.00025,0,0,0,1.5.86621l2.59814-1.5a1.00016,1.00016,0,1,0-1-1.73242Z"/></svg> @Model.Article.PublishDate</span>
+								
 							</div>
                             </div>
 							
 							
 
-							<h1> @Model.Article.Title</h1>
-
-							<p> @Model.Article.Description</p>
+							<h1> @Model.Article.Mozo</h1>
+                            <div><p>@Html.Raw(@Model.Article.Description)</p></div>
+							
 
 	
 						</div>
@@ -105,9 +106,13 @@
 								    	<textarea name="message" class="sign__textarea" placeholder="پیام خود را بنویسید . . ."></textarea>
 								   </div>
 							   </div>
-								<input type="hidden" name="ownerRecordId" value="@Model.Article.Id" />
+								<input type="hidden" name="ownerRecordName" value="@Model.Article.Mozo" />
+								<input type="hidden" name="ownerRecordCatgory" value="@Model.Article.CategoryName" />
+								<input type="hidden" name="ownerRecordSinger" value="@Model.Article.CategoryName" />
+
 								<input type="hidden" name="musicSlug" value="@Model.Article.Slug" />
 								<input type="hidden" name="parentId" id="commentParentId" value="" />
+								
 								<div class="col-12 col-xl-3">
 								   <button type="submit" class="sign__btn"  name="submit">ارسال</button>
 							    </div>

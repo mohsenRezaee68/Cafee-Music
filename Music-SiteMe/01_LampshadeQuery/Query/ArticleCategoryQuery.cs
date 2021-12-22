@@ -28,8 +28,7 @@ namespace _01_LampshadeQuery.Query
                 {
                     Name = x.Name,
                     Picture = x.Picture,
-                    PictureAlt = x.PictureAlt,
-                    PictureTitle = x.PictureTitle,
+                  
                     Slug = x.Slug,
                     ArticlesCount = x.Articles.Count
                 }).ToList();
@@ -43,13 +42,11 @@ namespace _01_LampshadeQuery.Query
                 {
                     Slug = x.Slug,
                     Name = x.Name,
-                    Description = x.Description,
+                   
                     Picture = x.Picture,
-                    PictureAlt = x.PictureAlt,
-                    PictureTitle = x.PictureTitle,
+                   
                     Keywords = x.Keywords,
-                    MetaDescription = x.MetaDescription,
-                    CanonicalAddress = x.CanonicalAddress,
+                   
                     ArticlesCount = x.Articles.Count,
                     Articles = MapArticles(x.Articles)
                 }).FirstOrDefault(x => x.Slug == slug);
@@ -67,11 +64,11 @@ namespace _01_LampshadeQuery.Query
                 Id = x.Id,
                 Slug = x.Slug,
                 ShortDescription = x.ShortDescription,
-                Title = x.Title,
+                Mozo = x.Mozo,
                 Picture = x.Picture,
                 PictureAlt = x.PictureAlt,
                 PictureTitle = x.PictureTitle,
-                PublishDate = x.PublishDate.ToFarsi(),
+                PublishDate = x.CreationDate.ToFarsi(),
             }).ToList();
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using AccountManagement.Application.Contracts.Tak;
+using System.Collections.Generic;
 
 
 namespace _01_LampshadeQuery.Contracts.Music
@@ -7,8 +8,10 @@ namespace _01_LampshadeQuery.Contracts.Music
     {
         MusicQueryModel GetAlbomDetails(long id);
         List<MusicQueryModel> GetAlbomMusics();
-        List<MusicQueryModel> GetAllAlbomMusics();
-
+        
+        MohsenViowModel mohsenViowModel(int pageId = 1);
+        takViewforadmin AllMusicTak(int pageId = 1);
+        takViewforadmin MazhabiTak(int pageId = 1);
         List<MusicQueryModel> SearchAlbom(string value);
         List<MusicQueryModel> SearchTrack(string value);
         List<MusicQueryModel> ArshivMusic();
@@ -17,6 +20,8 @@ namespace _01_LampshadeQuery.Contracts.Music
         List<MusicQueryModel> ArshivMenal();
         List<MusicQueryModel> GetAllTrackss();
         List<MusicQueryModel> GetMusicDetails();
+        List<MusicQueryModel> GetMusicmenallDetails();
+        List<MusicQueryModel> GetMusicmazhabiDetails();
         List<MusicQueryModel> GetAllTracksMazhabi();
         List<MusicQueryModel> SearchMazhabi(string value);
         List<MusicQueryModel> GetLatestArrivals();

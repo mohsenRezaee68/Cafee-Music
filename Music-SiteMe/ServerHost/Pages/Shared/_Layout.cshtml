@@ -35,7 +35,7 @@
 	<header class="header">
 		<div class="header__content">
 			<div class="header__logo">
-				<a href="#">
+				<a asp-page="/Index">
 				<img src="~/cafe.svg">
 				</a>
 			</div>
@@ -95,7 +95,7 @@
 	<div class="sidebar">
 		<!-- sidebar logo -->
 		<div class="sidebar__logo">
-			<img src="~/cafe.svg" style="width:200px; height:100px">
+			<a asp-page="/Index"><img src="~/cafe.svg" style="width:200px; height:100px"></a>
 		</div>
 		<!-- end sidebar logo -->
 		
@@ -104,7 +104,17 @@
 			<li class="sidebar__nav-item">
 				<a asp-page="/Index" class="sidebar__nav-link sidebar__nav-link--active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,8h0L14,2.74a3,3,0,0,0-4,0L4,8a3,3,0,0,0-1,2.26V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V10.25A3,3,0,0,0,20,8ZM14,20H10V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Zm5-1a1,1,0,0,1-1,1H16V15a3,3,0,0,0-3-3H11a3,3,0,0,0-3,3v5H6a1,1,0,0,1-1-1V10.25a1,1,0,0,1,.34-.75l6-5.25a1,1,0,0,1,1.32,0l6,5.25a1,1,0,0,1,.34.75Z"></path></svg> <span>صفحه اصلی</span></a>
 			</li>
-
+			 @if (AuthHelper.IsAuthenticated())
+                 {
+			<li class="sidebar__nav-item">
+				<a asp-page="/Profile" class="sidebar__nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,14H8a1,1,0,0,0,0,2h8a1,1,0,0,0,0-2Zm0-4H10a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Zm4-6H17V3a1,1,0,0,0-2,0V4H13V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H4A1,1,0,0,0,3,5V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V5A1,1,0,0,0,20,4ZM19,19a1,1,0,0,1-1,1H6a1,1,0,0,1-1-1V6H7V7A1,1,0,0,0,9,7V6h2V7a1,1,0,0,0,2,0V6h2V7a1,1,0,0,0,2,0V6h2Z"/></svg> <span>پروفایل</span></a>
+			</li>
+			}
+			<li class="sidebar__nav-item">
+				<a asp-page="/Contact" class="sidebar__nav-link"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,14H8a1,1,0,0,0,0,2h8a1,1,0,0,0,0-2Zm0-4H10a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Zm4-6H17V3a1,1,0,0,0-2,0V4H13V3a1,1,0,0,0-2,0V4H9V3A1,1,0,0,0,7,3V4H4A1,1,0,0,0,3,5V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V5A1,1,0,0,0,20,4ZM19,19a1,1,0,0,1-1,1H6a1,1,0,0,1-1-1V6H7V7A1,1,0,0,0,9,7V6h2V7a1,1,0,0,0,2,0V6h2V7a1,1,0,0,0,2,0V6h2Z"/></svg> <span>تماس با ما</span></a>
+			</li>
+			
+				
 			<li class="sidebar__nav-item">
 				<a class="sidebar__nav-link" data-toggle="collapse" href="#collapseMenu1" role="button" aria-expanded="false" aria-controls="collapseMenu1"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,5.5H12.72l-.32-1a3,3,0,0,0-2.84-2H5a3,3,0,0,0-3,3v13a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V8.5A3,3,0,0,0,19,5.5Zm1,13a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5.5a1,1,0,0,1,1-1H9.56a1,1,0,0,1,.95.68l.54,1.64A1,1,0,0,0,12,7.5h7a1,1,0,0,1,1,1Z"/></svg> <span>موسیقی</span> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"/></svg></a>
 
@@ -114,7 +124,9 @@
 						<li><a asp-page="/Musics">موزیک</a></li>
 						<li><a asp-page="/UserMusic">گلچین کاربران</a></li>
 						<li><a asp-page="/MusicMazhabi">مذهبی</a></li>
+
 						
+				
 					</ul>
 				</div>
 			</li>
@@ -143,8 +155,8 @@
 		</div>
 
 		<div class="player__content">
-			<span class="player__track"><b class="player__title">سازش کوچه ها</b> – <span class="player__artist">والی</span></span>
-			<audio src="~/Cafee-Music/Cover/Wali-Sazesh-Kucha.mp3" id="audio" controls></audio>
+			<span class="player__track"><b class="player__title">سرزمین من</b> – <span class="player__artist">داوود سرخوش</span></span>
+			<audio src="~/Cafee-Music/PISH/Davood Sarkhosh - Sarzamine Man (320).mp3" id="audio" controls></audio>
 		</div>
 	</div>
 
@@ -178,7 +190,10 @@
 					<h6 class="footer__title">کافه ترنم</h6>
 					<div class="footer__nav">
 						
-						<a asp-page="/Profile">پروفایل من</a>
+						 @if (AuthHelper.IsAuthenticated())
+                 {
+				<a asp-page="/Profile">پروفایل</a>
+				}
 						<a asp-page="/Albom">آلبوم ها</a>
 						<a asp-page="/Contact">تماس باما</a>
 					</div>
@@ -255,6 +270,23 @@
 	
 	<!------------------------------------------->
 	@RenderSection("Scripts", false)
+<!-- Default Statcounter code for my music
+http://www.cafetaranom-afg.ir -->
+<script type="text/javascript">
+var sc_project=12690854; 
+var sc_invisible=1; 
+var sc_security="1fa79d9c"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="web counter"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/12690854/0/1fa79d9c/1/"
+alt="web counter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
 </body>
 
 </html>

@@ -47,7 +47,7 @@
 
     </h4>
 </div>
-<div class="row" id="ProductCategoriesDiv"permission="@ArtistPermissions.ListArtist">
+<div class="row" permission="@ArtistPermissions.ListArtist">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -68,50 +68,52 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.Artists)
-                                {
-                                    <tr>
-                                        <td>@item.Id</td>
-                                        <td>
-                                             @if(item.Picture == null)
-                                            {
-                                                 <img src="~/کافه.png" style="width: 70px; height: 70px" />
-                                             }
-                                            else
-                                            {
-                                                <img src="~/Cafee-Music/@item.Picture" style="width: 70px; height: 70px" />
-                                            }
-                                            
-                                        </td>
-                                        <td>@item.Name</td>
-                                        <td>@item.Laghab</td>
-                                        <td class="text-center">
-                                            @if (!item.IsRemoved)
-                                            {
-                                                <i class="fa fa-check fa-3x text-success"></i>
-                                            }
-                                            else
-                                            {
-                                                <i class="fa fa-remove fa-3x text-danger"></i>
-                                            }
-                                        </td>
-                                        <td>
-                                            <a permission="@ArtistPermissions.EditArtist" class="btn btn-warning pull-right m-rl-5" asp-page="./Edit" asp-route-id="@item.Id">
-                                                <i class="fa fa-edit"></i> ویرایش
-                                            </a>
-                                              @if (!item.IsRemoved)
-                                            {
-                                                <a permission="@ArtistPermissions.DeleteArtist" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id"
+                             
+                                    @foreach (var item in Model.Artists.OrderByDescending(x => x.Id).Take(20).ToList())
+                                    {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>
+                                                @if (item.Picture == null)
+                                                {
+                                                    <img src="~/کافه.png" style="width: 70px; height: 70px" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Cafee-Music/@item.Picture" style="width: 70px; height: 70px" />
+                                                }
+
+                                            </td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Laghab</td>
+                                            <td class="text-center">
+                                                @if (!item.IsRemoved)
+                                                {
+                                                    <i class="fa fa-check fa-3x text-success"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fa fa-remove fa-3x text-danger"></i>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a permission="@ArtistPermissions.EditArtist" class="btn btn-warning pull-right m-rl-5" asp-page="./Edit" asp-page-handler="Edit"  asp-route-id="@item.Id">
+                                                    <i class="fa fa-edit"></i> ویرایش
+                                                </a>
+                                                @if (!item.IsRemoved)
+                                                {
+                                                    <a permission="@ArtistPermissions.DeleteArtist" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id"
                                                    class="btn btn-danger waves-effect waves-light m-b-5">حذف</a>
-                                            }
-                                            else
-                                            {
-                                                <a permission="@ArtistPermissions.NoDeleteArtist" asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id"
+                                                }
+                                                else
+                                                {
+                                                    <a permission="@ArtistPermissions.RestorArtist" asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id"
                                                    class="btn btn-success waves-effect waves-light m-b-5">فعال سازی</a>
-                                            }
-                                        </td>
-                                    </tr>
-                                }
+                                                }
+                                            </td>
+                                        </tr>
+                                    }
+                              
                             </tbody>
                         </table>
                     </div>

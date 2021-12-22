@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using _01_LampshadeQuery.Contracts.Music;
+using System.Collections.Generic;
 
 namespace _01_LampshadeQuery.Contracts.Article
 {
@@ -12,5 +13,7 @@ namespace _01_LampshadeQuery.Contracts.Article
         List<ArticleQueryModel> SearchAvents(string value);
         List<ArticleQueryModel> LatestArticleAlls();
         List<ArticleQueryModel> SearchArticles(string value);
+        BlogArticleViowMode Articles(int pageId = 1);
+        BlogAventViowModel Avents(int pageId = 1);
     }
 }

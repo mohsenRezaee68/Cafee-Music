@@ -5,12 +5,10 @@ namespace CommentManagement.Configuration.Permissions
     public static class CommentPermissions
     {
         //Comment
-        public const int ListComments = 32;
-        public const int SearchComments = 33;
-       
         
-        public const int DeleteComment = 34;
-        public const int NoDeleteComment = 35;
+        public const int SearchComments =25;
+       public const int DeleteComment =26;
+        public const int RestorComment =27;
        
     }
 }

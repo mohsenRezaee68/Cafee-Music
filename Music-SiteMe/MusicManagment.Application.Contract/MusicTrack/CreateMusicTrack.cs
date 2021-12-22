@@ -18,6 +18,7 @@ namespace MusicManagement.Application.Contracts.MusicTrack
 
         public long CategoryId { get; set; }
          public List<MusicViewModel> Musics { get; set; }
+        public string Frestande { get; set; }
     }
 }
 

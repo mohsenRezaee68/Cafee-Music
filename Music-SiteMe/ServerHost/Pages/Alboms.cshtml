@@ -3,8 +3,9 @@
 @model ServiceHost.Pages.AlbomsModel
 @{
     ViewData["Title"] = "آلبوم ها";
-
-   	  
+	 int pageNumber = 1;
+    int pageSize = 20;
+  
 }
 
 <div class="container-fluid">
@@ -31,64 +32,14 @@
 		<div class="row row--grid">
 				<div class="col-12">
 					<div class="main__filter">
-						<form  method="get" asp-page="/Alboms"  class="main__filter-search">
+						<form  method="get" asp-page="/Search"  class="main__filter-search">
 							<input type="search"  name="value" id="value"  placeholder="جست و جو ...">
 							<button type="submit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/></svg></button>
 						</form>
 
 						
 					</div>
-
-					@if(Model.values != null)
-
-			{
-									{
           <div class="row row--grid">
-			<div class="col-12">
-			<div class="row row--grid">
-				          <!-- breadcrumb -->
-				            <div class="col-12">
-					           <ul class="breadcrumb">
-						          <li class="breadcrumb__item breadcrumb__item--active">نتیجه جستجو : @Model.values</li>
-					           </ul>
-				            </div>
-				
-		             </div>
-
-				<div class="row row--grid ">
-
-					@foreach (var product in Model.MusicsAlbom)
-
-					{	
-						<div class="col-6 col-sm-4 col-lg-2">
-								<div class="album">
-									<div class="album__cover">
-										<img src="~/Cafee-Music/@product.Picture" alt="" asp-page="/Albom" asp-route-id="@product.Id">
-										<a asp-page="/Albom" asp-route-id="@product.Id">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-										<path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"/></svg></a>
-										<span class="album__stat">
-											<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3.71,16.29a1,1,0,0,0-.33-.21,1,1,0,0,0-.76,0,1,1,0,0,0-.33.21,1,1,0,0,0-.21.33,1,1,0,0,0,.21,1.09,1.15,1.15,0,0,0,.33.21.94.94,0,0,0,.76,0,1.15,1.15,0,0,0,.33-.21,1,1,0,0,0,.21-1.09A1,1,0,0,0,3.71,16.29ZM7,8H21a1,1,0,0,0,0-2H7A1,1,0,0,0,7,8ZM3.71,11.29a1,1,0,0,0-1.09-.21,1.15,1.15,0,0,0-.33.21,1,1,0,0,0-.21.33.94.94,0,0,0,0,.76,1.15,1.15,0,0,0,.21.33,1.15,1.15,0,0,0,.33.21.94.94,0,0,0,.76,0,1.15,1.15,0,0,0,.33-.21,1.15,1.15,0,0,0,.21-.33.94.94,0,0,0,0-.76A1,1,0,0,0,3.71,11.29ZM21,11H7a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2ZM3.71,6.29a1,1,0,0,0-.33-.21,1,1,0,0,0-1.09.21,1.15,1.15,0,0,0-.21.33.94.94,0,0,0,0,.76,1.15,1.15,0,0,0,.21.33,1.15,1.15,0,0,0,.33.21,1,1,0,0,0,1.09-.21,1.15,1.15,0,0,0,.21-.33.94.94,0,0,0,0-.76A1.15,1.15,0,0,0,3.71,6.29ZM21,16H7a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Z"/></svg> @product.Melyat</span>
-											<span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,13.18V11A8,8,0,0,0,4,11v2.18A3,3,0,0,0,2,16v2a3,3,0,0,0,3,3H8a1,1,0,0,0,1-1V14a1,1,0,0,0-1-1H6V11a6,6,0,0,1,12,0v2H16a1,1,0,0,0-1,1v6a1,1,0,0,0,1,1h3a3,3,0,0,0,3-3V16A3,3,0,0,0,20,13.18ZM7,15v4H5a1,1,0,0,1-1-1V16a1,1,0,0,1,1-1Zm13,3a1,1,0,0,1-1,1H17V15h2a1,1,0,0,1,1,1Z"/></svg> @product.Sabk</span>
-										</span>
-									</div>
-									<div class="album__title">
-										<h3><a href="release.html">@product.Name</a></h3>
-										<span><a asp-page="/Singer"asp-route-id="@product.Singer">@product.Singer</a></span>
-									</div>
-								</div>
-							</div>
-
-						}
-					
-				</div>
-
-					
-				</div>
-			</div>
-					}
-			}
-			<div class="row row--grid">
 			<div class="col-12">
 			<div class="row row--grid">
 				          <!-- breadcrumb -->
@@ -102,12 +53,12 @@
 			 <div class="row row--grid">
 				
 
-						@foreach (var afg in Model.music)
+						@foreach (var afg in Model.Albooms.Alboms)
 				            {
 								<div class="col-6 col-sm-4 col-lg-2">
 						<div class="album">
 							<div class="album__cover">
-								<img src="~/Cafee-Music/@afg.Picture" alt="@afg.PictureAlt" asp-page="/Albom" asp-route-id="@afg.Id">
+								<img src="~/Cafee-Music/@afg.Picture"style="width:155px; height: 155px"  alt="@afg.PictureAlt" asp-page="/Albom" asp-route-id="@afg.Id">
 								<a asp-page="/Albom" asp-route-id="@afg.Id" ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 								<path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"/></svg></a>
 								<span class="album__stat">
@@ -125,14 +76,89 @@
 				             }
 				
 
-						
-					</div>
-
-					<button class="main__load" type="button">بیشتر ببین</button>
-				</div>
+				
 		</div>
 			<!-- end releases -->
+
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <div class="breadcrumb">
+						          <section class="breadcrumb__item breadcrumb__item--active">
+									   <div class="row">
+				
+				<style>
+					.my-center{
+                      text-align:center;
+                    }
+                   .pagination {
+                     display: inline-block;
+                    }
+                    
+                    .pagination a {
+                     color: #7FFF00;
+                     float: right; /* شناور کردن در سمت راست */
+                     padding: 8px 16px;
+                     text-decoration: none; /* حذف خط زیر لینک */
+					 border-radius:50px;
+					  border: 1px solid #ddd;
+					  margin:0 3px;
+					  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+                    }
+                    
+                    .pagination a.active{
+                     background-color:#FF0000;
+                     color:#fff;
+                    }
+                    
+                    .pagination a:hover:not(.active){
+                     background-color:#FF00FF;
+                    }
+                </style>
+				 <div class="col-12">
+				<div class="pagination">
+					<table >
+						<thead>
+							<tr>
+                           @if (Model.Albooms.CurrentPage > 1)
+									{
+										<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+											<a href="/Alboms?pageId=@(Model.Albooms.CurrentPage - 1)">قبلی</a> </th> 
+										<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+											<a href="/Alboms?pageId=1">اولین صفحه</a></th>
+									}
+						   @for (int i = 1; i <= Model.Albooms.PageCount; i++)
+									{
+									<th class="paginate_button @((i==Model.Albooms.CurrentPage)? "active" : "")" aria-controls="dataTables-example" tabindex="0">
+										<a  href="/Alboms?pageId=@i">@i</a></th>	
+									}
+									@if (Model.Albooms.CurrentPage < Model.Albooms.PageCount)
+									{
+									<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+										<a href="/Alboms?pageId=@(Model.Albooms.CurrentPage + 1)">بعدی</a> </th>	
+									<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+										<a href="/Alboms?pageId=@(Model.Albooms.PageCount)">اخرین صفحه</a></th>	
+									}
+							</tr>
+						</thead>
+					</table>
+						 
+					
+                </div>
+				 
+			</div>
+               
+            </div>
+									  
+									  </section>
+					           </div>
+				            </div>
+				
+		  </div>
+		 
         </div>
+		
+
       </div>
 
 </div>

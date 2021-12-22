@@ -5,15 +5,15 @@
     Layout = "Shared/_AdminLayout";
     ViewData["title"] = "مدیریت گروه موسیقی";
 }
-<div class="row"permission="@MusicPermissions.CreateMusicCategory">
+<div class="row">
     <div class="col-sm-12">
         <h4 class="page-title pull-right">@ViewData["title"]</h4>
         <p class="pull-left">
-            <a class="btn gradient-green-tea white shadow-z-1-hover" href="#showmodal=@Url.Page("./Index","Create")">ایجاد گروه موسیقی جدید</a>
+            <a permission="@MusicPermissions.CreatCategory" class="btn gradient-green-tea white shadow-z-1-hover" href="#showmodal=@Url.Page("./Index","Create")">ایجاد گروه موسیقی جدید</a>
         </p>
     </div>
 </div>
-<div class="row"permission="@MusicPermissions.SearchMusicCategories">
+<div class="row"permission="@MusicPermissions.SerchCategory">
     <div class="col-md-12">
            <div class="panel-heading">
                 <h4 class="panel-title">جستجو در گروه دسته بندی ها</h4>
@@ -40,7 +40,7 @@
     </div>
 
 
-<div class="row" id="ProductCategoriesDiv"permission="@MusicPermissions.ListMusicCategories">
+<div class="row" permission="@MusicPermissions.ListCategory">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -82,7 +82,7 @@
                                         <td>@item.Name</td>
                                         <td>@item.CreationDate</td>
                                         <td>
-                                            <a permission="@MusicPermissions.EditMusicCategory" class="btn btn-warning pull-right m-rl-5" 
+                                            <a permission="@MusicPermissions.EditeCategory" class="btn btn-warning pull-right m-rl-5" 
                                                href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.Id})">
                                                 <i class="fa fa-edit"></i> ویرایش
                                             </a>

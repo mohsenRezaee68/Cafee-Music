@@ -28,7 +28,6 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
             {
                 Id = x.Id,
                 Name = x.Name,
-                
                 Singer=x.Singer,
                 Melyat = x.Melyat,
                 Sabk = x.Sabk,
@@ -55,7 +54,7 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
                 Sabk = x.Sabk,
                 Melyat = x.Melyat
 
-            }).ToList();
+            }).OrderByDescending(x => x.Id).ToList();
         }
 
       
@@ -93,7 +92,10 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
 
             if (!string.IsNullOrWhiteSpace(searchModel.Singer))
                 query = query.Where(x => x.Singer.Contains(searchModel.Singer));
-            return query.OrderByDescending(x => x.Id).ToList();
+            query.Take(20).ToList();
+            query.OrderByDescending(x => x.Id).ToList();
+            return query
+                .ToList();
         }
     }
 }

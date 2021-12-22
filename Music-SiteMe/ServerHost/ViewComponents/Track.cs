@@ -7,7 +7,7 @@ namespace ServiceHost.ViewComponents
     public class Track : ViewComponent
     {
         private readonly IMusicQuery _musicQuery;
-
+       
         public Track(IMusicQuery musicQuery)
         {
             _musicQuery = musicQuery;
@@ -15,9 +15,9 @@ namespace ServiceHost.ViewComponents
 
         public IViewComponentResult Invoke()
         {
-            var Afg = _musicQuery.GetMusicDetails();
+            var afg = _musicQuery.GetMusicDetails();
            
-            return View(Afg );
+            return View(afg);
            
         }
     }

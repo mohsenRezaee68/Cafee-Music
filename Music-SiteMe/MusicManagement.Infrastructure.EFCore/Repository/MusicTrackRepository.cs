@@ -60,7 +60,8 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
                 query = query.Where(x => x.TrackId == searchModel.TrackId);
 
            
-            return query.OrderByDescending(x => x.Id).ToList();
+            query.OrderByDescending(x => x.Id).ToList();
+            return query.ToList();
         }
     }
 }

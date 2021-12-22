@@ -23,7 +23,7 @@ namespace ServiceHost.Areas.Admin.Pages.Blog.Articles
             _articleApplication = articleApplication;
             _articleCategoryApplication = articleCategoryApplication;
         }
-        [NeedsPermission(BlogPermissions.ListArticles)]
+        [NeedsPermission(BlogPermissions.SearchArticles)]
         public void OnGet(ArticleSearchModel searchModel)
         {
             ArticleCategories = new SelectList(_articleCategoryApplication.GetArticleCategories(), "Id", "Name");
@@ -39,7 +39,8 @@ namespace ServiceHost.Areas.Admin.Pages.Blog.Articles
             Message = result.Message;
             return RedirectToPage("./Index");
         }
-        [NeedsPermission(BlogPermissions.NoDeleteArticle)]
+        [NeedsPermission(BlogPermissions.RestorArticle
+            )]
         public IActionResult OnGetRestore(long id)
         {
             var result = _articleApplication.Restore(id);

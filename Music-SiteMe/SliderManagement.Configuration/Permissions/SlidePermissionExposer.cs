@@ -12,12 +12,11 @@ namespace SlideManagement.Configuration.Permissions
                 {
                     "Slider", new List<PermissionDto>
                     {
-                        new PermissionDto(SlidePermissions.ListSlides, "ListSlides"),
-                        new PermissionDto(SlidePermissions.SearchSlides, "SearchSlides"),
-                        new PermissionDto(SlidePermissions.CreateSlide, "CreateSlide"),
-                        new PermissionDto(SlidePermissions.EditSlide, "EditSlide"),
-                        new PermissionDto(SlidePermissions.DeleteSlide, "DeleteSlide"),
-                        new PermissionDto(SlidePermissions.NoDeleteSlide, "NoDeleteSlide"),
+                        new PermissionDto(SlidePermissions.List, "GetList"),
+                        new PermissionDto(SlidePermissions.Creat, "Create"),
+                        new PermissionDto(SlidePermissions.Edite, "Edit"),
+                        new PermissionDto(SlidePermissions.Remove, "Remove"),
+                        new PermissionDto(SlidePermissions.Restor, "Restore"),
                     }
                 }
             };

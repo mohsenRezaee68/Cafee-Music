@@ -64,37 +64,38 @@ namespace ServerHost
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminArea",
-                    builder => builder.RequireRole(new List<string> { Roles.Administrator, Roles.Operator }));
+                    builder => builder.RequireRole(new List<string> { Roles.Administrator, Roles.ContentUploader }));
 
                 options.AddPolicy("Accounts",
                     builder => builder.RequireRole(new List<string> { Roles.Administrator }));
 
                 options.AddPolicy("Artists",
-                    builder => builder.RequireRole(new List<string> { Roles.Administrator, Roles.Operator }));
+                    builder => builder.RequireRole(new List<string> { Roles.Administrator }));
 
                 options.AddPolicy("Blog",
-                    builder => builder.RequireRole(new List<string> { Roles.Administrator, Roles.Operator }));
+                    builder => builder.RequireRole(new List<string> { Roles.Administrator }));
                 options.AddPolicy("Comments",
-                    builder => builder.RequireRole(new List<string> { Roles.Administrator, Roles.Operator }));
+                    builder => builder.RequireRole(new List<string> { Roles.Administrator }));
                 options.AddPolicy("Contact",
-                    builder => builder.RequireRole(new List<string> { Roles.Administrator, Roles.Operator }));
+                    builder => builder.RequireRole(new List<string> { Roles.Administrator }));
                 options.AddPolicy("Musics",
-                    builder => builder.RequireRole(new List<string> { Roles.Administrator, Roles.Operator }));
+                    builder => builder.RequireRole(new List<string> { Roles.Administrator}));
                 options.AddPolicy("Sliders",
                     builder => builder.RequireRole(new List<string> { Roles.Administrator }));
+               
             });
-
+            
             services.AddRazorPages()
                .AddMvcOptions(options => options.Filters.Add<SecurityPageFilter>())
                .AddRazorPagesOptions(options =>
                {
-                   options.Conventions.AuthorizeAreaFolder("Administration", "/", "AdminArea");
-                   options.Conventions.AuthorizeAreaFolder("Administration", "/Accounts", "Accounts");
-                   options.Conventions.AuthorizeAreaFolder("Administration", "/Artists", "Artists");
-                   options.Conventions.AuthorizeAreaFolder("Administration", "/Comments", "Comments");
+                   options.Conventions.AuthorizeAreaFolder("Administration", "/","AdminArea");
+                   options.Conventions.AuthorizeAreaFolder("Administration", "/Accounts", "Account");
+                   options.Conventions.AuthorizeAreaFolder("Administration", "/Artists", "Artist");
+                   options.Conventions.AuthorizeAreaFolder("Administration", "/Comments", "Comment");
                    options.Conventions.AuthorizeAreaFolder("Administration", "/Contact", "Contact");
-                   options.Conventions.AuthorizeAreaFolder("Administration", "/Musics", "Musics");
-                   options.Conventions.AuthorizeAreaFolder("Administration", "/Sliders", "Sliders");
+                   options.Conventions.AuthorizeAreaFolder("Administration", "/Musics", "Music");
+                   options.Conventions.AuthorizeAreaFolder("Administration", "/Sliders", "Slider");
                    options.Conventions.AuthorizeAreaFolder("Administration", "/Blog", "Blog");
                });
         }

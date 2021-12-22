@@ -27,8 +27,8 @@
                         <input class="form-control" asp-for="SearchModel.Name" placeholder="نام فرستنده">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label class="sr-only" asp-for="SearchModel.OwnerRecordId"></label>
-                        <input class="form-control" asp-for="SearchModel.OwnerRecordId" placeholder="کد">
+                        <label class="sr-only" asp-for="SearchModel.Email"></label>
+                        <input class="form-control" asp-for="SearchModel.Email" placeholder="کد">
                     </fieldset>
                     <button type="submit" class="btn gradient-green-tea white shadow-z-1-hover">جستجو</button>
                     <a class="btn gradient-blue-grey-blue white shadow-big-navbar" asp-page="./Index">مشاهده همه</a>
@@ -64,50 +64,53 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.Comments)
+                                @if (Model.Comments.Count <= 30)
                                 {
-                                    <tr>
-                                      @if(item.Type == 5)
+                                    @foreach (var item in Model.Comments.OrderByDescending(x => x.Id).Take(20).ToList())
                                     {
-                                        <td>@item.Id</td>
-                                    
-                                        <td>@item.Name</td>
-                                        <td>@item.Email</td>
-                                      
-                                        <td>@item.Website</td>
-                                        <td>@item.Message</td>
-                                        <td>@item.CommentDate</td>
-                                        
-                                        
-                                       <td class="text-center">
-                                            @if (item.IsCanceled)
+                                        <tr>
+                                            @if (item.Type == 5)
                                             {
-                                                <span class="text-danger">خانده شده</span>
-                                            }
-                                            @if (!item.IsCanceled && !item.IsConfirmed)
-                                            {
-                                                <span class="text-warning">در انتظار</span>
-                                            }
-                                            @if (!item.IsCanceled && item.IsConfirmed)
-                                            {
-                                                <span class="text-success">تایید شده</span>
-                                            }
-                                        </td>
-                                        <td>
-                                            <a asp-page="./Index" asp-page-handler="Cancel" asp-route-id="@item.Id"
+                                                <td>@item.Id</td>
+
+                                                <td>@item.Name</td>
+                                                <td>@item.Email</td>
+
+                                                <td>@item.Website</td>
+                                                <td>@item.Message</td>
+                                                <td>@item.CommentDate</td>
+
+
+                                                <td class="text-center">
+                                                    @if (item.IsCanceled)
+                                                    {
+                                                        <span class="text-danger">خانده شده</span>
+                                                    }
+                                                    @if (!item.IsCanceled && !item.IsConfirmed)
+                                                    {
+                                                        <span class="text-warning">در انتظار</span>
+                                                    }
+                                                    @if (!item.IsCanceled && item.IsConfirmed)
+                                                    {
+                                                        <span class="text-success">تایید شده</span>
+                                                    }
+                                                </td>
+                                                <td>
+                                                    <a asp-page="./Index" asp-page-handler="Cancel" asp-route-id="@item.Id"
                                                class="btn btn-danger waves-effect waves-light m-b-5">کنسل</a>
 
-                                            @if (!item.IsConfirmed)
-                                            {
-                                                <a asp-page="./Index" asp-page-handler="Confirm" asp-route-id="@item.Id"
+                                                    @if (!item.IsConfirmed)
+                                                    {
+                                                        <a asp-page="./Index" asp-page-handler="Confirm" asp-route-id="@item.Id"
                                                    class="btn btn-success waves-effect waves-light m-b-5">تایید</a>
+                                                    }
+
+                                                </td>
                                             }
 
-                                        </td>
+
+                                        </tr>
                                     }
-                                    
-                                        
-                                    </tr>
                                 }
                             </tbody>
                         </table>

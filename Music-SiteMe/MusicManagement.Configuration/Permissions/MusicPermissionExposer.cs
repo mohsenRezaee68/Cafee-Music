@@ -10,36 +10,46 @@ namespace MusicManagement.Configuration.Permissions
             return new Dictionary<string, List<PermissionDto>>
             {
                 {
-                    "Albom", new List<PermissionDto>
+                    "MusicCategory", new List<PermissionDto>
                     {
-                        new PermissionDto(MusicPermissions.ListAlboms, "ListAlboms"),
-                        new PermissionDto(MusicPermissions.SearchAlboms, "SearchAlboms"),
-                        new PermissionDto(MusicPermissions.CreateAlbom, "CreateAlbom"),
-                        new PermissionDto(MusicPermissions.EditAlbom, "EditAlbom"),
-                        new PermissionDto(MusicPermissions.DeleteAlbom, "DeleteAlbom"),
-                        new PermissionDto(MusicPermissions.NoDeleteAlbom, "NoDeleteAlbom"),
+                        new PermissionDto(MusicPermissions.CreatCategory, "Create"),
+                        new PermissionDto(MusicPermissions.EditeCategory, "Edit"),
+                        new PermissionDto(MusicPermissions.ListCategory, "GetMusicCategories"),
+                        new PermissionDto(MusicPermissions.SerchCategory, "Search"),
+                       
                     }
                 },
                  {
                     "TrackMusic", new List<PermissionDto>
                     {
-                        new PermissionDto(MusicPermissions.ListTracks, "ListTracks"),
-                        new PermissionDto(MusicPermissions.SearchTracks, "SearchTracks"),
-                        new PermissionDto(MusicPermissions.CreateTrack, "CreateTrack"),
-                        new PermissionDto(MusicPermissions.EditTrack, "EditTrack"),
-                         new PermissionDto(MusicPermissions.DeleteTrack, "DeleteTrack"),
-                        new PermissionDto(MusicPermissions.NoDeleteTrack, "NoDeleteTrack"),
+                        new PermissionDto(MusicPermissions.CreatTrack, "Create"),
+                        new PermissionDto(MusicPermissions.EditeTrack, "Edit"),
+                        new PermissionDto(MusicPermissions.RemoveTrack, "Remove"),
+                        new PermissionDto(MusicPermissions.RestorTrack, "Restore"),
+                         new PermissionDto(MusicPermissions.SerchTrack, "Search"),
+                        
                     }
                 },
                 {
-                    "MusicCategory", new List<PermissionDto>
+                    "Alboms", new List<PermissionDto>
                     {
-                        new PermissionDto(MusicPermissions.SearchMusicCategories, "SearchMusicCategories"),
-                        new PermissionDto(MusicPermissions.ListMusicCategories, "ListMusicCategories"),
-                        new PermissionDto(MusicPermissions.CreateMusicCategory, "CreateMusicCategory"),
-                        new PermissionDto(MusicPermissions.EditMusicCategory, "EditMusicCategory"),
+                        new PermissionDto(MusicPermissions.CreatAlbom, "Create"),
+                        new PermissionDto(MusicPermissions.EditeAlbom, "Edit"),
+                        new PermissionDto(MusicPermissions.RemoveAlbom, "Remove"),
+                        new PermissionDto(MusicPermissions.RestorAlbom, "Restore"),
+                        new PermissionDto(MusicPermissions.SearchAlbom, "Search"),
                     }
-                }
+                },{
+                    "TrackTakAhang", new List<PermissionDto>
+                    {
+                        new PermissionDto(MusicPermissions.CreatTakAhang, "Create"),
+                        new PermissionDto(MusicPermissions.EditTakAhang, "Edit"),
+                        new PermissionDto(MusicPermissions.RemovTakAhang, "Remove"),
+                        new PermissionDto(MusicPermissions.RestorTakAhang, "Restore"),
+                         new PermissionDto(MusicPermissions.SerchTakAhang, "Search"),
+
+                    }
+                },
             };
         }
     }

@@ -1,7 +1,7 @@
 ﻿@page "{id}"
 @model ServiceHost.Pages.AventModel
 @{
-    ViewData["Title"] = Model.Avent.Title;
+    ViewData["Title"] = Model.Avent.Mozo;
     ViewData["keywords"] = Model.Avent.Keywords;
     ViewData["metaDescription"] = Model.Avent.MetaDescription;
 }
@@ -13,7 +13,7 @@
 					<ul class="breadcrumb breadcrumb--hidden-desk">
 						<li class="breadcrumb__item"><a href="index.html">صفحه اصلی</a></li>
 						<li class="breadcrumb__item"><a href="news.html">@Model.Avent.CategoryName</a></li>
-						<li class="breadcrumb__item breadcrumb__item--active">@Model.Avent.Title</li>
+						<li class="breadcrumb__item breadcrumb__item--active">@Model.Avent.Mozo</li>
 					</ul>
 				</div>
 				<!-- end breadcrumb -->
@@ -33,9 +33,9 @@
 							
 							
 
-							<h1> @Model.Avent.Title</h1>
+							<h1> @Model.Avent.Mozo</h1>
 
-							<p> @Model.Avent.Description</p>
+							 <div><p>@Html.Raw(@Model.Avent.Description)</p></div>
 
 	
 						</div>
@@ -105,7 +105,9 @@
 								    	<textarea name="message" class="sign__textarea" placeholder="پیام خود را بنویسید . . ."></textarea>
 								   </div>
 							   </div>
-								<input type="hidden" name="ownerRecordId" value="@Model.Avent.Id" />
+								<input type="hidden" name="ownerRecordName" value="@Model.Avent.Mozo" />
+								<input type="hidden" name="ownerRecordCatgory" value="@Model.Avent.CategoryName" />
+								<input type="hidden" name="ownerRecordSinger" value="@Model.Avent.CategoryName" />
 								<input type="hidden" name="musicSlug" value="@Model.Avent.Slug" />
 								<input type="hidden" name="parentId" id="commentParentId" value="" />
 								<div class="col-12 col-xl-3">

@@ -31,8 +31,10 @@ namespace CommnetManagement.Infrastructure.EFCore.Repository
                     Email = x.Email,
                     Website = x.Website,
                     Message = x.Message,
-                    OwnerRecordId = x.OwnerRecordId,
-                 
+                    OwnerRecordName = x.OwnerRecordName,
+                    OwnerRecordSinger = x.OwnerRecordSinger,
+                    OwnerRecordCatgory = x.OwnerRecordCatgory,
+                    OwnerRecordId=x.OwnerRecordId,
                     Type = x.Type,
                     IsCanceled = x.IsCanceled,
                     IsConfirmed = x.IsConfirmed,
@@ -43,13 +45,18 @@ namespace CommnetManagement.Infrastructure.EFCore.Repository
             if (!string.IsNullOrWhiteSpace(searchModel.Name))
                 query = query.Where(x => x.Name.Contains(searchModel.Name));
 
-            if (searchModel.OwnerRecordId != 0)
-                query = query.Where(x => x.OwnerRecordId == searchModel.OwnerRecordId);
+            if (!string.IsNullOrWhiteSpace(searchModel.OwnerRecordSinger))
+                query = query.Where(x => x.OwnerRecordSinger.Contains(searchModel.OwnerRecordSinger));
+            if (!string.IsNullOrWhiteSpace(searchModel.OwnerRecordName))
+                query = query.Where(x => x.OwnerRecordName.Contains(searchModel.OwnerRecordName));
 
             if (searchModel.Id != 0)
                 query = query.Where(x => x.Id == searchModel.Id);
 
-            return query.OrderByDescending(x => x.Id).ToList();
+            query.OrderByDescending(x => x.Id).ToList();
+            return query.ToList();
         }
+
+      
     }
 }

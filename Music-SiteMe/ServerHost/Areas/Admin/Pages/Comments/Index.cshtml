@@ -28,8 +28,12 @@
                         <input class="form-control" asp-for="SearchModel.Name" placeholder="نام فرستنده">
                     </fieldset>
                     <fieldset class="form-group">
-                        <label class="sr-only" asp-for="SearchModel.OwnerRecordId"></label>
-                        <input class="form-control" asp-for="SearchModel.OwnerRecordId" placeholder="کد">
+                        <label class="sr-only" asp-for="SearchModel.OwnerRecordSinger"></label>
+                        <input class="form-control" asp-for="SearchModel.OwnerRecordSinger" placeholder="خواننده">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label class="sr-only" asp-for="SearchModel.OwnerRecordName"></label>
+                        <input class="form-control" asp-for="SearchModel.OwnerRecordName" placeholder="نام اثر">
                     </fieldset>
                     <button type="submit" class="btn gradient-green-tea white shadow-z-1-hover">جستجو</button>
                     <a class="btn gradient-blue-grey-blue white shadow-big-navbar" asp-page="./Index">مشاهده همه</a>
@@ -39,7 +43,7 @@
     </div>
 </div>
 
-<div class="row"permission="@CommentPermissions.ListComments">
+<div class="row"permission="@CommentPermissions.SearchComments">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -51,11 +55,13 @@
                         <table id="datatable" class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                   
                                     <th>کد اثر</th>
                                     <th>نام</th>
                                     <th>ایمیل</th>
-                                   
+                                    <th>دسته بندی</th>
+                                     <th>نام اثر</th>
+                                      <th>خواننده</th>
                                     <th>پیام</th>
                                     <th>تاریخ</th>
                                     <th>وضعیت</th>
@@ -63,43 +69,54 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.Comments)
-                                {
-                                    <tr>
-                                        <td>@item.Id</td>
-                                        <td>@item.OwnerRecordId</td>
-                                        <td>@item.Name</td>
-                                        <td>@item.Email</td>
-                                      
-                                        <td>@item.Message</td>
-                                        <td>@item.CommentDate</td>
-                                       <td class="text-center">
-                                            @if (item.IsCanceled)
+                               
+                                    @foreach (var item in Model.Comments.OrderByDescending(x => x.Id).Take(20).ToList())
+                                    {
+                                        <tr> @if (item.OwnerRecordName != null)
+                                        {
+                                            <td>@item.Id</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.OwnerRecordCatgory</td>
+                                            <td>@item.OwnerName</td>
+                                            @if(item.OwnerRecordSinger == null)
                                             {
-                                                <span class="text-danger">کنسل شده</span>
-                                            }
-                                            @if (!item.IsCanceled && !item.IsConfirmed)
+                                                <td>@item.OwnerRecordCatgory</td>
+                                            }else
                                             {
-                                                <span class="text-warning">در انتظار</span>
+                                               <td>@item.OwnerRecordSinger</td> 
                                             }
-                                            @if (!item.IsCanceled && item.IsConfirmed)
-                                            {
-                                                <span class="text-success">تایید شده</span>
-                                            }
-                                        </td>
-                                        <td>
-                                            <a permission="@CommentPermissions.DeleteComment" asp-page="./Index" asp-page-handler="Cancel" asp-route-id="@item.Id"
+                                            
+                                            <td>@item.Message</td>
+                                            <td>@item.CommentDate</td>
+                                            <td class="text-center">
+                                                @if (item.IsCanceled)
+                                                {
+                                                    <span class="text-danger">کنسل شده</span>
+                                                }
+                                                @if (!item.IsCanceled && !item.IsConfirmed)
+                                                {
+                                                    <span class="text-warning">در انتظار</span>
+                                                }
+                                                @if (!item.IsCanceled && item.IsConfirmed)
+                                                {
+                                                    <span class="text-success">تایید شده</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <a permission="@CommentPermissions.DeleteComment" asp-page="./Index" asp-page-handler="Cancel" asp-route-id="@item.Id"
                                                class="btn btn-danger waves-effect waves-light m-b-5">کنسل</a>
 
-                                            @if (!item.IsConfirmed)
-                                            {
-                                                <a permission="@CommentPermissions.NoDeleteComment" asp-page="./Index" asp-page-handler="Confirm" asp-route-id="@item.Id"
+                                                @if (!item.IsConfirmed)
+                                                {
+                                                    <a permission="@CommentPermissions.RestorComment" asp-page="./Index" asp-page-handler="Confirm" asp-route-id="@item.Id"
                                                    class="btn btn-success waves-effect waves-light m-b-5">تایید</a>
-                                            }
+                                                }
 
-                                        </td>
-                                    </tr>
-                                }
+                                            </td>}
+                                        </tr>
+                                    }
+                                
                             </tbody>
                         </table>
                     </div>

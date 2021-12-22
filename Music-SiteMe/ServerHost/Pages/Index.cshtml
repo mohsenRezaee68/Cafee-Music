@@ -21,9 +21,11 @@
 			<!-- articts -->
 			@await Component.InvokeAsync("Artist")
 			<!-- end articts -->
-
+			<section dir="rtl" class="row row--grid">
 			@await Component.InvokeAsync("Track")
-			
+            @await Component.InvokeAsync("TrackMenal")
+			 @await Component.InvokeAsync("TrackMazhabi")
+			</section>
 
 			<!-- podcasts -->
 			@await Component.InvokeAsync("UserMusic")

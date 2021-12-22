@@ -1,17 +1,20 @@
 using _0_Framework.Infrastructure;
 using CommentManagement.Application.Contracts.Comment;
 using CommentManagement.Configuration.Permissions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 
 namespace ServiceHost.Areas.Admin.Pages.Comments
 {
+    [Authorize(Roles = "1 , 2")]
     public class IndexModel : PageModel
     {
         [TempData]
         public string Message { get; set; }
         public List<CommentViewModel> Comments;
+       
         public CommentSearchModel SearchModel;
         private readonly ICommentApplication _commentApplication;
 
@@ -19,10 +22,12 @@ namespace ServiceHost.Areas.Admin.Pages.Comments
         {
             _commentApplication = commentApplication;
         }
-        [NeedsPermission(CommentPermissions.ListComments)]
+        [NeedsPermission(CommentPermissions.SearchComments)]
         public void OnGet(CommentSearchModel searchModel)
         {
             Comments = _commentApplication.Search(searchModel);
+            
+
         }
         [NeedsPermission(CommentPermissions.DeleteComment)]
         public IActionResult OnGetCancel(long id)
@@ -34,7 +39,7 @@ namespace ServiceHost.Areas.Admin.Pages.Comments
             Message = result.Message;
             return RedirectToPage("./Index");
         }
-        [NeedsPermission(CommentPermissions.NoDeleteComment)]
+        [NeedsPermission(CommentPermissions.RestorComment)]
         public IActionResult OnGetConfirm(long id)
         {
             var result = _commentApplication.Confirm(id);

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\PROJECT\Music-cafee\Pablish</_PublishTargetUrl>
+    <History>True|2021-12-18T19:11:19.9842768Z;True|2021-12-18T14:56:56.5773391+03:30;True|2021-12-18T12:50:47.5933540+03:30;True|2021-12-16T18:07:26.9355410+03:30;True|2021-12-16T17:28:27.2964750+03:30;True|2021-12-16T16:16:15.8082158+03:30;True|2021-12-16T14:35:40.3708731+03:30;True|2021-12-16T14:00:56.6524215+03:30;True|2021-12-16T13:05:42.4173657+03:30;True|2021-12-16T06:05:55.4585382+03:30;True|2021-12-16T00:39:03.5211051+03:30;True|2021-12-15T22:13:02.9305395+03:30;True|2021-12-15T19:14:18.9617936+03:30;True|2021-12-14T16:44:49.1962637+03:30;True|2021-12-14T11:12:18.9606855+03:30;True|2021-12-14T10:25:47.1679823+03:30;True|2021-12-14T08:29:43.2266748+03:30;True|2021-12-13T20:21:23.1514416+03:30;True|2021-12-13T15:16:53.1636131+03:30;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="Music-MeDb">
+      <Value>Data Source=185.88.152.127,1430%3bInitial Catalog=10056_music-medb%3bPersist Security Info=True%3bUser ID=10056_music-medb%3bPassword=930015160.Mr</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

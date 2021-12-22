@@ -8,7 +8,7 @@ namespace ServiceHost.Pages
     {
         private readonly IMusicQuery _musicQuery;
         public MusicQueryModel musics;
-        public List< MusicQueryModel> music;
+        public takViewforadmin music;
         public List<MusicQueryModel> MusicsTak;
         public string values = null;
         public MusicsModel(IMusicQuery musicQuery)
@@ -16,10 +16,10 @@ namespace ServiceHost.Pages
             _musicQuery = musicQuery;
         }
 
-        public void OnGet(string value)
+        public void OnGet(string value, int pageId = 1)
         {
             values = value;
-            music = _musicQuery.GetAllTrackss();
+            music = _musicQuery.AllMusicTak(pageId);
             MusicsTak = _musicQuery.SearchTrack(value);
         }
     }

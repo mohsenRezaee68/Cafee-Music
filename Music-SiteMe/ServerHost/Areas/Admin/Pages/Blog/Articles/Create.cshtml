@@ -13,28 +13,23 @@
             </div>
             <div class="panel-body">
                 <form method="post" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-md-4">
+                    
+                      <div class="row">
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label asp-for="Command.Title" class="control-label">نام</label>
-                                <input type="text" class="form-control" asp-for="Command.Title" onchange="makeSlug('Title', 'Slug')">
-                                <span asp-validation-for="Command.Title" class="error"></span>
+                                <label asp-for="Command.Mozo" class="control-label">نام</label>
+                                <input type="text" class="form-control" asp-for="Command.Mozo" onchange="makeSlug('Title', 'Slug')">
+                                <span asp-validation-for="Command.Mozo" class="error"></span>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label asp-for="Command.Slug" class="control-label">اسلاگ</label>
                                 <input type="text" class="form-control" asp-for="Command.Slug">
                                 <span asp-validation-for="Command.Slug" class="error"></span>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label asp-for="Command.PublishDate" class="control-label">تاریخ انتشار</label>
-                                <input class="form-control persianDateInput" asp-for="Command.PublishDate">
-                                <span asp-validation-for="Command.PublishDate" class="error"></span>
-                            </div>
-                        </div>
+                       
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -79,7 +74,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-12">
                             <div class="form-group no-margin">
@@ -108,15 +102,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label asp-for="Command.CanonicalAddress" class="control-label">CanonicalAddress</label>
-                                <input type="text" class="form-control" asp-for="Command.CanonicalAddress">
-                                <span asp-validation-for="Command.CanonicalAddress" class="error"></span>
-                            </div>
-                        </div>
-                    </div>
+                 
                     <button type="submit" class="btn btn-info waves-effect waves-light">ایجاد</button>
                     <a asp-page="./Index" class="btn btn-default waves-effect">بازگشت</a>
                 </form>

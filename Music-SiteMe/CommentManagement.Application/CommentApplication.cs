@@ -18,7 +18,7 @@ namespace CommentManagement.Application
         {
             var operation = new OperationResult();
             var comment = new Comment(command.Name, command.Email, command.Website, command.Message, 
-                command.OwnerRecordId, command.Type, command.ParentId);
+                command.OwnerRecordName, command.OwnerRecordSinger, command.OwnerRecordCatgory, command.Type, command.ParentId,command.OwnerRecordId);
 
             _commentRepository.Create(comment);
             _commentRepository.SaveChanges();
@@ -53,5 +53,6 @@ namespace CommentManagement.Application
         {
             return _commentRepository.Search(searchModel);
         }
+       
     }
 }

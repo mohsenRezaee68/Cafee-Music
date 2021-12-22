@@ -5,12 +5,11 @@ namespace SlideManagement.Configuration.Permissions
     public static class SlidePermissions
     {
         //Slide
-        public const int ListSlides = 26;
-        public const int SearchSlides = 27;
-        public const int CreateSlide = 28;
-        public const int EditSlide = 29;
-        public const int DeleteSlide = 30;
-        public const int NoDeleteSlide = 31;
+        public const int List = 1;
+        public const int Creat = 2;
+        public const int Edite = 3;
+        public const int Remove = 4;
+        public const int Restor = 5;
        
     }
 }

@@ -1,4 +1,4 @@
-
+﻿
 using System.Collections.Generic;
 
 using _0_Framework.Infrastructure;
@@ -10,7 +10,7 @@ using MusicManagement.Configuration.Permissions;
 
 namespace ServiceHost.Areas.Admin.Pages.Musics.MusicCategories
 {
-   [Authorize]
+    [Authorize(Roles = "1 , 2")]
     public class IndexModel : PageModel
     {
         public MusicCategorySearchModel SearchModel;
@@ -20,16 +20,17 @@ namespace ServiceHost.Areas.Admin.Pages.Musics.MusicCategories
         {
             _musicCategoryApplication = musicCategoryApplication;
         }
-       [NeedsPermission(MusicPermissions.ListMusicCategories)]
+       [NeedsPermission(MusicPermissions.ListCategory)]
         public void OnGet(MusicCategorySearchModel searchModel)
         {
             MusicCategories = _musicCategoryApplication.Search(searchModel);
         }
+        
         public IActionResult OnGetCreate()
         {
             return Partial("./Create", new CreateMusicCategory());
         }
-        [NeedsPermission(MusicPermissions.CreateMusicCategory)]
+        [NeedsPermission(MusicPermissions.CreatCategory)]
         public JsonResult OnPostCreate(CreateMusicCategory command)
         {
             var result = _musicCategoryApplication.Create(command);
@@ -41,7 +42,7 @@ namespace ServiceHost.Areas.Admin.Pages.Musics.MusicCategories
             return Partial("Edit", productCategory);
         }
 
-        [NeedsPermission(MusicPermissions.EditMusicCategory)]
+        [NeedsPermission(MusicPermissions.EditeCategory)]
         public JsonResult OnPostEdit(EditMusicCategory command)
         {
             if (ModelState.IsValid)

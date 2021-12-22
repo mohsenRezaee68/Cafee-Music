@@ -6,7 +6,7 @@
 
 @{
     Layout = "Shared/_AdminLayout";
-    ViewData["title"] = "مدیریت گروه مقالات";
+    ViewData["title"] = "مدیریت گروه بلاگ ها";
 }
 
 <div class="row"permission="@BlogPermissions.CreateBlogCategory">
@@ -24,7 +24,7 @@
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">جستجو در گروه مقالات</h3>
+                <h3 class="panel-title">جستجو در گروه بلالگ ها</h3>
             </div>
             <div class="panel-body">
                 <form class="form-inline" role="form" method="get">
@@ -44,7 +44,7 @@
 
     </h4>
 </div>
-<div class="row" id="ProductCategoriesDiv"permission="@BlogPermissions.ListBlogCategories">
+<div class="row" permission="@BlogPermissions.ListBlogCategories">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -59,8 +59,8 @@
                                     <th>#</th>
                                     <th>عکس</th>
                                     <th>نام</th>
-                                    <th>توضیحات</th>
-                                    <th>ترتیب نمایش</th>
+                                   
+                                   
                                     <th>تعداد مقالات</th>
                                     <th>تاریخ تولید</th>
                                     <th>عملیات</th>
@@ -75,8 +75,7 @@
                                             <img src="~/Cafee-Music/@item.Picture" style="width: 70px; height: 70px" />
                                         </td>
                                         <td>@item.Name</td>
-                                        <td>@item.Description</td>
-                                        <td>@item.ShowOrder</td>
+                                       
                                         <td>@item.ArticlesCount</td>
                                         <td>@item.CreationDate</td>
                                         <td>

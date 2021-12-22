@@ -23,6 +23,7 @@ namespace ServiceHost.Pages
         {
             artist = _artistQuery.GetArtistDetails(Laghab);
            
+                
         }
         public IActionResult OnPost(AddComment command, string id)
         {

@@ -1,6 +1,7 @@
 ﻿using _0_Framework.Application;
 using _01_LampshadeQuery.Contracts.Article;
 using _01_LampshadeQuery.Contracts.Comment;
+using _01_LampshadeQuery.Contracts.Music;
 using BlogManagement.Infrastructure.EFCore;
 using CommnetManagement.Infrastructure.EFCore;
 using Microsoft.EntityFrameworkCore;
@@ -22,28 +23,94 @@ namespace _01_LampshadeQuery.Query
             _commentContext = commentContext;
         }
 
+        public BlogArticleViowMode Articles(int pageId = 1)
+        {
+            var query = _context.Articles
+                .Include(x => x.Category)
+              .Where(x => x.Category.Id == 1)
+
+             .Select(music => new ArticleQueryModel
+             {
+                 Id = music.Id,
+                 Mozo = music.Mozo,
+                 Picture = music.Picture,
+                 PictureAlt = music.PictureAlt,
+                 PictureTitle = music.PictureTitle,
+                 ShortDescription = music.ShortDescription,
+                 PublishDate = music.CreationDate.ToFarsi(),
+                 Slug = music.Slug
+             }).AsNoTracking();
+
+           
+
+            var music = query.OrderByDescending(x => x.Id).ToList();
+
+          int take = 25;
+            int skip = (pageId - 1) * take;
+
+            BlogArticleViowMode list = new BlogArticleViowMode();
+            list.CurrentPage = pageId;
+            list.PageCount = (int)Math.Ceiling(music.Count() / (double)take);
+
+            list.Articles = music.OrderBy(u => u.Id).Skip(skip).Take(take).ToList();
+            return list;
+        }
+
+        public BlogAventViowModel Avents(int pageId = 1)
+        {
+            var query = _context.Articles
+                 .Include(x => x.Category)
+               .Where(x => x.Category.Id == 2)
+
+              .Select(music => new ArticleQueryModel
+              {
+                  Id = music.Id,
+                  Mozo = music.Mozo,
+                  Picture = music.Picture,
+                  PictureAlt = music.PictureAlt,
+                  PictureTitle = music.PictureTitle,
+                  ShortDescription = music.ShortDescription,
+                  PublishDate = music.CreationDate.ToFarsi(),
+                  Slug = music.Slug
+              }).AsNoTracking();
+
+
+
+            var music = query.OrderByDescending(x => x.Id).ToList();
+
+            int take = 25;
+            int skip = (pageId - 1) * take;
+
+            BlogAventViowModel list = new BlogAventViowModel();
+            list.CurrentPage = pageId;
+            list.PageCount = (int)Math.Ceiling(music.Count() / (double)take);
+
+            list.avent = music.OrderBy(u => u.Id).Skip(skip).Take(take).ToList();
+            return list;
+        }
+
         public ArticleQueryModel GetArticleDetails(long id)
         {
             var avent = _context.Articles
                  .Include(x => x.Category)
-                 .Where(x => x.Category.Id ==5)
+                 .Where(x => x.Category.Id ==1)
                  .Where(x => x.IsRemoved == false)
-                 .Where(x => x.PublishDate <= DateTime.Now)
+                 .Where(x => x.CreationDate <= DateTime.Now)
                  .Select(x => new ArticleQueryModel
                  {
                      Id = x.Id,
-                     Title = x.Title,
+                     Mozo = x.Mozo,
                      CategoryName = x.Category.Name,
                      CategorySlug = x.Category.Slug,
                      Slug = x.Slug,
-                     CanonicalAddress = x.CanonicalAddress,
+                    
                      Description = x.Description,
                      Keywords = x.Keywords,
                      MetaDescription = x.MetaDescription,
                      Picture = x.Picture,
                      PictureAlt = x.PictureAlt,
                      PictureTitle = x.PictureTitle,
-                     PublishDate = x.PublishDate.ToFarsi(),
+                     PublishDate = x.CreationDate.ToFarsi(),
                      ShortDescription = x.ShortDescription,
                  }).FirstOrDefault(x => x.Id == id);
 
@@ -55,14 +122,14 @@ namespace _01_LampshadeQuery.Query
                 .Where(x => !x.IsCanceled)
                 .Where(x => x.IsConfirmed)
                 .Where(x => x.Type == CommentType.Article)
-                .Where(x => x.OwnerRecordId == avent.Id)
+                .Where(x => x.OwnerRecordName == avent.Mozo)
                 .Select(x => new CommentQueryModel
                 {
                     Id = x.Id,
                     Message = x.Message,
                     Name = x.Name,
                     ParentId = x.ParentId,
-                    CreationDate = x.CreationDate.ToFarsi()
+                    CreationDate = x.CreationDate.ToFarsi(),
                 }).OrderByDescending(x => x.Id).ToList();
 
             foreach (var comment in comments)
@@ -80,24 +147,24 @@ namespace _01_LampshadeQuery.Query
         {
             var avent = _context.Articles
                .Include(x => x.Category)
-               .Where(x => x.Category.Id == 4)
+               .Where(x => x.Category.Id == 2)
                .Where(x => x.IsRemoved == false)
-               .Where(x => x.PublishDate <= DateTime.Now)
+               .Where(x => x.CreationDate <= DateTime.Now)
                .Select(x => new ArticleQueryModel
                {
                    Id = x.Id,
-                   Title = x.Title,
+                   Mozo = x.Mozo,
                    CategoryName = x.Category.Name,
                    CategorySlug = x.Category.Slug,
                    Slug = x.Slug,
-                   CanonicalAddress = x.CanonicalAddress,
+                  
                    Description = x.Description,
                    Keywords = x.Keywords,
                    MetaDescription = x.MetaDescription,
                    Picture = x.Picture,
                    PictureAlt = x.PictureAlt,
                    PictureTitle = x.PictureTitle,
-                   PublishDate = x.PublishDate.ToFarsi(),
+                   PublishDate = x.CreationDate.ToFarsi(),
                    ShortDescription = x.ShortDescription,
                }).FirstOrDefault(x => x.Id== id);
 
@@ -109,14 +176,14 @@ namespace _01_LampshadeQuery.Query
                 .Where(x => !x.IsCanceled)
                 .Where(x => x.IsConfirmed)
                 .Where(x => x.Type == CommentType.Avent)
-                .Where(x => x.OwnerRecordId == avent.Id)
+                .Where(x => x.OwnerRecordName == avent.Mozo)
                 .Select(x => new CommentQueryModel
                 {
                     Id = x.Id,
                     Message = x.Message,
                     Name = x.Name,
                     ParentId = x.ParentId,
-                    CreationDate = x.CreationDate.ToFarsi()
+                    CreationDate =  x.CreationDate.ToFarsi(),
                 }).OrderByDescending(x => x.Id).ToList();
 
             foreach (var comment in comments)
@@ -134,17 +201,17 @@ namespace _01_LampshadeQuery.Query
         {
             var query = _context.Articles
                .Include(x => x.Category)
-             .Where(x => x.Category.Id == 5)
+             .Where(x => x.Category.Id == 1)
 
             .Select(music => new ArticleQueryModel
             {
                 Id = music.Id,
-                Title = music.Title,
+                Mozo = music.Mozo,
                 Picture = music.Picture,
                 PictureAlt = music.PictureAlt,
                 PictureTitle = music.PictureTitle,
                 ShortDescription = music.ShortDescription,
-                PublishDate = music.PublishDate.ToFarsi(),
+                PublishDate = music.CreationDate.ToFarsi(),
                 Slug = music.Slug
             }).AsNoTracking();
 
@@ -156,18 +223,18 @@ namespace _01_LampshadeQuery.Query
         public List<ArticleQueryModel> LatestArticles()
         {
             return _context.Articles
-               .Where(x => x.Category.Id == 5)
+               .Where(x => x.Category.Id == 1)
                .Where(x => x.IsRemoved == false)
 
                .Select(x => new ArticleQueryModel
                {
                    Id = x.Id,
-                   Title = x.Title,
+                   Mozo = x.Mozo,
                    Slug = x.Slug,
                    Picture = x.Picture,
                    PictureAlt = x.PictureAlt,
                    PictureTitle = x.PictureTitle,
-                   PublishDate = x.PublishDate.ToFarsi(),
+                   PublishDate = x.CreationDate.ToFarsi(),
                    ShortDescription = x.ShortDescription,
 
 
@@ -178,17 +245,17 @@ namespace _01_LampshadeQuery.Query
         {
             var query = _context.Articles
                 .Include(x => x.Category)
-              .Where(x => x.Category.Id == 4)
+              .Where(x => x.Category.Id == 2)
             
              .Select(music => new ArticleQueryModel
              {
                  Id = music.Id,
-               Title = music.Title,
+                 Mozo = music.Mozo,
                  Picture = music.Picture,
                  PictureAlt = music.PictureAlt,
                  PictureTitle = music.PictureTitle,
                  ShortDescription = music.ShortDescription,
-                  PublishDate=music.PublishDate.ToFarsi(),
+                 PublishDate = music.CreationDate.ToFarsi(),
                  Slug = music.Slug
              }).AsNoTracking();
 
@@ -200,17 +267,17 @@ namespace _01_LampshadeQuery.Query
         public List<ArticleQueryModel> LatestAvents()
         {
             return _context.Articles
-                 .Where(x => x.Category.Id == 4)
+                 .Where(x => x.Category.Id == 2)
                  .Where(x => x.IsRemoved == false)
                   .Select(x => new ArticleQueryModel
                   {
                       Id=x.Id,
-                      Title = x.Title,
+                      Mozo = x.Mozo,
                       Slug = x.Slug,
                       Picture = x.Picture,
                       PictureAlt = x.PictureAlt,
                       PictureTitle = x.PictureTitle,
-                      PublishDate = x.PublishDate.ToFarsi(),
+                      PublishDate = x.CreationDate.ToFarsi(),
                       ShortDescription = x.ShortDescription,
 
 
@@ -222,21 +289,21 @@ namespace _01_LampshadeQuery.Query
 
             var query = _context.Articles
             .Include(x => x.Category)
-            .Where(x => x.Category.Id == 5)
+            .Where(x => x.Category.Id == 1)
             .Select(music => new ArticleQueryModel
             {
                 Id = music.Id,
-                Title = music.Title,
+                Mozo = music.Mozo,
                 Picture = music.Picture,
                 PictureAlt = music.PictureAlt,
                 PictureTitle = music.PictureTitle,
                 ShortDescription = music.ShortDescription,
-                PublishDate = music.PublishDate.ToFarsi(),
+                PublishDate = music.CreationDate.ToFarsi(),
                 Slug = music.Slug
             }).AsNoTracking();
 
             if (!string.IsNullOrWhiteSpace(value))
-                query = query.Where(x => x.Title.Contains(value)
+                query = query.Where(x => x.Mozo.Contains(value)
                 || x.Slug.Contains(value) || x.ShortDescription.Contains(value)
                 );
 
@@ -251,21 +318,21 @@ namespace _01_LampshadeQuery.Query
 
             var query = _context.Articles
             .Include(x => x.Category)
-            .Where(x=> x.Category.Id == 4)
+            .Where(x=> x.Category.Id == 2)
             .Select(music => new ArticleQueryModel
             {
                 Id = music.Id,
-                Title = music.Title,
+                Mozo = music.Mozo,
                 Picture = music.Picture,
                 PictureAlt = music.PictureAlt,
                 PictureTitle = music.PictureTitle,
                 ShortDescription = music.ShortDescription,
-                PublishDate = music.PublishDate.ToFarsi(),
+                PublishDate = music.CreationDate.ToFarsi(),
                 Slug = music.Slug
             }).AsNoTracking();
 
             if (!string.IsNullOrWhiteSpace(value))
-                query = query.Where(x => x.Title.Contains(value)
+                query = query.Where(x => x.Mozo.Contains(value)
                 || x.Slug.Contains(value) || x.ShortDescription.Contains(value)
                 );
 

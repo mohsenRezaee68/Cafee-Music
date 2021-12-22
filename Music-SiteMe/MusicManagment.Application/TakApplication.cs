@@ -23,7 +23,7 @@ namespace TakManagement.Application
             _MusicCategoryRepository = MusicCategoryRepository;
         }
 
-        public OperationResult Create(CreateTak command)
+        public OperationResult Create(CreateTak command )
         {
             var operation = new OperationResult();
             if (_takRepository.Exists(x => x.Name == command.Name && x.Singer == x.Singer ))
@@ -130,5 +130,7 @@ namespace TakManagement.Application
         {
             return _takRepository.Search(searchModel);
         }
+
+        
     }
 }

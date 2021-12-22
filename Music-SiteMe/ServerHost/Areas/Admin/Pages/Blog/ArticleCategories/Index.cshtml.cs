@@ -2,12 +2,14 @@
 using _0_Framework.Infrastructure;
 using BlogManagement.Application.Contracts.ArticleCategory;
 using BlogManagement.Configuration.Permissions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 
 namespace ServiceHost.Areas.Admin.Pages.Blog.ArticleCategories
 {
+    [Authorize(Roles = "1 , 2")]
     public class IndexModel : PageModel
     {
         public ArticleCategorySearchModel SearchModel;

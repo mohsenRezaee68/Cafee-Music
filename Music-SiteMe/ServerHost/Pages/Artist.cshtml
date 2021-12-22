@@ -8,7 +8,8 @@
 
 <div class="container-fluid">
 			<div class="row row--grid">
-				<div class="col-12">
+				
+					<div class="col-12">
 					
 					
 						<div class="article article--page">
@@ -23,9 +24,8 @@
 								</div>
 							</div>
 
-							<p>@Model.artist.Text</p>
-
-							</div>
+							 <div><p>@Html.Raw(@Model.artist.Text)</p></div>
+						</div>
 						<!-- end article content -->
 
 						<!-- share -->
@@ -97,7 +97,9 @@
 								    	<textarea name="message" class="sign__textarea" placeholder="پیام خود را بنویسید . . ."></textarea>
 								   </div>
 							   </div>
-								<input type="hidden" name="ownerRecordId" value="@Model.artist.Id" />
+								<input type="hidden" name="ownerRecordName" value="@Model.artist.Name" />
+								<input type="hidden" name="ownerRecordCatgory" value="هنرمندان" />
+								<input type="hidden" name="ownerRecordSinger" value="@Model.artist.Laghab" />
 								<input type="hidden" name="musicSlug" value="@Model.artist.Slug" />
 								<input type="hidden" name="parentId" id="commentParentId" value="" />
 								<div class="col-12 col-xl-3">
@@ -109,6 +111,14 @@
                     </div>
                    
                 </div>
+				
+				
+
+					
+					
+					
+				</div>
+				
 				
 			</div>
 

@@ -10,6 +10,6 @@ namespace TakManagement.Domain.TakAgg
     {
         EditTak GetDetails(long id);
         Tak GetWithCategory(long id);
-        List<TakViewModel> Search(TakSearchModel searchModel);
+      List < TakViewModel> Search(TakSearchModel searchModel);
     }
 }

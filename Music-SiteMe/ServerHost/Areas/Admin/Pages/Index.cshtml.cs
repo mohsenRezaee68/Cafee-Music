@@ -32,7 +32,7 @@ namespace ServiceHost.Areas.Admin.Pages
         public List<MusicQueryModel> ArshivAfg { get; set; }
         public List<MusicQueryModel> ArshivMenal { get; set; }
         public List<ArtistQueryModel> LatestArtistAlls { get; set; }
-
+        public List<UserMusicQueryModel> UserMusicAll{ get; set; }
         private readonly IAccountQuery _accountQuery;
         private readonly IMusicQuery _musicQuery;
         private readonly IArticleQuery _articleQuery; 
@@ -90,9 +90,9 @@ namespace ServiceHost.Areas.Admin.Pages
             DoughnutDataSet = new Chart
             {
                 Label = "Apple",
-                Data = new List<int> { GetAllTracksMazhabi.Count, ArshivIrani.Count, ArshivAfg.Count, ArshivMenal.Count,Avent.Count,Article.Count, LatestArtistAlls .Count},
+                Data = new List<int> { GetAllTracksMazhabi.Count, ArshivIrani.Count, ArshivAfg.Count, ArshivMenal.Count,Avent.Count,Article.Count, LatestArtistAlls .Count,UserMusic.Count},
                 BorderColor = "#ffcdb2",
-                BackgroundColor = new[] { "#000000", "#ffd166", "#7f4f24", "#ef233c" , "#00FFFF" , "#7FFF00" , "#FF1493" }
+                BackgroundColor = new[] { "#000000", "#ffd166", "#7f4f24", "#ef233c" , "#00FFFF" , "#7FFF00" , "#FF1493" ,"#FF1493"}
             };
 
            

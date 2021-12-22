@@ -9,16 +9,16 @@
     ViewData["title"] = "مدیریت موسیقی";
 }
 
-<div class="row"permission="@MusicPermissions.CreateTrack">
+<div class="row"permission="@MusicPermissions.CreatTakAhang">
     <div class="col-sm-12">
         <h4 class="page-title pull-right">@ViewData["title"]</h4>
         <p class="pull-left">
-            <a class="btn gradient-green-tea white shadow-z-1-hover" href="#showmodal=@Url.Page("./Index", "Create")">ایجاد موزیک جدید</a>
+            <a  class="btn gradient-green-tea white shadow-z-1-hover" href="#showmodal=@Url.Page("./Index", "Create")">ایجاد موزیک جدید</a>
         </p>
     </div>
 </div>
 
-<div class="row"permission="@MusicPermissions.SearchTracks">
+<div class="row"permission="@MusicPermissions.SerchTakAhang">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -44,17 +44,18 @@
         </div>
     </div>
 </div>
-          
-<div class="row" id="ProductCategoriesDiv"permission="@MusicPermissions.ListTracks">
+       
+<div class="row"permission="@MusicPermissions.SerchTakAhang">
     <div class="col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading">
+         
+                <div class="panel-heading">
                 <div>
                     <h3>
 
                     </h3>
                 </div>
-                <h3 class="panel-title">لیست محصولات (@Model.Taks.Count)</h3>
+                <h3 class="panel-title">لیست جستجو (@Model.Taks.Count)</h3>
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -67,6 +68,7 @@
                                     <th>پخش</th>
                                     <th>نام</th>
                                     <th>خاننده</th>
+                                     <th>سبک</th>
                                     <th>فرستنده</th>
                                      <th>وضعیت</th>
                                     <th>گروه</th>
@@ -76,77 +78,87 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.Taks)
-                                {
-                                    <tr>
-                                        <td> @item.Id</td>
-                                        <td>
-                                             @if(item.Picture == null)
-                                            {
-                                                 <img src="~/کافه.png" style="width: 70px; height: 70px" />
-                                        }
-                                            else
-                                            {
-                                                <img src="~/Cafee-Music/@item.Picture" style="width: 70px; height: 70px" />
-                                            }
-                                            
-                                            </td>
-                                        <td>
-                                           
-                                            <audio controls >
-		                                	<source height="50px" width="100px" src="~/Cafee-Music/@item.Trak" type="audio/mp3" />
-                                        </td>
-                                        <td>
-                                            @item.NameMusic
-                                        </td>
-                                        <td>
-                                            @item.Singer
-                                        </td>
-                                        @if(item.Ferestande != null)
-                                            {<td>@item.Ferestande</td> }
-                                           else
-                                        {
-                                            <td>مدیر سیستم</td>
-                                        }
-                                        <td class="text-center">
-                                            @if (!item.IsRemoved)
-                                            {
-                                                <i class="fa fa-check fa-3x text-success"></i>
-                                            }
-                                            else
-                                            {
-                                                <i class="fa fa-remove fa-3x text-danger"></i>
-                                            }
-                                        </td>
-                                        <td>
-                                            @item.Category
-                                        </td>
-                                        <td>@item.CreationDate</td>
-                                         <td>
-                                            <a permission="@MusicPermissions.EditTrack" class="btn btn-warning waves-effect waves-light m-b-5"
-                                               href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.Id})">
-                                                <i class="fa fa-edit"></i> ویرایش
-                                            </a>
-                                             @if (!item.IsRemoved)
-                                            {
-                                                <a permission="@MusicPermissions.DeleteTrack" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id"
-                                                   class="btn btn-danger waves-effect waves-light m-b-5">حذف</a>
-                                            }
-                                            else
-                                            {
-                                                <a permission="@MusicPermissions.NoDeleteTrack" asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id"
-                                                   class="btn btn-success waves-effect waves-light m-b-5">فعال سازی</a>
-                                            }
-                                        </td>
-                                    </tr>
+                               
 
-                                    
-                                }
+
+                                    @foreach (var item in Model.Taks.OrderByDescending(x => x.Id).Take(20).ToList())
+                                    {
+                                        <tr>
+                                            <td> @item.Id</td>
+                                            <td>
+                                                @if (item.Picture == null)
+                                                {
+                                                    <img src="~/کافه.png" style="width: 70px; height: 70px" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Cafee-Music/@item.Picture" style="width: 70px; height: 70px" />
+                                                }
+
+                                            </td>
+                                            <td>
+
+                                                <audio controls >
+                                                    <source height="50px" width="100px" src="~/Cafee-Music/@item.Trak" type="audio/mp3" />
+                                            </td>
+                                            <td>
+                                                @item.NameMusic
+                                            </td>
+                                            <td>
+                                                @item.Singer
+                                            </td>
+                                             <td>
+                                                @item.Sabk
+                                            </td>
+                                            @if (item.Ferestande != null)
+                                            {
+                                                <td>@item.Ferestande</td> }
+                                            else
+                                            {
+                                                <td>مدیر سیستم</td>
+                                            }
+                                            <td class="text-center">
+                                                @if (!item.IsRemoved)
+                                                {
+                                                    <i class="fa fa-check fa-3x text-success"></i>
+                                                }
+                                                else
+                                                {
+                                                    <i class="fa fa-remove fa-3x text-danger"></i>
+                                                }
+                                            </td>
+                                            <td>
+                                                @item.Category
+                                            </td>
+                                            <td>@item.CreationDate</td>
+                                            <td>
+                                                <a permission="@MusicPermissions.EditTakAhang" class="btn btn-warning waves-effect waves-light m-b-5"
+                                               href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.Id})">
+                                                    <i class="fa fa-edit"></i> ویرایش
+                                                </a>
+                                                @if (!item.IsRemoved)
+                                                {
+                                                    <a permission="@MusicPermissions.RemovTakAhang" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id"
+                                                   class="btn btn-danger waves-effect waves-light m-b-5">حذف</a>
+                                                }
+                                                else
+                                                {
+                                                    <a permission="@MusicPermissions.RestorTakAhang" asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id"
+                                                   class="btn btn-success waves-effect waves-light m-b-5">فعال سازی</a>
+                                                }
+                                            </td>
+                                        </tr>
+
+
+                                    }
+                               
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
+                    </div>
+             </div>
+
+   
         </div>
     </div>
 </div>

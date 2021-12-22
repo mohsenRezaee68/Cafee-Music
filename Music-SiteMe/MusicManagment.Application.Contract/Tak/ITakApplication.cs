@@ -11,6 +11,7 @@ namespace MusicManagement.Application.Contracts.Tak
         EditTak GetDetails(long id);
         OperationResult Remove(long id);
         OperationResult Restore(long id);
-        List<TakViewModel> Search(TakSearchModel searchModel);
+       List <TakViewModel>  Search(TakSearchModel searchModel);
+       
     }
 }

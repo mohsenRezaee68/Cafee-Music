@@ -42,7 +42,7 @@ namespace AccountMangement.Infrastructure.EFCore.Repository
             {
                 Id = x.Id,
                 Fullname = x.Fullname
-            }).ToList();
+            }).OrderByDescending(x => x.Id).ToList();
         }
 
         public List<AccountViewModel> Search(AccountSearchModel searchModel)
@@ -77,7 +77,8 @@ namespace AccountMangement.Infrastructure.EFCore.Repository
             if (searchModel.RoleId > 0)
                 query = query.Where(x => x.RoleId == searchModel.RoleId);
 
-            return query.OrderByDescending(x => x.Id).ToList();
+            query.OrderByDescending(x => x.Id).ToList();
+            return query.ToList();
         }
 
         public string GetSlugById(long accountId)

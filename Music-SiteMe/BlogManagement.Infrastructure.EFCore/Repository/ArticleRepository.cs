@@ -21,27 +21,28 @@ namespace BlogManagement.Infrastructure.EFCore.Repository
 
         public EditArticle GetDetails(long id)
         {
-            return _context.Articles.Select(x => new EditArticle
+            return _context.Articles
+                .Include(x => x.Category)
+                .Select(x => new EditArticle
             {
                 Id = x.Id,
-                CanonicalAddress = x.CanonicalAddress,
                 CategoryId = x.CategoryId,
                 Description = x.Description,
                 Keywords = x.Keywords,
                 MetaDescription = x.MetaDescription,
-                
                 PictureAlt = x.PictureAlt,
                 PictureTitle = x.PictureTitle,
-                PublishDate = x.PublishDate.ToFarsi(),
                 ShortDescription = x.ShortDescription,
                 Slug = x.Slug,
-                Title = x.Title
+                Mozo = x.Mozo,
             }).FirstOrDefault(x => x.Id == id);
         }
 
         public Article GetWithCategory(long id)
         {
-            return _context.Articles.Include(x => x.Category).FirstOrDefault(x => x.Id == id);
+            return _context.Articles
+                .Include(x => x.Category)
+                .FirstOrDefault(x => x.Id == id);
         }
 
         public List<ArticleViewModel> Search(ArticleSearchModel searchModel)
@@ -52,14 +53,15 @@ namespace BlogManagement.Infrastructure.EFCore.Repository
                 CategoryId = x.CategoryId,
                 Category = x.Category.Name,
                 Picture = x.Picture,
-                PublishDate = x.PublishDate.ToFarsi(),
+               
                 IsRemoved = x.IsRemoved,
                 ShortDescription = x.ShortDescription.Substring(0, Math.Min(x.ShortDescription.Length, 50)) + " ...",
-                Title = x.Title
-            });
+                CreationDate  = x.CreationDate.ToFarsi(),
+                Mozo = x.Mozo
+            }) ;
 
-            if (!string.IsNullOrWhiteSpace(searchModel.Title))
-                query = query.Where(x => x.Title.Contains(searchModel.Title));
+            if (!string.IsNullOrWhiteSpace(searchModel.Mozo))
+                query = query.Where(x => x.Mozo.Contains(searchModel.Mozo));
 
             if (searchModel.CategoryId > 0)
                 query = query.Where(x => x.CategoryId == searchModel.CategoryId);

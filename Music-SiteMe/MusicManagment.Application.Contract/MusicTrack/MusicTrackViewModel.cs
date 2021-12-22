@@ -12,5 +12,6 @@
         public string CreationDate { get; set; }
         public long TrackId { get; set; }
         public bool IsRemoved { get; set; }
+        public string frestande { get; set; }
     }
 }

@@ -5,20 +5,22 @@ namespace AccountManagement.Configuration.Permissions
     public static class AccountPermissions
     {
         //Account
-        public const int ListAccount = 53;
-        public const int SearchAccounts = 54;
-        public const int CreateAccount = 55;
-        public const int EditAccount = 56;
-        public const int DeleteAccount = 57;
-        public const int NoDeleteAccount = 58;
-        public const int ChengePass = 74;
-        public const int Ok = 100;
-        public const int NoOk = 101;
+        public const int ListAccount =43;
+        public const int SearchAccounts =44;
+        public const int CreateAccount =45;
+        public const int EditAccount =46;
+        public const int ChengePass =47;
+        
         //Rol
-        public const int ListRol = 70;
-        public const int SearchRol = 71;
-        public const int CreateRol = 72;
-        public const int EditRol = 73;
-
+        public const int ListRol = 48;
+         public const int CreateRol = 49;
+        public const int EditRol = 50;
+        //musicuser
+        public const int Create = 51;
+        public const int Edit = 52;
+        public const int Confirm = 53;
+        public const int Cancel = 54;
+        public const int Search = 55;
+        
     }
 }

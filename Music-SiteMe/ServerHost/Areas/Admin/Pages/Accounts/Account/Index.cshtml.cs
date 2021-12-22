@@ -11,7 +11,7 @@ using System.Collections.Generic;
 namespace ServiceHost.Areas.Admin.Pages.Accounts.Account
 
 {
-     [Authorize(Roles = "1 , 2")]
+[Authorize(Roles = "1 ")]
     public class IndexModel : PageModel
     {
       
@@ -29,7 +29,7 @@ namespace ServiceHost.Areas.Admin.Pages.Accounts.Account
             _roleApplication = roleApplication;
             _accountApplication = accountApplication;
         }
-
+        [NeedsPermission(AccountPermissions.ListAccount)]
         public void OnGet(AccountSearchModel searchModel)
         {
             Roles = new SelectList(_roleApplication.List(), "Id", "Name");
@@ -75,7 +75,7 @@ namespace ServiceHost.Areas.Admin.Pages.Accounts.Account
             var result = _accountApplication.ChangePassword(command);
             return new JsonResult(result);
         }
-        [NeedsPermission(AccountPermissions.NoOk)]
+       
         public IActionResult OnGetCancel(long id)
         {
             var result = _accountApplication.Cancel(id);
@@ -85,7 +85,7 @@ namespace ServiceHost.Areas.Admin.Pages.Accounts.Account
             Message = result.Message;
             return RedirectToPage("./Index");
         }
-        [NeedsPermission(AccountPermissions.Ok)]
+        
         public IActionResult OnGetConfirm(long id)
         {
             var result = _accountApplication.Confirm(id);

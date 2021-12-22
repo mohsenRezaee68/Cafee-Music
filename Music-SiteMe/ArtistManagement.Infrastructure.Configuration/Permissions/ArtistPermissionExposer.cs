@@ -12,12 +12,12 @@ namespace ArtistManagement.Configuration.Permissions
                 {
                     "Artist", new List<PermissionDto>
                     {
-                        new PermissionDto(ArtistPermissions.ListArtist, "ListArtist"),
-                        new PermissionDto(ArtistPermissions.SearchArtists, "SearchArtists"),
-                         new PermissionDto(ArtistPermissions.EditArtist, "EditArtist"),
-                         new PermissionDto(ArtistPermissions.CreateArtist, "CreateArtist"),
-                         new PermissionDto(ArtistPermissions.DeleteArtist, "DeleteArtist"),
-                        new PermissionDto(ArtistPermissions.NoDeleteArtist, "NoDeleteArtist"),
+                        new PermissionDto(ArtistPermissions.ListArtist, "GetList"),
+                        new PermissionDto(ArtistPermissions.SearchArtists, "Search"),
+                         new PermissionDto(ArtistPermissions.EditArtist, "Edit"),
+                         new PermissionDto(ArtistPermissions.CreateArtist, "Create"),
+                         new PermissionDto(ArtistPermissions.DeleteArtist, "Remove"),
+                        new PermissionDto(ArtistPermissions.RestorArtist, "Restore"),
                     }
                 },
                   

@@ -9,16 +9,16 @@
     ViewData["title"] = "مدیریت اسلایدها";
 }
 
-<div class="row"permission="@SlidePermissions.CreateSlide">
+<div class="row"permission="@SlidePermissions.Creat">
     <div class="col-sm-12">
         <h4 class="page-title pull-right">@ViewData["title"]</h4>
         <p class="pull-left">
-            <a class="btn gradient-green-tea white shadow-z-1-hover" href="#showmodal=@Url.Page("./Index", "Create")">ایجاد اسلاید جدید</a>
+            <a  class="btn gradient-green-tea white shadow-z-1-hover" href="#showmodal=@Url.Page("./Index", "Create")">ایجاد اسلاید جدید</a>
         </p>
     </div>
 </div>
 
-<div class="row"permission="@SlidePermissions.ListSlides">
+<div class="row"permission="@SlidePermissions.List">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -68,18 +68,18 @@
                                         </td>
                                         <td>@item.CreationDate</td>
                                         <td>
-                                            <a permission="@SlidePermissions.EditSlide" class="btn btn-warning waves-effect waves-light m-b-5"
+                                            <a permission="@SlidePermissions.Edite" class="btn btn-warning waves-effect waves-light m-b-5"
                                                href="#showmodal=@Url.Page("./Index", "Edit", new { id = item.Id})">
                                                 <i class="fa fa-edit"></i> ویرایش
                                             </a>
                                             @if (!item.IsRemoved)
                                             {
-                                                <a permission="@SlidePermissions.DeleteSlide" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id"
+                                                <a permission="@SlidePermissions.Remove" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id"
                                                    class="btn btn-danger waves-effect waves-light m-b-5">حذف</a>
                                             }
                                             else
                                             {
-                                                <a permission="@SlidePermissions.NoDeleteSlide" asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id"
+                                                <a permission="@SlidePermissions.Restor" asp-page="./Index" asp-page-handler="Restore" asp-route-id="@item.Id"
                                                    class="btn btn-success waves-effect waves-light m-b-5">فعال سازی</a>
                                             }
                                         </td>

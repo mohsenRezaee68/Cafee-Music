@@ -1,5 +1,6 @@
 ﻿
 
+using _0_Framework.Application;
 using _0_Framework.Infrastructure;
 using AccountManagement.Application.Contracts.Tak;
 using AccountManagement.Domain.TakAgg;
@@ -55,7 +56,7 @@ namespace AccountManagement.Infrastructure.EFCore.Repository
                 Sabk = x.Sabk,
                
 
-            }).ToList();
+            }).OrderByDescending(x => x.Id).ToList();
         }
 
         public List<TakViewModel> Search(TakSearchModel searchModel)
@@ -69,7 +70,7 @@ namespace AccountManagement.Infrastructure.EFCore.Repository
                {
                    Id = x.Id,
                    NameMusic = x.TrackName,
-                   CreationDate = x.CreationDate.ToString(),
+                   CreationDate = x.CreationDate.ToFarsi(),
                    Trak = x.Track,
                    UserId = x.account.Id,
                    IsCanceled = x.IsCanceled,
@@ -88,8 +89,9 @@ namespace AccountManagement.Infrastructure.EFCore.Repository
 
             if (!string.IsNullOrWhiteSpace(searchModel.AccountName))
                 query = query.Where(x => x.UserName.Contains(searchModel.AccountName));
-          
-            return query.OrderByDescending(x => x.Id).ToList();
+
+            query.OrderByDescending(x => x.Id).ToList();
+            return query.ToList();
         }
     }
 }

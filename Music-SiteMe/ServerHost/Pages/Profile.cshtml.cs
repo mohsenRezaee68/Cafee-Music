@@ -50,8 +50,7 @@ namespace ServiceHost.Pages
         public IActionResult OnPostCreate(CreateTak command)
         {
             var result = _takApplication.Create(command);
-            if (result.IsSuccedded)
-                return RedirectToPage("/Profile");
+          
            
               return RedirectToPage("/Profile");
         }
@@ -65,8 +64,7 @@ namespace ServiceHost.Pages
         public IActionResult OnPostEdit(EditAccount command)
         {
             var result = _accountApplication.Edit(command);
-            if (result.IsSuccedded)
-                return RedirectToPage("/Profile");
+            
            
             return RedirectToPage("/Profile");
         }

@@ -10,18 +10,19 @@ namespace ServiceHost.Pages
 
         private readonly IArtistQuery _artistQuery;
         public List<ArtistQueryModel> artistSerch;
-        public List<ArtistQueryModel> artist;
+        //public List<ArtistQueryModel> artist;
         public string values = null;
+        public ArtistsViowMode artist;
         public ArtistsModel(IArtistQuery artistQuery)
         {
             _artistQuery = artistQuery;
         }
-         public void OnGet(string value)
+         public void OnGet(string value, int pageId = 1)
         {
             values = value;
-            artist = _artistQuery.LatestArtistAlls();
+          //  artist = _artistQuery.LatestArtistAlls();
             artistSerch = _artistQuery.SearchArtists(value);
-
+            artist = _artistQuery.Artist(pageId);
         }
     }
 }

@@ -4,6 +4,7 @@ using _01_LampshadeQuery.Contracts.Comment;
 using ArtistManagement.Infrastructure.EFCore;
 using CommnetManagement.Infrastructure.EFCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,6 +21,41 @@ namespace _01_LampshadeQuery.Query
             _context = context;
             _commentContext = commentContext;
            
+        }
+
+        public ArtistsViowMode Artist(int pageId = 1)
+        {
+            var query = _context.Artists
+
+                .Where(x => x.IsRemoved == false)
+
+                .Select(x => new ArtistQueryModel
+                {
+                    Id = x.Id,
+                    Slug = x.Slug,
+                    Picture = x.Picture,
+                    PictureAlt = x.PictureAlt,
+                    PictureTitle = x.PictureTitle,
+                    Name = x.Name,
+                    Laghab = x.Laghab
+                }).AsNoTracking();
+            
+
+           
+
+
+
+            var music = query.OrderByDescending(x => x.Id).ToList();
+
+            int take = 24;
+            int skip = (pageId - 1) * take;
+
+            ArtistsViowMode list = new ArtistsViowMode();
+            list.CurrentPage = pageId;
+            list.PageCount = (int)Math.Ceiling(music.Count() / (double)take);
+
+            list.Artists = music.OrderBy(u => u.Id).Skip(skip).Take(take).ToList();
+            return list;
         }
 
         public ArtistQueryModel GetArtistDetails(string Laghab)
@@ -42,8 +78,7 @@ namespace _01_LampshadeQuery.Query
                    PictureTitle = x.PictureTitle,
                   
                }).FirstOrDefault(x => x.Laghab == Laghab);
-            if(artist != null) 
-            {
+           
                 if (!string.IsNullOrWhiteSpace(artist.Keywords))
                     artist.KeywordList = artist.Keywords.Split(",").ToList();
                 var comments = _commentContext.Comments
@@ -51,7 +86,7 @@ namespace _01_LampshadeQuery.Query
                 .Where(x => !x.IsCanceled)
                 .Where(x => x.IsConfirmed)
                 .Where(x => x.Type == CommentType.Artist)
-                .Where(x => x.OwnerRecordId == artist.Id)
+                .Where(x => x.OwnerRecordSinger == artist.Laghab)
                 .Select(x => new CommentQueryModel
                 {
                     Id = x.Id,
@@ -69,8 +104,8 @@ namespace _01_LampshadeQuery.Query
                 }
 
                 artist.Comments = comments;
-            }
            
+          
               return artist;
         }
 
@@ -110,8 +145,8 @@ namespace _01_LampshadeQuery.Query
                    Name=x.Name,
                    Laghab = x.Laghab
                 }).AsNoTracking();
-                  var music = query.ToList();
-
+                  var music = query.OrderByDescending(x => x.Id).Take(20).ToList();
+            
             return music;
         }
 

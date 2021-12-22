@@ -47,7 +47,7 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
                 Id = x.Id,
                 Name = x.Name,
                 Singer = x.Singer
-            }).ToList();
+            }).OrderByDescending(x => x.Id).ToList();
         }
 
         public Music GetMusicWithCategory(long id)
@@ -91,7 +91,8 @@ namespace MusicManagement.Infrastructure.EFCore.Repository
             if (searchModel.CategoryId != 0)
                 query = query.Where(x => x.CategoryId == searchModel.CategoryId);
 
-            return query.OrderByDescending(x => x.Id).ToList();
+            query.OrderByDescending(x => x.Id).ToList();
+            return query.ToList();
         }
 
        

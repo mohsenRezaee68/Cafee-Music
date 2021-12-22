@@ -8,8 +8,8 @@ namespace BlogManagement.Application.Contracts.Article
         OperationResult Create(CreateArticle command);
         OperationResult Edit(EditArticle command);
         EditArticle GetDetails(long id);
+        List<ArticleViewModel> Search(ArticleSearchModel searchModel);
         OperationResult Remove(long id);
         OperationResult Restore(long id);
-        List<ArticleViewModel> Search(ArticleSearchModel searchModel);
     }
 }

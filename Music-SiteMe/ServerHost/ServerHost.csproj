@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Areas\Admin\Pages\Artists\Edit.cshtml" />
+    <Content Remove="Areas\Admin\Pages\Blog\Articles\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\Admin\Pages\Artists\Edit.cshtml" />
+    <None Include="Areas\Admin\Pages\Blog\Articles\Edit.cshtml" />
     <None Include="wwwroot\AdminTheme\css\app.css" />
     <None Include="wwwroot\AdminTheme\css\persian-datepicker.min.css" />
     <None Include="wwwroot\AdminTheme\css\style-rtl.alpha6.min.css" />
@@ -73,96 +80,7 @@
     <None Include="wwwroot\AdminTheme\fonts\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
     <None Include="wwwroot\AdminTheme\fonts\simple-line-icons\fonts\Simple-Line-Iconsd41d.eot" />
     <None Include="wwwroot\AdminTheme\fonts\simple-line-icons\style.css" />
-    <None Include="wwwroot\AdminTheme\img\flags\br.png" />
-    <None Include="wwwroot\AdminTheme\img\flags\de.png" />
-    <None Include="wwwroot\AdminTheme\img\flags\es.png" />
-    <None Include="wwwroot\AdminTheme\img\flags\us.png" />
-    <None Include="wwwroot\AdminTheme\img\gallery\1.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\10.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\11.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\12.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\14.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\16.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\17.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\18.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\19.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\2.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\20.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\21.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\22.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\23.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\24.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\25.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\26.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\27.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\28.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\29.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\3.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\30.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\31.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\32.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\33.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\4.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\5.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\6.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\7.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\8.jpg" />
-    <None Include="wwwroot\AdminTheme\img\gallery\9.jpg" />
-    <None Include="wwwroot\AdminTheme\img\ico\apple-icon-120.html" />
-    <None Include="wwwroot\AdminTheme\img\ico\apple-icon-152.html" />
-    <None Include="wwwroot\AdminTheme\img\ico\apple-icon-60.html" />
-    <None Include="wwwroot\AdminTheme\img\ico\apple-icon-76.html" />
-    <None Include="wwwroot\AdminTheme\img\ico\favicon-32.png" />
     <None Include="wwwroot\AdminTheme\img\logo.png" />
-    <None Include="wwwroot\AdminTheme\img\logos\logo-big-black.png" />
-    <None Include="wwwroot\AdminTheme\img\logos\logo-color-big.png" />
-    <None Include="wwwroot\AdminTheme\img\pages\sativa.png" />
-    <None Include="wwwroot\AdminTheme\img\pages\signature-scan.png" />
-    <None Include="wwwroot\AdminTheme\img\photos\01.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\02.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\03.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\04.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\05.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\1.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\14.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\15.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\16.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\17.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\2.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\3.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\4.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\5.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\7.jpg" />
-    <None Include="wwwroot\AdminTheme\img\photos\8.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portfolio\portfolio-1.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portfolio\portfolio-2.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portfolio\portfolio-3.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portfolio\portfolio-4.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portfolio\portfolio-5.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portfolio\portfolio-6.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\medium\avatar-m-9.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-1.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-11.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-12.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-14.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-15.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-16.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-17.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-18.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-19.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-20.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-21.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-22.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-23.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-24.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-27.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-3.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-4.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-5.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-6.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-7.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-8.jpg" />
-    <None Include="wwwroot\AdminTheme\img\portrait\small\avatar-s-9.jpg" />
     <None Include="wwwroot\AdminTheme\img\sidebar-bg\01.jpg" />
     <None Include="wwwroot\AdminTheme\img\sidebar-bg\02.jpg" />
     <None Include="wwwroot\AdminTheme\img\sidebar-bg\03.jpg" />
@@ -171,8 +89,6 @@
     <None Include="wwwroot\AdminTheme\img\sidebar-bg\06.jpg" />
     <None Include="wwwroot\AdminTheme\img\sidebar-bg\07.jpg" />
     <None Include="wwwroot\AdminTheme\img\sidebar-bg\08.jpg" />
-    <None Include="wwwroot\AdminTheme\img\tour\cross.png" />
-    <None Include="wwwroot\AdminTheme\img\width-600\portfolio-14.jpg" />
     <None Include="wwwroot\AdminTheme\jquery-multi-select\img\switch.png" />
     <None Include="wwwroot\AdminTheme\jquery-multi-select\jquery.multi-select.js" />
     <None Include="wwwroot\AdminTheme\jquery-multi-select\jquery.quicksearch.js" />
@@ -437,6 +353,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="LazZiya.TagHelpers" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.8" />
 
 	  <PackageReference Include="EntityFrameworkCore.Data.AutoHistory" Version="5.3.0" />
@@ -471,7 +390,15 @@
 
   <ItemGroup>
     <Folder Include="Views\" />
-    <Folder Include="wwwroot\Cafee-Music\admin\" />
+    <Folder Include="wwwroot\Cafee-Music\Admin\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Areas\Admin\Pages\Blog\Articles\Edit.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Areas\Admin\Pages\Blog\Articles\Edit.cshtml" />
   </ItemGroup>
 
 </Project>

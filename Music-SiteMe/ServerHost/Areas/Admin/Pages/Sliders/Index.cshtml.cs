@@ -1,6 +1,7 @@
-
+﻿
 
 using _0_Framework.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using SlideManagement.Configuration.Permissions;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 
 namespace ServiceHost.Areas.Admin.Pages.Sliders
 {
+    [Authorize(Roles = "1 , 2")]
     public class IndexModel : PageModel
     {
         [TempData]
@@ -21,7 +23,7 @@ namespace ServiceHost.Areas.Admin.Pages.Sliders
         {
             _slideApplication = slideApplication;
         }
-
+        [NeedsPermission(SlidePermissions.List)]
         public void OnGet()
         {
             Slides = _slideApplication.GetList();
@@ -32,7 +34,7 @@ namespace ServiceHost.Areas.Admin.Pages.Sliders
             var command = new CreateSlide();
             return Partial("./Create", command);
         }
-        [NeedsPermission(SlidePermissions.CreateSlide)]
+        [NeedsPermission(SlidePermissions.Creat)]
         public JsonResult OnPostCreate(CreateSlide command)
         {
             var result = _slideApplication.Create(command);
@@ -44,13 +46,13 @@ namespace ServiceHost.Areas.Admin.Pages.Sliders
             var slide = _slideApplication.GetDetails(id);
             return Partial("Edit", slide);
         }
-        [NeedsPermission(SlidePermissions.EditSlide)]
+        [NeedsPermission(SlidePermissions.Edite)]
         public JsonResult OnPostEdit(EditSlide command)
         {
             var result = _slideApplication.Edit(command);
             return new JsonResult(result);
         }
-        [NeedsPermission(SlidePermissions.DeleteSlide)]
+        [NeedsPermission(SlidePermissions.Remove)]
         public IActionResult OnGetRemove(long id)
         {
             var result = _slideApplication.Remove(id);
@@ -60,7 +62,7 @@ namespace ServiceHost.Areas.Admin.Pages.Sliders
             Message = result.Message;
             return RedirectToPage("./Index");
         }
-        [NeedsPermission(SlidePermissions.NoDeleteSlide)]
+        [NeedsPermission(SlidePermissions.Restor)]
         public IActionResult OnGetRestore(long id)
         {
             var result = _slideApplication.Restore(id);

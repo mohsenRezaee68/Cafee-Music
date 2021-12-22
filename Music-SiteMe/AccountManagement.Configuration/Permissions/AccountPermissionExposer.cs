@@ -12,24 +12,30 @@ namespace AccountManagement.Configuration.Permissions
                 {
                     "Account", new List<PermissionDto>
                     {
-                        new PermissionDto(AccountPermissions.ListAccount, "ListAccount"),
-                        new PermissionDto(AccountPermissions.SearchAccounts, "SearchAccounts"),
-                         new PermissionDto(AccountPermissions.EditAccount, "EditAccount"),
+                        new PermissionDto(AccountPermissions.ListAccount, "GetAccounts"),
+                        new PermissionDto(AccountPermissions.SearchAccounts, "Search"),
+                         new PermissionDto(AccountPermissions.EditAccount, "Edit"),
                          new PermissionDto(AccountPermissions.CreateAccount, "CreateArtist"),
-                         new PermissionDto(AccountPermissions.DeleteAccount, "DeleteAccount"),
-                        new PermissionDto(AccountPermissions.NoDeleteAccount, "NoDeleteAccount"),
-                        new PermissionDto(AccountPermissions.ChengePass, "ChengePass"),
-                        new PermissionDto(AccountPermissions.Ok, "Ok"),
-                        new PermissionDto(AccountPermissions.NoOk, "NoOk"),
+                       new PermissionDto(AccountPermissions.ChengePass, "ChangePassword"),
+                       
                     }
                 }, {
                     "Rol", new List<PermissionDto>
                     {
-                        new PermissionDto(AccountPermissions.ListRol, "ListRol"),
-                        new PermissionDto(AccountPermissions.SearchRol, "SearchRol"),
-                         new PermissionDto(AccountPermissions.EditRol, "EditRol"),
-                         new PermissionDto(AccountPermissions.CreateRol, "CreateRol"),
+                        new PermissionDto(AccountPermissions.ListRol, "List"),
+                       new PermissionDto(AccountPermissions.EditRol, "Edit"),
+                         new PermissionDto(AccountPermissions.CreateRol, "Create"),
                         
+                    }
+                },  {
+                    "musicuser", new List<PermissionDto>
+                    {
+                        new PermissionDto(AccountPermissions.Create, "Create"),
+                        new PermissionDto(AccountPermissions.Edit, "Edit"),
+                         new PermissionDto(AccountPermissions.Confirm, "Confirm"),
+                         new PermissionDto(AccountPermissions.Cancel, "Cancel"),
+                         new PermissionDto(AccountPermissions.Search, "Search"),
+                       
                     }
                 },
 

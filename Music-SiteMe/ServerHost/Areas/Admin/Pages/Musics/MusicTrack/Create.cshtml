@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label asp-for="TrackId" class="control-label">کد اثر</label>
                     <select class="form-control" asp-for="TrackId" 
-                            asp-items='new SelectList(Model.Musics, "Id", "Id")'>
+                            asp-items='new SelectList(Model.Musics.OrderByDescending(x=> x.Id), "Id", "Id")'>
                         <option value="0">انتخاب کد موجود</option>
                     </select>
                     <span asp-validation-for="TrackId" class="error"></span>

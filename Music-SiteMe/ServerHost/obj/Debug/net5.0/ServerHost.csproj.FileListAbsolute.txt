@@ -5,7 +5,6 @@ F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\ServerHost
 F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\ServerHost.runtimeconfig.json
 F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\ServerHost.runtimeconfig.dev.json
 F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\ServerHost.dll
-F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\ref\ServerHost.dll
 F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\ServerHost.pdb
 F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Antiforgery.dll
 F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll
@@ -563,3 +562,5 @@ F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\runtimes\w
 F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\obj\Debug\net5.0\Razor\Pages\Shared\Components\UserMusic\Default.cshtml.g.cs
 F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\obj\Debug\net5.0\Razor\Pages\UserMusic.cshtml.g.cs
 F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\obj\Debug\net5.0\Razor\Pages\Artist.cshtml.g.cs
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\bin\Debug\net5.0\LazZiya.TagHelpers.dll
+F:\PROJECT\Music-cafee\music\Music-SiteMe\ServerHost\obj\Debug\net5.0\refint\ServerHost.dll

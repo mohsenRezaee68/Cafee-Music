@@ -23,17 +23,17 @@ namespace ServiceHost
         public void OnPageHandlerExecuting(PageHandlerExecutingContext context)
         {
            
-           var handlerPermission =
-              (NeedsPermissionAttribute) context.HandlerMethod.MethodInfo.GetCustomAttribute(
-                 typeof(NeedsPermissionAttribute));
-       
-        if (handlerPermission == null)
-             return;
-       
-          var accountPermissions = _authHelper.GetPermissions();
-       
-          if (accountPermissions.All(x => x != handlerPermission.Permission))
-            context.HttpContext.Response.Redirect("/AccountLogin");
+         var handlerPermission =
+            (NeedsPermissionAttribute) context.HandlerMethod.MethodInfo.GetCustomAttribute(
+               typeof(NeedsPermissionAttribute));
+     
+      if (handlerPermission == null)
+           return;
+     
+        var accountPermissions = _authHelper.GetPermissions();
+     
+        if (accountPermissions.All(x => x != handlerPermission.Permission))
+          context.HttpContext.Response.Redirect("/AccessDenied");
         }
 
         public void OnPageHandlerSelected(PageHandlerSelectedContext context)

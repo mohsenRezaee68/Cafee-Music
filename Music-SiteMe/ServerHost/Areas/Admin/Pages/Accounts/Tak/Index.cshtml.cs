@@ -1,5 +1,8 @@
 
+using _0_Framework.Infrastructure;
 using AccountManagement.Application.Contracts.Tak;
+using AccountManagement.Configuration.Permissions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,6 +10,7 @@ using System.Collections.Generic;
 
 namespace ServiceHost.Areas.Admin.Pages.Accounts.Tak
 {
+    [Authorize(Roles = "1 , 2")]
     public class IndexModel : PageModel
     {
         
@@ -23,6 +27,7 @@ namespace ServiceHost.Areas.Admin.Pages.Accounts.Tak
             _takApplication = takApplication;
            
         }
+        [NeedsPermission(AccountPermissions.Search)]
         public void OnGet(TakSearchModel searchModel)
         {
            
@@ -36,7 +41,7 @@ namespace ServiceHost.Areas.Admin.Pages.Accounts.Tak
             return Partial("Edit", product);
         }
 
-      // [NeedsPermission(MusicPermissions.EditTrack)]
+       [NeedsPermission(AccountPermissions.Edit)]
         public JsonResult OnPostEdit(EditTak command)
         {
             if (ModelState.IsValid)
@@ -46,7 +51,7 @@ namespace ServiceHost.Areas.Admin.Pages.Accounts.Tak
             var result = _takApplication.Edit(command);
             return new JsonResult(result);
         }
-        // [NeedsPermission(MusicPermissions.DeleteTrack)]
+        [NeedsPermission(AccountPermissions.Cancel)]
         public IActionResult OnGetCancel(long id)
         {
             var result = _takApplication.Cancel(id);
@@ -56,7 +61,7 @@ namespace ServiceHost.Areas.Admin.Pages.Accounts.Tak
             Message = result.Message;
             return RedirectToPage("./Index");
         }
-       
+        [NeedsPermission(AccountPermissions.Confirm)]
         public IActionResult OnGetConfirm(long id)
         {
             var result = _takApplication.Confirm(id);

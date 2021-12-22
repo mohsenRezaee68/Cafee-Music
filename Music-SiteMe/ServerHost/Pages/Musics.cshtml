@@ -28,7 +28,7 @@
 		<div class="row row--grid">
 				<div class="col-12">
 					<div class="main__filter">
-						<form  method="get" asp-page="/Musics"  class="main__filter-search">
+						<form  method="get" asp-page="/Search"  class="main__filter-search">
 							<input type="search"  name="value" id="value"  placeholder="جست و جو ...">
 							<button type="submit"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"/></svg></button>
 						</form>
@@ -36,57 +36,6 @@
 						
 					</div>
 
-					@if(Model.values != null)
-
-			{
-									{
-          <div class="row row--grid">
-			<div class="col-12">
-			<div class="row row--grid">
-				          <!-- breadcrumb -->
-				            <div class="col-12">
-					           <ul class="breadcrumb">
-						          <li class="breadcrumb__item breadcrumb__item--active">نتیجه جستجو : @Model.values</li>
-					           </ul>
-				            </div>
-				
-		             </div>
-
-				<div class="row row--grid ">
-					<div class="col-12">
-				 <ul class="main__list">
-					@foreach (var afg in Model.MusicsTak)
-
-					{	
-						<li class="single-item">
-									<a data-link data-title="@afg.Name" data-artist="@afg.Singer" data-img="~/Site/img/covers/cover.svg" href="~/Cafee-Music/@afg.Track" class="single-item__cover">
-										<img src="~/Cafee-Music/@afg.Picture" alt="">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"/></svg>
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2a3,3,0,0,0-3,3V19a3,3,0,0,0,6,0V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-2,0V5a1,1,0,0,1,2,0ZM8,2A3,3,0,0,0,5,5V19a3,3,0,0,0,6,0V5A3,3,0,0,0,8,2ZM9,19a1,1,0,0,1-2,0V5A1,1,0,0,1,9,5Z"/></svg>
-									</a>
-									<div class="single-item__title">
-										<h4><a href="#">@afg.Name</a></h4>
-										<span><a asp-page="/Artist"asp-route-Laghab="@afg.Laghab">@afg.Singer ( @afg.Melyat )</a> </span>
-										
-									</div>
-									
-								<span>	<a href="~/Cafee-Music/@afg.Track" class="single-item__export">
-										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg>
-									</a>
-									</span>
-								</li>
-
-						}
-					</ul>
-				</div>
-				
-				
-							 </div>
-					
-				</div>
-			</div>
-					}
-			}
 			<div class="row row--grid">
 			<div class="col-12">
 			<div class="row row--grid">
@@ -101,21 +50,21 @@
 			 <div class="row row--grid">
 				<div class="col-12">
 				 <ul class="main__list">
-						@foreach (var afg in Model.music)
+						@foreach (var afg in Model.music.Musics)
 				            {
 								<li class="single-item">
-									<a data-link data-title="@afg.Name" data-artist="@afg.Singer" data-img="~/Site/img/covers/cover.svg" href="~/Cafee-Music/@afg.Track" class="single-item__cover">
+									<a data-link data-title="@afg.NameMusic" data-artist="@afg.Singer"  href="~/Cafee-Music/@afg.Trak" class="single-item__cover">
 										<img src="~/Cafee-Music/@afg.Picture" alt="">
 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.54,9,8.88,3.46a3.42,3.42,0,0,0-5.13,3V17.58A3.42,3.42,0,0,0,7.17,21a3.43,3.43,0,0,0,1.71-.46L18.54,15a3.42,3.42,0,0,0,0-5.92Zm-1,4.19L7.88,18.81a1.44,1.44,0,0,1-1.42,0,1.42,1.42,0,0,1-.71-1.23V6.42a1.42,1.42,0,0,1,.71-1.23A1.51,1.51,0,0,1,7.17,5a1.54,1.54,0,0,1,.71.19l9.66,5.58a1.42,1.42,0,0,1,0,2.46Z"/></svg>
 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16,2a3,3,0,0,0-3,3V19a3,3,0,0,0,6,0V5A3,3,0,0,0,16,2Zm1,17a1,1,0,0,1-2,0V5a1,1,0,0,1,2,0ZM8,2A3,3,0,0,0,5,5V19a3,3,0,0,0,6,0V5A3,3,0,0,0,8,2ZM9,19a1,1,0,0,1-2,0V5A1,1,0,0,1,9,5Z"/></svg>
 									</a>
 									<div class="single-item__title">
-										<h4><a href="#">@afg.Name</a></h4>
-										<span><a asp-page="/Artist"asp-route-Laghab="@afg.Laghab">@afg.Singer ( @afg.Melyat )</a> </span>
+										<h4><a href="#">@afg.NameMusic</a></h4>
+										<span><a asp-page="/Artist"asp-route-Laghab="@afg.Singer">@afg.Singer ( @afg.Melyat )</a> </span>
 										
 									</div>
 									
-								<span>	<a href="~/Cafee-Music/@afg.Track" class="single-item__export">
+								<span>	<a href="~/Cafee-Music/@afg.Trak" class="single-item__export">
 										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21,14a1,1,0,0,0-1,1v4a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V15a1,1,0,0,0-2,0v4a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V15A1,1,0,0,0,21,14Zm-9.71,1.71a1,1,0,0,0,.33.21.94.94,0,0,0,.76,0,1,1,0,0,0,.33-.21l4-4a1,1,0,0,0-1.42-1.42L13,12.59V3a1,1,0,0,0-2,0v9.59l-2.29-2.3a1,1,0,1,0-1.42,1.42Z"></path></svg>
 									</a>
 									</span>
@@ -127,10 +76,87 @@
 						
 					</div>
 
-					<button class="main__load" type="button">بیشتر ببین</button>
+					
 				</div>
 		</div>
-			<!-- end releases -->
+			<!---------------------------------->
+			
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <div class="breadcrumb">
+						          <section class="breadcrumb__item breadcrumb__item--active">
+									   <div class="row">
+				
+				<style>
+					.my-center{
+                      text-align:center;
+                    }
+                   .pagination {
+                     display: inline-block;
+                    }
+                    
+                    .pagination a {
+                     color: #7FFF00;
+                     float: right; /* شناور کردن در سمت راست */
+                     padding: 8px 16px;
+                     text-decoration: none; /* حذف خط زیر لینک */
+					 border-radius:50px;
+					  border: 1px solid #ddd;
+					  margin:0 3px;
+					  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+                    }
+                    
+                    .pagination a.active{
+                     background-color:#FF0000;
+                     color:#fff;
+                    }
+                    
+                    .pagination a:hover:not(.active){
+                     background-color:#FF00FF;
+                    }
+                </style>
+				 <div class="col-12">
+				<div class="pagination">
+					<table >
+						<thead>
+							<tr>
+                           @if (Model.music.CurrentPage > 1)
+									{
+										<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+											<a href="/Musics?pageId=@(Model.music.CurrentPage - 1)">قبلی</a> </th> 
+										<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+											<a href="/Musics?pageId=1">اولین صفحه</a></th>
+									}
+						   @for (int i = 1; i <= Model.music.PageCount; i++)
+									{
+									<th class="paginate_button @((i==Model.music.CurrentPage)? "active" : "")" aria-controls="dataTables-example" tabindex="0">
+										<a  href="/Musics?pageId=@i">@i</a></th>	
+									}
+									@if (Model.music.CurrentPage < Model.music.PageCount)
+									{
+									<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+										<a href="/Musics?pageId=@(Model.music.CurrentPage + 1)">بعدی</a> </th>	
+									<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+										<a href="/Musics?pageId=@(Model.music.PageCount)">اخرین صفحه</a></th>	
+									}
+							</tr>
+						</thead>
+					</table>
+						 
+					
+                </div>
+				 
+			</div>
+               
+            </div>
+									  
+									  </section>
+					           </div>
+				            </div>
+				
+		  </div>
+			<!------------------------------------->
         </div>
       </div>
 		

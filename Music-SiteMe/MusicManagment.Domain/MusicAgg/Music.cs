@@ -45,7 +45,8 @@ namespace MusicManagement.Domain.MusicAgg
             Ferestande = ferestande;
             ShortDescription = shortDescription;
             Description = description;
-            Picture = picture;
+           
+                Picture = picture;
             PictureAlt = pictureAlt;
             PictureTitle = pictureTitle;
             CategoryId = categoryId;

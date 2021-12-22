@@ -2,6 +2,7 @@
 using _0_Framework.Infrastructure;
 using ArtistManagement.Application.Contracts.Artist;
 using ArtistManagement.Configuration.Permissions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 
 namespace ServiceHost.Areas.Admin.Pages.Artists
 {
+    [Authorize(Roles = "1 , 2")]
     public class IndexModel : PageModel
     {
         public ArtistSearchModel SearchModel;
@@ -39,7 +41,7 @@ namespace ServiceHost.Areas.Admin.Pages.Artists
             Message = result.Message;
             return RedirectToPage("./Index");
         }
-        [NeedsPermission(ArtistPermissions.NoDeleteArtist)]
+        [NeedsPermission(ArtistPermissions.RestorArtist)]
         public IActionResult OnGetRestore(long id)
         {
             var result = _artistApplication.Restore(id);
@@ -49,5 +51,7 @@ namespace ServiceHost.Areas.Admin.Pages.Artists
             Message = result.Message;
             return RedirectToPage("./Index");
         }
+
+        
     }
 }

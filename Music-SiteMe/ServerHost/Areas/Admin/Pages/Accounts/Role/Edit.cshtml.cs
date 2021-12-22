@@ -3,12 +3,15 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using _0_Framework.Infrastructure;
 using AccountManagement.Application.Contracts.Role;
+using AccountManagement.Configuration.Permissions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace ServiceHost.Areas.Administration.Pages.Accounts.Role
+namespace ServiceHost.Areas.Admin.Pages.Accounts.Role
 {
+    [Authorize(Roles = "1 , 2")]
     public class EditModel : PageModel
     {
         public EditRole Command;
@@ -21,7 +24,7 @@ namespace ServiceHost.Areas.Administration.Pages.Accounts.Role
             _roleApplication = roleApplication;
             _exposers = exposers;
         }
-
+        
         public void OnGet(long id)
         {
             Command = _roleApplication.GetDetails(id);
@@ -46,7 +49,7 @@ namespace ServiceHost.Areas.Administration.Pages.Accounts.Role
                 }
             }
         }
-
+        [NeedsPermission(AccountPermissions.EditRol)]
         public IActionResult OnPost(EditRole command)
         {
             var result = _roleApplication.Edit(command);

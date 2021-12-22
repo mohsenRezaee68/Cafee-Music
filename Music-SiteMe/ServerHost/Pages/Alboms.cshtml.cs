@@ -1,3 +1,4 @@
+using _0_Framework.Infrastructure;
 using _01_LampshadeQuery.Contracts.Music;
 
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -10,7 +11,9 @@ namespace ServiceHost.Pages
         private readonly IMusicQuery _musicQuery;
         public List<MusicQueryModel> MusicsAlbom;
         public List<MusicQueryModel> music;
+        public MohsenViowModel Albooms;
         public string values = null;
+       
         public AlbomsModel(IMusicQuery musicQuery)
         {
             _musicQuery = musicQuery;
@@ -18,11 +21,12 @@ namespace ServiceHost.Pages
 
      
 
-        public void OnGet(string value)
+        public void OnGet(string value , int pageId = 1)
         {
             values = value;
-            music = _musicQuery.GetAllAlbomMusics();
-            MusicsAlbom = _musicQuery.SearchAlbom(value);
+          
+           
+            Albooms = _musicQuery.mohsenViowModel(pageId);
         }
        
     }

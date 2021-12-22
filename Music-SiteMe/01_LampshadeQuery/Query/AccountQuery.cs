@@ -1,5 +1,6 @@
 ﻿using _0_Framework.Application;
 using _01_LampshadeQuery.Contracts.Account;
+using _01_LampshadeQuery.Contracts.Music;
 using AccountManagement.Domain.AccountAgg;
 using AccountManagement.Domain.TakAgg;
 using AccountMangement.Infrastructure.EFCore;
@@ -39,6 +40,9 @@ namespace _01_LampshadeQuery.Query
            
             return User;
         }
+
+       
+
         private static List<UserMusicQueryModel> MapMusicTracks(List<Tak> Tracks)
         {
             return Tracks.Select(x => new UserMusicQueryModel
@@ -55,27 +59,7 @@ namespace _01_LampshadeQuery.Query
             }).OrderByDescending(x => x.Id).ToList();
         }
 
-        public List<UserMusicQueryModel> UserMusic()
-        {
-            var Music = _accountContext.Taks
-                .Include(x => x.account)
-                .Where(x => x.IsCanceled == false)
-              .Select(x => new UserMusicQueryModel
-              {
-                  Id = x.Id,
-                  Name = x.TrackName,
-                  Singer = x.TrackSinger,
-                  Sabk = x.Sabk,
-                  Slug = x.Slug,
-                  Track = x.Track,
-                  PublishDate = x.PublishDate.ToFarsi(),
-                  UserName = x.account.Username,
-                  Photo =x.account.ProfilePhoto,
-              }).OrderByDescending(x => x.Id).ToList();
-
-
-            return Music;
-        }
+       
 
         public List<UserMusicQueryModel> SearchTrack(string value)
         {
@@ -152,7 +136,62 @@ namespace _01_LampshadeQuery.Query
                 }).OrderByDescending(x => x.Id).ToList();
         }
 
-		
-	}
+      
+
+        public List<UserMusicQueryModel> UserMusic()
+        {
+            var Music = _accountContext.Taks
+                .Include(x => x.account)
+                .Where(x => !x.IsCanceled)
+                .Where(x => x.IsConfirmed)
+
+              .Select(x => new UserMusicQueryModel
+              {
+                  Id = x.Id,
+                  Name = x.TrackName,
+                  Singer = x.TrackSinger,
+                  Sabk = x.Sabk,
+                  Slug = x.Slug,
+                  Track = x.Track,
+                  PublishDate = x.PublishDate.ToFarsi(),
+                  UserName = x.account.Username,
+                  Photo = x.account.ProfilePhoto,
+              }).OrderByDescending(x => x.Id).ToList();
+
+
+            return Music;
+        }
+
+        public takUserViowModel UserMusicTak(int pageId = 1)
+        {
+            var Music = _accountContext.Taks
+               .Include(x => x.account)
+                .Where(x => !x.IsCanceled)
+                .Where(x => x.IsConfirmed)
+             .Select(x => new UserMusicQueryModel
+             {
+                 Id = x.Id,
+                 Name = x.TrackName,
+                 Singer = x.TrackSinger,
+                 Sabk = x.Sabk,
+                 Slug = x.Slug,
+                 Track = x.Track,
+                 PublishDate = x.PublishDate.ToFarsi(),
+                 UserName = x.account.Username,
+                 Photo = x.account.ProfilePhoto,
+             }).OrderByDescending(x => x.Id).ToList();
+
+
+            int take = 20;
+            int skip = (pageId - 1) * take;
+
+            takUserViowModel list = new takUserViowModel();
+            list.CurrentPage = pageId;
+            list.PageCount = (int)Math.Ceiling(Music.Count() / (double)take);
+
+            list.Musics = Music.Skip(skip).Take(take).ToList();
+            return list;
+        }
+    }
     
 }

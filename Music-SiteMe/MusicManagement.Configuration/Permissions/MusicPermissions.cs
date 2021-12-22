@@ -4,24 +4,30 @@ namespace MusicManagement.Configuration.Permissions
 {
     public static class MusicPermissions
     {
-        //Albom
-        public const int ListAlboms = 10;
-        public const int SearchAlboms = 11;
-        public const int CreateAlbom = 12;
-        public const int EditAlbom = 13;
-        public const int DeleteAlbom = 14;
-        public const int NoDeleteAlbom = 15;
-        //Tack
-        public const int ListTracks = 16;
-        public const int SearchTracks = 17;
-        public const int CreateTrack = 18;
-        public const int EditTrack = 19;
-        public const int DeleteTrack = 20;
-        public const int NoDeleteTrack = 21;
         //MusicCategory
-        public const int ListMusicCategories = 22;
-        public const int SearchMusicCategories = 23;
-        public const int CreateMusicCategory = 24;
-        public const int EditMusicCategory = 25;
+        public const int CreatCategory =6;
+        public const int EditeCategory =7;
+        public const int ListCategory =8;
+        public const int SerchCategory =9;
+       
+        //Tack
+        public const int CreatTrack =10;
+        public const int EditeTrack =11;
+        public const int RemoveTrack =12;
+        public const int RestorTrack =13;
+        public const int SerchTrack =14;
+       
+        //Albom
+        public const int CreatAlbom =15;
+        public const int EditeAlbom =16;
+        public const int RemoveAlbom =17;
+        public const int RestorAlbom =18;
+        public const int SearchAlbom = 19;
+        //TackAhang
+        public const int CreatTakAhang = 20;
+        public const int EditTakAhang = 21;
+        public const int RemovTakAhang = 22;
+        public const int RestorTakAhang = 23;
+        public const int SerchTakAhang = 24;
     }
 }

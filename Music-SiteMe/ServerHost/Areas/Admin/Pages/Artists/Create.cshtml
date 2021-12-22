@@ -1,11 +1,12 @@
 ﻿@page
 @model ServiceHost.Areas.Admin.Pages.Artists.CreateModel
+@using ArtistManagement.Configuration.Permissions
 @{
     Layout = "Shared/_AdminLayout";
     ViewData["Title"] = "معرفی هنرمند جدید";
 }
 
-<div class="row">
+<div class="row"permission="@ArtistPermissions.CreateArtist">
     <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">

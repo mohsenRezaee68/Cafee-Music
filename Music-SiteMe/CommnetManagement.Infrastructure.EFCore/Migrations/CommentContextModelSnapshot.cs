@@ -47,8 +47,17 @@ namespace CommnetManagement.Infrastructure.EFCore.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
-                    b.Property<long>("OwnerRecordId")
-                        .HasColumnType("bigint");
+                    b.Property<string>("OwnerRecordCatgory")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerRecordId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerRecordName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OwnerRecordSinger")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<long>("ParentId")
                         .HasColumnType("bigint");

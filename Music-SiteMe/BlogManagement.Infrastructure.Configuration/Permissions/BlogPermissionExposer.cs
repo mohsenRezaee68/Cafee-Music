@@ -9,34 +9,24 @@ namespace BlogManagement.Configuration.Permissions
         {
             return new Dictionary<string, List<PermissionDto>>
             {
-                {
-                    "Avent", new List<PermissionDto>
-                    {
-                        new PermissionDto(BlogPermissions.ListAvent, "ListAvent"),
-                        new PermissionDto(BlogPermissions.SearchAvents, "SearchAvents"),
-                         new PermissionDto(BlogPermissions.EditAvent, "EditAvent"),
-                         new PermissionDto(BlogPermissions.CreateAvent, "CreateAvent"),
-                         new PermissionDto(BlogPermissions.DeleteAvent, "DeleteAvent"),
-                        new PermissionDto(BlogPermissions.NoDeleteAvent, "NoDeleteAvent"),
-                    }
-                },
+               
                   {
                     "Article", new List<PermissionDto>
                     {
-                        new PermissionDto(BlogPermissions.ListArticles, "ListArticles"),
-                        new PermissionDto(BlogPermissions.SearchArticles, "SearchArticles"),
-                        new PermissionDto(BlogPermissions.EditArticle, "EditArticle"),
-                         new PermissionDto(BlogPermissions.CreateArticle, "CreateArticle"),
-                         new PermissionDto(BlogPermissions.DeleteArticle, "DeleteArticle"),
-                        new PermissionDto(BlogPermissions.NoDeleteArticle, "NoDeleteArticle"),
+                        
+                        new PermissionDto(BlogPermissions.SearchArticles, "Search"),
+                        new PermissionDto(BlogPermissions.EditArticle, "Edit"),
+                         new PermissionDto(BlogPermissions.CreateArticle, "Create"),
+                         new PermissionDto(BlogPermissions.DeleteArticle, "Remove"),
+                        new PermissionDto(BlogPermissions.RestorArticle, "Restore"),
                     }
                 },{
                     "Blog", new List<PermissionDto>
                     {
-                        new PermissionDto(BlogPermissions.ListBlogCategories, "ListAvent"),
-                        new PermissionDto(BlogPermissions.SearchBlogCategories, "SearchAvents"),
-                         new PermissionDto(BlogPermissions.EditBlogCategory, "EditAvent"),
-                         new PermissionDto(BlogPermissions.CreateBlogCategory, "CreateAvent"),
+                        new PermissionDto(BlogPermissions.ListBlogCategories, "GetArticleCategories"),
+                        new PermissionDto(BlogPermissions.SearchBlogCategories, "Search"),
+                         new PermissionDto(BlogPermissions.EditBlogCategory, "Edit"),
+                         new PermissionDto(BlogPermissions.CreateBlogCategory, "Create"),
                         
                     }
                 },

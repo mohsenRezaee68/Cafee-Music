@@ -8,5 +8,6 @@ namespace _01_LampshadeQuery.Contracts.Artist
         ArtistQueryModel GetArtistDetails(string Laghab);
         List<ArtistQueryModel> LatestArtistAlls();
         List<ArtistQueryModel> SearchArtists(string value);
+        ArtistsViowMode Artist(int pageId = 1);
     }
 }

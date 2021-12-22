@@ -58,6 +58,10 @@
 						@foreach (var music in Model.MusicsTak)
 
 					{	
+						@if(music.IsCanceled == false)
+						{
+										
+								
 						
 						<div class="col-6 col-sm-4 col-lg-3">
 							<div class="product">
@@ -70,9 +74,8 @@
 									{
                                        <img src="~/Cafee-Music/@music.Photo" alt="">
 									}
-									
 								</a>
-								<h3 class="product__title"><a href="product.html">@music.Name </a></h3>
+								<h3 class="product__title"><a href="#">@music.Name </a></h3>
 								<span class="product__price">@music.Singer</span>
 								<span>
 									<a href="~/Cafee-Music/@music.Track" class="single-item__export">
@@ -83,7 +86,7 @@
 							</div>
 						</div>
 
-					}
+					}}
 					
 					
 
@@ -92,25 +95,7 @@
 				</div>
 			        	
 				    
-			         <div class="pagination-product">
-                       <nav aria-label="Page navigation example">
-                       <paging total-records="@Model.MusicsTak.Count"
-                        page-no="1"
-                        page-size="20"
-                        show-prev-next="true"
-                        show-total-pages="false"
-                        show-total-records="false"
-                        show-page-size-nav="true"
-                        show-first-numbered-page="true"
-                        show-last-numbered-page="true"
-                        query-string-key-page-no="Page"
-                        query-string-key-page-size="PageSize"
-                        query-string-value="@@(Request.QueryString.Value)"
-                        gap-size="2">
-                      </paging>
-
-                    </nav>
-                  </div>
+			       
 					
 				</div>
 			</div>
@@ -129,9 +114,11 @@
 		             </div>
 			 <div class="row row--grid">
 						
-							@foreach (var music in Model.music)
+							@foreach (var music in Model.music.Musics)
 
 							{
+								@if(music.IsCanceled == false)
+						{
 								<div class="col-6 col-sm-4 col-lg-3">
 									<div class="product">
 										<a data-link data-title="@music.Name" data-artist="@music.Singer" data-img="~/Site/img/covers/cover.svg" href="~/Cafee-Music/@music.Track" class="product__img">
@@ -144,7 +131,7 @@
 												<img src="~/Cafee-Music/@music.Photo" alt="">
 											}
 										</a>
-										<h3 class="product__title"><a href="product.html">@music.Name </a></h3>
+										<h3 class="product__title"><a href="#">@music.Name </a></h3>
 										<span class="product__price">@music.Singer</span>
 										<span>
 											<a href="~/Cafee-Music/@music.Track" class="single-item__export">
@@ -156,35 +143,93 @@
 								</div>
 
 							}
-
+}
 
 						}	
 					</div>
 					  
-							
-							    <div class="pagination-product">
-                       <nav aria-label="Page navigation example">
-                       <paging total-records="@Model.music.Count"
-                        page-no="1"
-                        page-size="20"
-                        show-prev-next="true"
-                        show-total-pages="false"
-                        show-total-records="false"
-                        show-page-size-nav="true"
-                        show-first-numbered-page="true"
-                        show-last-numbered-page="true"
-                        query-string-key-page-no="Page"
-                        query-string-key-page-size="PageSize"
-                        query-string-value="@@(Request.QueryString.Value)"
-                        gap-size="2">
-                      </paging>
-
-                    </nav>
-                  </div>
+					
 						
 				</div>
 		</div>
-			<!-- end releases -->
+			<!---------------------------------->
+			
+			<div class="row row--grid">
+				          <!-- breadcrumb -->
+				            <div class="col-12">
+					           <div class="breadcrumb">
+						          <section class="breadcrumb__item breadcrumb__item--active">
+									   <div class="row">
+				
+				<style>
+					.my-center{
+                      text-align:center;
+                    }
+                   .pagination {
+                     display: inline-block;
+                    }
+                    
+                    .pagination a {
+                     color: #7FFF00;
+                     float: right; /* شناور کردن در سمت راست */
+                     padding: 8px 16px;
+                     text-decoration: none; /* حذف خط زیر لینک */
+					 border-radius:50px;
+					  border: 1px solid #ddd;
+					  margin:0 3px;
+					  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+                    }
+                    
+                    .pagination a.active{
+                     background-color:#FF0000;
+                     color:#fff;
+                    }
+                    
+                    .pagination a:hover:not(.active){
+                     background-color:#FF00FF;
+                    }
+                </style>
+				 <div class="col-12">
+				<div class="pagination">
+					<table >
+						<thead>
+							<tr>
+                           @if (Model.music.CurrentPage > 1)
+									{
+										<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+											<a href="/UserMusic?pageId=@(Model.music.CurrentPage - 1)">قبلی</a> </th> 
+										<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+											<a href="/UserMusic?pageId=1">اولین صفحه</a></th>
+									}
+						   @for (int i = 1; i <= Model.music.PageCount; i++)
+									{
+									<th class="paginate_button @((i==Model.music.CurrentPage)? "active" : "")" aria-controls="dataTables-example" tabindex="0">
+										<a  href="/UserMusic?pageId=@i">@i</a></th>	
+									}
+									@if (Model.music.CurrentPage < Model.music.PageCount)
+									{
+									<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+										<a href="/UserMusic?pageId=@(Model.music.CurrentPage + 1)">بعدی</a> </th>	
+									<th class="paginate_button" aria-controls="dataTables-example" tabindex="0">
+										<a href="/UserMusic?pageId=@(Model.music.PageCount)">اخرین صفحه</a></th>	
+									}
+							</tr>
+						</thead>
+					</table>
+						 
+					
+                </div>
+				 
+			</div>
+               
+            </div>
+									  
+									  </section>
+					           </div>
+				            </div>
+				
+		  </div>
+			<!------------------------------------->
         </div>
       </div>
 
